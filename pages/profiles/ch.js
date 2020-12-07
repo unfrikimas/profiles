@@ -32,8 +32,8 @@ const CH = () => {
             <div className="card-content">
               <div className="card-subtitle">QUÉ HAGO</div>
               <p className="card-desc">
-              Expreso mi arte con líneas de código y me dedico a migrar webs hechas con Wordpress. Si quieres llevar tu Wordpress al siguiente nivel, ReactJS es la solución.</p>
-              <p className="card-desc">Puedo ayudarte a DIFERENCIAR tu PROYECTO a través de Aplicaciones Web que eleven tu NEGOCIO al siguiente nivel.
+              Expreso mi arte con líneas de código y me dedico a migrar webs hechas con Wordpress. Si quieres llevar tu Wordpress al siguiente nivel, ReactJS es la solución. 
+              Puedo ayudarte a DIFERENCIAR tu PROYECTO a través de Aplicaciones Web que eleven tu NEGOCIO al siguiente nivel.
               </p>
             </div>
             <div className="card-social">
