@@ -37,7 +37,7 @@ body {
 }
 
 .card[data-state="#about"] {
-  height: 550px;
+  height: 570px;
   .card-main {
     padding-top: 0;
   }
@@ -65,8 +65,8 @@ body {
   .card-avatar {
     transform: none;
     left: 20px;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     bottom: 10px;
   }
 
@@ -186,6 +186,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  margin-top: 15px;
   margin-bottom: 30px;
   svg {
     fill: rgb(165, 181, 206);
