@@ -47,7 +47,7 @@ const CH = () => {
                 <IconInstagram />
               </a>
               <a href="#">
-                <IconLinkedin />
+                <IconLinkedin width="100" />
               </a>
             </div>
           </div>
