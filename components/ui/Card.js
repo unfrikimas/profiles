@@ -46,7 +46,7 @@ const Card = () => {
           <div className="card-main">
             <div className="card-section is-active" id="about">
               <div className="card-content">
-                <div className="card-subtitle">QUÉ HAGO</div>
+                <div className="card-subtitle">QUIÉN SOY</div>
                 <p className="card-desc">
                   Expreso mi arte con líneas de código y me dedico a migrar webs
                   hechas con Wordpress. Si quieres llevar tu Wordpress al
@@ -143,7 +143,7 @@ const Card = () => {
             </div>
             <div className="card-buttons">
               <button data-section="#about" className="is-active">
-                QUÉ HAGO
+                QUIÉN SOY
               </button>
               <button data-section="#experience">EXPERIENCIA</button>
               <button data-section="#contact">CONTACTO</button>
