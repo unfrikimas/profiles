@@ -6,6 +6,7 @@ import IconLinkedin from "../icons/linkedin";
 import IconLocation from '../icons/location';
 import IconPhone from "../icons/phone";
 import IconMail from '../icons/mail';
+import IconWeb from '../icons/web';
 import Link from 'next/link';
 
 const Card = () => {
@@ -131,18 +132,18 @@ const Card = () => {
                   </div>
                   <div className="card-contact">
                     <IconPhone />
-                    <a href="https://api.whatsapp.com/send?phone=34682811728&text=Hola">
                     (+34) 682 81 17 28
-                    </a>
                   </div>
                   <div className="card-contact">
                     <IconMail />
                     carlos@unfrikimas.com
                   </div>
+                  <div className="card-contact">
+                    <IconWeb />
+                    unfrikimas.com
+                  </div>
                   <Link href="https://api.whatsapp.com/send?phone=34682811728&text=Hola">
-                  <button 
-                    className="contact-me"
-                  >TRABAJEMOS JUNTOS!</button>
+                    <button className="contact-me">TRABAJEMOS JUNTOS!</button>
                   </Link>
                 </div>
               </div>
