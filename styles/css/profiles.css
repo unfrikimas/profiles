@@ -168,7 +168,8 @@
   font-size: 22px;
   font-weight: 700;
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  background-color: none;
   -webkit-transform: translateY(-10px) translateX(-50%);
   transform: translateY(-10px) translateX(-50%);
   left: 50%;
