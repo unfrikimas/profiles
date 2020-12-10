@@ -8,9 +8,9 @@ const Home = () => {
   //context de usuario
   const { usuario, firebase } = useContext(FirebaseContext);
 
-  if(!usuario) {
-    Router.push("/iniciarsesion");
-  }
+  // if(!usuario) {
+  //   Router.push("/iniciarsesion");
+  // }
 
   return (
     <>
