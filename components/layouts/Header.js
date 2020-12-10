@@ -52,7 +52,8 @@ const Header = () => {
                 onClick={ () => firebase.cerrarSesion() }
               >Cerrar sesión</button> */}
             </>
-          ) : null }
+          ) 
+          : null }
         </div>
       </div>
     </header>

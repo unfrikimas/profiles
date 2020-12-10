@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../firebase';
-import { useRouter } from "next/router"
+// import { useRouter } from "next/router"
 
 export const USER_STATES = {
     NOT_LOGGED: null,
@@ -10,7 +10,7 @@ export const USER_STATES = {
 function useAutenticacion() {
 
     const [ usuarioAutenticado, guardarUsuarioAutenticado ] = useState(USER_STATES.NOT_KNOWN);
-    const router = useRouter();
+    // const router = useRouter();
 
     useEffect(() => {
         const unsuscribe = firebase.auth.onAuthStateChanged(usuario => {
@@ -23,9 +23,9 @@ function useAutenticacion() {
         return () => unsuscribe();
     }, []);
 
-    useEffect(() => {
-        usuarioAutenticado === USER_STATES.NOT_LOGGED && router.push("/iniciarsesion")
-    }, [usuarioAutenticado])
+    // useEffect(() => {
+    //     usuarioAutenticado === USER_STATES.NOT_LOGGED && router.push("/iniciarsesion")
+    // }, [usuarioAutenticado])
 
     return usuarioAutenticado;
 
