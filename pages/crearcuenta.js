@@ -44,7 +44,7 @@ const CrearCuenta = () => {
     <>
       <Layout>
         <div className="md:w-4/5 xl:w-3/5 mx-auto mb-32">
-          <h1 className="text-3xl font-sans font-bold text-gray-800 text-center pt-10">
+          <h1 className="text-2xl font-sans font-bold text-gray-800 text-center pt-5">
             Crea tu cuenta
           </h1>
           {/* { mensaje && <Alerta /> } */}

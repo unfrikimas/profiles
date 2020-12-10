@@ -43,8 +43,8 @@ const IniciarSesion = () => {
     <>
       <Layout>
         <div className="md:w-4/5 xl:w-3/5 mx-auto mb-32">
-          <h1 className="text-3xl font-sans font-bold text-gray-800 text-center pt-10">
-            Iniciar sesión
+          <h1 className="text-2xl font-sans font-bold text-gray-800 text-center pt-5">
+            Inicia sesión
           </h1>
           {/* { mensaje && <Alerta /> } */}
           <div className="flex justify-center mt-5">
