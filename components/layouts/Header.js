@@ -40,9 +40,7 @@ const Header = () => {
     <header className="mx-auto py-10">
       <div>
         <div>
-          <Link href="/">
-            <h1 className="text-3xl text-center font-bold cursor-pointer">Brevi</h1>
-          </Link>
+            <h1 className="text-3xl text-center font-bold">Brevi</h1>
         </div>
         <div>
           {usuario ? (
@@ -50,10 +48,9 @@ const Header = () => {
               <p className="text-xl text-gray-700 text-center py-5">
                 Hola { usuario.displayName }
               </p>
-              {/* <Boton 
-                bgColor="true"
+              {/* <button 
                 onClick={ () => firebase.cerrarSesion() }
-              >Cerrar sesión</Boton> */}
+              >Cerrar sesión</button> */}
             </>
           ) : null }
         </div>
