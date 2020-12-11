@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
-import IconSun from "../../components/icons/sun";
+import axios from 'axios';
+import IconCaptura from '../../components/icons/captura';
 
 const Card1 = () => {
-    
   if (process.browser) {
     //Init tooltips
     tippy(".link", {
@@ -47,6 +47,28 @@ const Card1 = () => {
     });
   }
 
+  const [ urlImagen, setUrlImagen ] = useState('')
+  const [ cargando, setCargando ] = useState(false)
+
+  const subirACloudinary = async (e) => {
+    const files = e.target.files[0];
+    const formData = new FormData();
+    formData.append("upload_preset", "brevisite");
+    formData.append("file", files);
+    setCargando(true);
+
+    try {
+      const res = await axios.post(
+        `https://api.cloudinary.com/v1_1/petportrait/upload`,
+        formData
+      );
+      setUrlImagen(res.data.secure_url);
+      setCargando(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -69,7 +91,6 @@ const Card1 = () => {
         />
         <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js" />
         <script src="https://unpkg.com/tippy.js@4" />
-
       </Head>
 
       <body
@@ -83,32 +104,68 @@ const Card1 = () => {
             id="profile"
             className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
           >
-            <div className="p-4 md:p-12 text-center lg:text-left">
-              <div
-                className="block lg:hidden rounded-full shadow-2xl mx-auto border-8 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white"
-                // style={{
-                //   backgroundImage: `url(https://via.placeholder.com/48x48?text=Foto)`}}
-              ></div>
-
-              <h1 className="text-3xl font-bold pt-8 lg:pt-0" id="nombre">Claudia Hernández</h1>
+            <div className="p-4 md:p-12 text-center lg:text-left">     
+                { cargando 
+                ? <p>Subiendo...</p> 
+                :
+                <div
+                    className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6"
+                    style={{backgroundImage: `url(${urlImagen})`}}  
+                ></div>}
+                { !urlImagen 
+                ?                 
+                <div className="flex w-full items-center justify-center bg-grey-lighter relative">
+                    <label className="w-64 flex flex-col items-center px-4 -mt-60 absolute  cursor-pointer">
+                    <IconCaptura width={50} height={50} />
+                    <span className="mt-2 text-base leading-normal">Sube una foto</span>
+                    <input
+                        className="hidden"
+                        type="file" 
+                        name="fotografia"
+                        onChange={subirACloudinary}
+                    />
+                    </label>
+                </div>           
+                : 
+                <div className="flex w-full items-center justify-center bg-grey-lighter relative">
+                    <label className="w-64 flex flex-col items-center px-4 -mt-60 absolute cursor-pointer">
+                    <IconCaptura width={30} height={30} stroke="#ffffff"/>
+                    <input
+                        className="hidden"
+                        type="file" 
+                        name="fotografia"
+                        onChange={subirACloudinary}
+                    />
+                    </label>
+                </div>                
+                }
+              <h1
+                className="text-3xl font-bold pt-2 lg:pt-0 border-2 border-dashed border-green-500"
+                id="nombre"
+              >
+                👶 ¿Nombre?
+              </h1>
               <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-              <p className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start" id="profesion">
-              Me gusta tejer, tejer y tejer
+              <p
+                className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                id="profesion"
+              >
+                🎓 ¿Qué haces?
               </p>
-              <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
-                Lake Charles, USA
+              <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500">
+                🗽 ¿Dónde estás?
               </p>
               <p className="pt-8 text-sm" id="descripcion">
-              🍒 Ocurrente, Amo Sonreir, Madre de un Adolescente, mi vida está donde sea Feliz, Capricorniana, Empresaria, Positiva, Fiel a DIOS y Venezolana!
+                🚀 ¿Cuál es tu historia?
               </p>
 
               <div className="pt-12 pb-8">
                 <button className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
-                  ¡Hablemos!
+                  Contáctame
                 </button>
               </div>
 
-              <div className="mt-6 pb-8 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
+              <div className="mt-6 pb-8 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between border-2 border-dashed border-green-500">
                 <a
                   className="link"
                   href="#"
