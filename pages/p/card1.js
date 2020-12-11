@@ -4,49 +4,7 @@ import axios from 'axios';
 import IconCaptura from '../../components/icons/captura';
 
 const Card1 = () => {
-  if (process.browser) {
-    //Init tooltips
-    tippy(".link", {
-      placement: "bottom",
-    });
-
-    //Toggle mode
-    const toggle = document.querySelector(".js-change-theme");
-    const body = document.querySelector("body");
-    const profile = document.getElementById("profile");
-    const descripcion = document.getElementById("descripcion");
-    const nombre = document.getElementById("nombre");
-    const profesion = document.getElementById("profesion");
-
-    toggle.addEventListener("click", () => {
-      if (body.classList.contains("text-gray-900")) {
-        toggle.innerHTML = "☀️";
-        body.classList.remove("text-gray-900");
-        descripcion.classList.remove("text-gray-900");
-        nombre.classList.remove("text-gray-900");
-        profesion.classList.remove("text-gray-900");
-        body.classList.add("text-gray-100");
-        descripcion.classList.add("text-gray-100");
-        nombre.classList.add("text-gray-100");
-        profesion.classList.add("text-gray-100");
-        profile.classList.remove("bg-white");
-        profile.classList.add("bg-gray-900");
-      } else {
-        toggle.innerHTML = "🌙";
-        body.classList.remove("text-gray-100");
-        descripcion.classList.remove("text-gray-100");
-        nombre.classList.remove("text-gray-100");
-        profesion.classList.remove("text-gray-100");
-        body.classList.add("text-gray-900");
-        descripcion.classList.add("text-gray-900");
-        nombre.classList.add("text-gray-900");
-        profesion.classList.add("text-gray-900");
-        profile.classList.remove("bg-gray-900");
-        profile.classList.add("bg-white");
-      }
-    });
-  }
-
+ 
   const [ urlImagen, setUrlImagen ] = useState('')
   const [ cargando, setCargando ] = useState(false)
 
@@ -89,15 +47,11 @@ const Card1 = () => {
           rel="stylesheet"
           href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
         />
-        <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js" />
-        <script src="https://unpkg.com/tippy.js@4" />
       </Head>
 
       <body
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"
-        style={{
-          backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`,
-        }}
+        style={{backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`}}
       >
         <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
           <div
@@ -105,40 +59,53 @@ const Card1 = () => {
             className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
           >
             <div className="p-4 md:p-12 text-center lg:text-left">     
-                { cargando 
-                ? <p>Subiendo...</p> 
-                :
+                {/* { cargando 
+                ?
                 <div
-                    className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6"
-                    style={{backgroundImage: `url(${urlImagen})`}}  
-                ></div>}
+                    className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+                >
+                    <label className="flex flex-col items-center justify-center h-48">
+                        <span className="mt-2">Subiendo...</span>
+                    </label>
+                </div>                         
+                : null
+                // <div
+                //     className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6"
+                //     style={{backgroundImage: `url(${urlImagen})`}}  
+                // ></div>
+                } */}
                 { !urlImagen 
-                ?                 
-                <div className="flex w-full items-center justify-center bg-grey-lighter relative">
-                    <label className="w-64 flex flex-col items-center px-4 -mt-60 absolute  cursor-pointer">
-                    <IconCaptura width={50} height={50} />
-                    <span className="mt-2 text-base leading-normal">Sube una foto</span>
-                    <input
-                        className="hidden"
-                        type="file" 
-                        name="fotografia"
-                        onChange={subirACloudinary}
-                    />
+                ?
+                <div
+                    className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+                >
+                    <label className="flex flex-col items-center justify-center h-48">
+                        <IconCaptura />
+                        <span className="mt-2">Sube una foto</span>
+                        <input
+                            className="hidden"
+                            type="file" 
+                            name="fotografia"
+                            onChange={subirACloudinary}
+                        />
                     </label>
-                </div>           
+                </div>                  
                 : 
-                <div className="flex w-full items-center justify-center bg-grey-lighter relative">
-                    <label className="w-64 flex flex-col items-center px-4 -mt-60 absolute cursor-pointer">
-                    <IconCaptura width={30} height={30} stroke="#ffffff"/>
-                    <input
-                        className="hidden"
-                        type="file" 
-                        name="fotografia"
-                        onChange={subirACloudinary}
-                    />
+                <div
+                    className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+                    style={{backgroundImage: `url(${urlImagen})`}} 
+                >
+                    <label className="flex flex-col items-center justify-center h-48">
+                        <IconCaptura />
+                        <input
+                            className="hidden"
+                            type="file" 
+                            name="fotografia"
+                            onChange={subirACloudinary}
+                        />
                     </label>
-                </div>                
-                }
+                </div>  }
+                { cargando && <p>Subiendo...</p> }
               <h1
                 className="text-3xl font-bold pt-2 lg:pt-0 border-2 border-dashed border-green-500"
                 id="nombre"
@@ -280,10 +247,6 @@ const Card1 = () => {
               src="https://source.unsplash.com/MP0IUfwrn0A"
               className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
             />
-          </div>
-
-          <div className="absolute top-0 right-0 h-12 w-18 p-4">
-            <button className="js-change-theme focus:outline-none">🌙</button>
           </div>
         </div>
       </body>
