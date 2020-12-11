@@ -85,10 +85,9 @@ const Card1 = () => {
           >
             <div className="p-4 md:p-12 text-center lg:text-left">
               <div
-                className="block lg:hidden rounded-full shadow-2xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(https://source.unsplash.com/MP0IUfwrn0A)`,
-                }}
+                className="block lg:hidden rounded-full shadow-2xl mx-auto border-8 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white"
+                // style={{
+                //   backgroundImage: `url(https://via.placeholder.com/48x48?text=Foto)`}}
               ></div>
 
               <h1 className="text-3xl font-bold pt-8 lg:pt-0" id="nombre">Claudia Hernández</h1>
