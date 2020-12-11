@@ -24,6 +24,7 @@ const Card1 = () => {
       setCargando(false);
     } catch (error) {
       console.log(error);
+      setCargando(false);
     }
   };
 
@@ -50,30 +51,15 @@ const Card1 = () => {
       </Head>
 
       <body
-        className="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"
+        className="font-sans antialiased text-gray-900 leading-normal tracking-wider sm:bg-no-repeat bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`}}
       >
-        <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+        <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-24 lg:my-0">
           <div
             id="profile"
             className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
           >
             <div className="p-4 md:p-12 text-center lg:text-left">     
-                {/* { cargando 
-                ?
-                <div
-                    className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
-                >
-                    <label className="flex flex-col items-center justify-center h-48">
-                        <span className="mt-2">Subiendo...</span>
-                    </label>
-                </div>                         
-                : null
-                // <div
-                //     className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6"
-                //     style={{backgroundImage: `url(${urlImagen})`}}  
-                // ></div>
-                } */}
                 { !urlImagen 
                 ?
                 <div
@@ -81,7 +67,9 @@ const Card1 = () => {
                 >
                     <label className="flex flex-col items-center justify-center h-48">
                         <IconCaptura />
-                        <span className="mt-2">Sube una foto</span>
+                        { cargando
+                        ? <span className="mt-2">Subiendo foto...</span>
+                        : <span className="mt-2">Sube una foto</span> }
                         <input
                             className="hidden"
                             type="file" 
@@ -96,7 +84,8 @@ const Card1 = () => {
                     style={{backgroundImage: `url(${urlImagen})`}} 
                 >
                     <label className="flex flex-col items-center justify-center h-48">
-                        <IconCaptura />
+                        <IconCaptura stroke="#fff"/>
+                        { cargando ? <span className="mt-2 text-white">Subiendo foto...</span> : null }
                         <input
                             className="hidden"
                             type="file" 
@@ -105,34 +94,33 @@ const Card1 = () => {
                         />
                     </label>
                 </div>  }
-                { cargando && <p>Subiendo...</p> }
               <h1
-                className="text-3xl font-bold pt-2 lg:pt-0 border-2 border-dashed border-green-500"
+                className="rounded-xl text-3xl font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
                 id="nombre"
               >
                 👶 ¿Nombre?
               </h1>
               <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
               <p
-                className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                className="rounded-xl py-2 my-2 text-base font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                 id="profesion"
               >
                 🎓 ¿Qué haces?
               </p>
-              <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500">
+              <p className="rounded-xl py-3 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500">
                 🗽 ¿Dónde estás?
               </p>
-              <p className="pt-8 text-sm" id="descripcion">
+              <p className="rounded-xl mt-2 py-10 text-sm border-2 border-dashed border-green-500" id="descripcion">
                 🚀 ¿Cuál es tu historia?
               </p>
 
-              <div className="pt-12 pb-8">
-                <button className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
-                  Contáctame
+              <div className="pt-8 pb-6">
+                <button className="bg-green-700 hover:bg-green-900 text-xl text-white font-bold py-2 px-8 rounded-full">
+                  Botón CTA
                 </button>
               </div>
 
-              <div className="mt-6 pb-8 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between border-2 border-dashed border-green-500">
+              <div className="rounded-xl my-4 py-2 px-4 lg:pb-0  lg:w-full mx-auto flex flex-wrap items-center justify-between border-2 border-dashed border-green-500">
                 <a
                   className="link"
                   href="#"
