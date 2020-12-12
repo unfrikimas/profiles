@@ -99,6 +99,7 @@ const Card1 = () => {
                 type="text"
                 id="nombre"
                 name="nombre"
+                autoComplete="off"
                 placeholder="👶 Nombre"
                 // onChange={e => agregarPassword(e.target.value) }
               />
@@ -114,6 +115,7 @@ const Card1 = () => {
                 type="text"
                 id="profesion"
                 name="profesion"
+                autoComplete="off"
                 placeholder="🎓 Qué haces"
                 // onChange={e => agregarPassword(e.target.value) }
               />
@@ -124,10 +126,11 @@ const Card1 = () => {
                 🎓 Qué haces
               </p> */}
               <input 
-                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-xs lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                 type="text"
                 id="ubicacion"
                 name="ubicacion"
+                autoComplete="off"
                 placeholder="🗽 Dónde estás"
                 // onChange={e => agregarPassword(e.target.value) }
               />
@@ -138,6 +141,7 @@ const Card1 = () => {
                 className="resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm border-2 border-dashed border-green-500 px-2 py-2"
                 id="resumen"
                 name="resumen"
+                autoComplete="off"
                 placeholder="🚀 A qué te dedicas"
                 // value={''}
                 // onChange={''}
