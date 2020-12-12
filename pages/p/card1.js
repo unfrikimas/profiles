@@ -150,7 +150,7 @@ const Card1 = () => {
 
               <div>
                 <div className="mt-1 relative rounded-md">
-                  <div className="absolute inset-y-1 flex items-center pointer-events-none">
+                  <div className="absolute inset-y-1 left-1 flex items-center pointer-events-none">
                     <span className="text-gray-500 sm:text-sm">
                       <IconPhone width={30} height={30}/>
                     </span>
@@ -166,7 +166,7 @@ const Card1 = () => {
                   <div className="absolute inset-y-0 right-2 flex items-center">
                     <label htmlFor="contacto" className="sr-only">Contacto</label>
                     <select 
-                      className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-2 sm:text-sm rounded-md leading-8"
+                      className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 sm:text-sm rounded-md leading-8"
                       id="numero" 
                       name="numero" 
                     >
