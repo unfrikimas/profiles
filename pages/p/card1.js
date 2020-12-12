@@ -94,25 +94,57 @@ const Card1 = () => {
                         />
                     </label>
                 </div>  }
-              <h1
+              <input 
+                className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="👶 Nombre"
+                // onChange={e => agregarPassword(e.target.value) }
+              />
+              {/* <h1
                 className="rounded-xl text-3xl font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
                 id="nombre"
               >
                 👶 ¿Nombre?
-              </h1>
+              </h1> */}
               <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-              <p
+              <input 
+                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-2 my-2 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                type="text"
+                id="profesion"
+                name="profesion"
+                placeholder="🎓 Qué haces"
+                // onChange={e => agregarPassword(e.target.value) }
+              />
+              {/* <p
                 className="rounded-xl py-2 my-2 text-base font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                 id="profesion"
               >
-                🎓 ¿Qué haces?
-              </p>
-              <p className="rounded-xl py-3 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500">
-                🗽 ¿Dónde estás?
-              </p>
-              <p className="rounded-xl mt-2 py-10 text-sm border-2 border-dashed border-green-500" id="descripcion">
+                🎓 Qué haces
+              </p> */}
+              <input 
+                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-xs lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                type="text"
+                id="ubicacion"
+                name="ubicacion"
+                placeholder="🗽 Dónde estás"
+                // onChange={e => agregarPassword(e.target.value) }
+              />
+              {/* <p className="rounded-xl py-3 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500">
+                🗽 Dónde estás
+              </p> */}
+              <textarea
+                className="resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm border-2 border-dashed border-green-500 px-2 py-2"
+                id="resumen"
+                name="resumen"
+                placeholder="🚀 A qué te dedicas"
+                // value={''}
+                // onChange={''}
+              />              
+              {/* <p className="rounded-xl mt-2 py-10 text-sm border-2 border-dashed border-green-500" id="descripcion">
                 🚀 ¿Cuál es tu historia?
-              </p>
+              </p> */}
 
               <div className="pt-8 pb-6">
                 <button className="bg-green-700 hover:bg-green-900 text-xl text-white font-bold py-2 px-8 rounded-full">
