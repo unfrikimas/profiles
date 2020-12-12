@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import axios from 'axios';
 import IconCaptura from '../../components/icons/captura';
+import IconPhone from '../../components/icons/phone';
 
 const Card1 = () => {
  
@@ -42,10 +43,6 @@ const Card1 = () => {
         <meta name="author" content=""></meta>
         <link
           rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        />
-        <link
-          rel="stylesheet"
           href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
         />
       </Head>
@@ -65,8 +62,10 @@ const Card1 = () => {
                 <div
                     className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
                 >
-                    <label className="flex flex-col items-center justify-center h-48">
-                        <IconCaptura />
+                    <label className="flex flex-col items-center justify-center h-full w-full">
+                        <span className="items-center">
+                          <IconCaptura />
+                        </span>
                         { cargando
                         ? <span className="mt-2">Subiendo foto...</span>
                         : <span className="mt-2">Sube una foto</span> }
@@ -94,6 +93,7 @@ const Card1 = () => {
                         />
                     </label>
                 </div>  }
+
               <input 
                 className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
                 type="text"
@@ -103,15 +103,10 @@ const Card1 = () => {
                 placeholder="👶 Nombre"
                 // onChange={e => agregarPassword(e.target.value) }
               />
-              {/* <h1
-                className="rounded-xl text-3xl font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
-                id="nombre"
-              >
-                👶 ¿Nombre?
-              </h1> */}
+
               <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
               <input 
-                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-2 my-2 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                 type="text"
                 id="profesion"
                 name="profesion"
@@ -119,12 +114,7 @@ const Card1 = () => {
                 placeholder="🎓 Qué haces"
                 // onChange={e => agregarPassword(e.target.value) }
               />
-              {/* <p
-                className="rounded-xl py-2 my-2 text-base font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
-                id="profesion"
-              >
-                🎓 Qué haces
-              </p> */}
+
               <input 
                 className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                 type="text"
@@ -134,9 +124,7 @@ const Card1 = () => {
                 placeholder="🗽 Dónde estás"
                 // onChange={e => agregarPassword(e.target.value) }
               />
-              {/* <p className="rounded-xl py-3 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500">
-                🗽 Dónde estás
-              </p> */}
+
               <textarea
                 className="resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm border-2 border-dashed border-green-500 px-2 py-2"
                 id="resumen"
@@ -145,18 +133,48 @@ const Card1 = () => {
                 placeholder="🚀 A qué te dedicas"
                 // value={''}
                 // onChange={''}
-              />              
-              {/* <p className="rounded-xl mt-2 py-10 text-sm border-2 border-dashed border-green-500" id="descripcion">
-                🚀 ¿Cuál es tu historia?
-              </p> */}
+              />
 
-              <div className="pt-8 pb-6">
-                <button className="bg-green-700 hover:bg-green-900 text-xl text-white font-bold py-2 px-8 rounded-full">
-                  Botón CTA
-                </button>
+              <input 
+                className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-4 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                type="text"
+                id="boton"
+                name="boton"
+                autoComplete="off"
+                placeholder="TEXTO BOTÓN CONTACTO"
+                // onChange={e => agregarPassword(e.target.value) }
+              />
+
+              <div>
+                <div className="mt-1 relative rounded-md">
+                  <div className="absolute inset-y-1 left-1 flex items-center pointer-events-none">
+                    <span className="text-gray-500 sm:text-sm">
+                      <IconPhone width={30} height={30}/>
+                    </span>
+                  </div>
+                  <input 
+                    className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md" 
+                    placeholder="Número contacto"
+                    autoComplete="off"
+                    type="text" 
+                    name="numero" 
+                    id="numero" 
+                  />
+                  <div className="absolute inset-y-0 right-2 flex items-center">
+                    <label htmlFor="contacto" className="sr-only">Contacto</label>
+                    <select 
+                      className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-2 sm:text-sm rounded-md leading-8"
+                      id="numero" 
+                      name="numero" 
+                    >
+                      <option className="py-4">WHATSAPP</option>
+                      <option>TELÉFONO</option>
+                    </select>
+                  </div>
+                </div>
               </div>
 
-              <div className="rounded-xl my-4 py-2 px-4 lg:pb-0  lg:w-full mx-auto flex flex-wrap items-center justify-between border-2 border-dashed border-green-500">
+              <div className="rounded-xl my-8 py-2 px-4 lg:pb-0  lg:w-full mx-auto flex flex-wrap items-center justify-between border-2 border-dashed border-green-500">
                 <a
                   className="link"
                   href="#"
