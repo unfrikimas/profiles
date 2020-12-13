@@ -72,10 +72,10 @@ const Card1 = () => {
 
       <body
         id="tarjeta"
-        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
+        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto sm:h-screen bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`}}
       >
-        <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto py-32 lg:my-0">
+        <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
           <div
             id="profile"
             className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-6 lg:mx-0"
@@ -127,7 +127,6 @@ const Card1 = () => {
               </div>
             </div>
           </div>
-
           <div className="w-full lg:w-2/5">
             <img
               src="https://res.cloudinary.com/petportrait/image/upload/v1607881602/brevi_site/oyb4zgdwommytkcxv9po.jpg"
@@ -139,6 +138,9 @@ const Card1 = () => {
             <button className="js-change-theme focus:outline-none">🌙</button>
           </div>
         </div>
+          <div className="bg-white text-center py-3 px-4 w-full lg:w-1/4 mx-auto lg:rounded-lg">
+            <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing">Brevi</a></p>
+          </div>
       </body>
     </>
   );

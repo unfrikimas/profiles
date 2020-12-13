@@ -15,7 +15,7 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    usuario === USER_STATES.NOT_LOGGED && router.push("/iniciarsesion")
+    usuario === USER_STATES.NOT_LOGGED && router.push("/landing")
   }, [usuario])
 
   return (
