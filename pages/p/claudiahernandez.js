@@ -72,13 +72,13 @@ const Card1 = () => {
 
       <body
         id="tarjeta"
-        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-screen bg-no-repeat bg-cover"
+        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`}}
       >
-        <div className="max-w-4xl flex items-center h-screen flex-wrap mx-auto py-32 lg:my-0">
+        <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto py-32 lg:my-0">
           <div
             id="profile"
-            className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl opacity-80 bg-white mx-6 lg:mx-0"
+            className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-6 lg:mx-0"
           >
             <div className="p-4 md:p-12 text-center lg:text-left">
               <div
