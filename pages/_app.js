@@ -1,5 +1,5 @@
 // import '../styles/globals.css'
-// import '../styles/scss/profiles.scss'
+import '../styles/scss/profiles.scss'
 import firebase, { FirebaseContext } from '../firebase';
 import useAutenticacion from '../hooks/useAutenticacion';
 

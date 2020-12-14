@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Card from '../../components/ui/Card';
+import Card from '../components/ui/Card';
 
 // import styles from '../../styles/scss/profiles.scss'
 
