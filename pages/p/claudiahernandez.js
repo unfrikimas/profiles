@@ -73,7 +73,7 @@ const Card1 = () => {
       <body
         id="tarjeta"
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto sm:h-screen bg-cover"
-        style={{backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`}}
+        style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
       >
         <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
           <div
