@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import IconFacebook from "../../components/icons/socials/facebook";
 import IconInstagram from '../../components/icons/socials/instagram';
-import IconLinkedin from '../../components/icons/socials/linkedin';
 
 const Card1 = () => {
     
@@ -90,12 +89,12 @@ const Card1 = () => {
               ></div>
 
               <h1 className="text-3xl font-bold pt-8 lg:pt-0" id="nombre">Andrés Ocaña</h1>
-              <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+              <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-blue-500 opacity-25"></div>
               <p className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start" id="profesion">
-              Lider Comercial
+              Gerente General<br></br>Beraten Agencia de Viajes
               </p>
               <p className="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
-                <span><a href="https://cmasd.co" target="_blank" className="hover:underline"></a> | </span> Bogotá, Colombia
+              Bogotá, Colombia
               </p>
               <p className="pt-8 text-sm" id="descripcion">
               Me dedico a mejorar la experiencia personal por medio del servicio, gracias a ello me convertí en un ser más didáctico, dinámico, resiliente y sobretodo fiel creyente del trabajo en equipo. Mi profesión me ha impulsado a ser emprendedor ya que considero importante esmerarse para cumplir los sueños propios y aportar en los sueños de los demás.
@@ -105,6 +104,7 @@ const Card1 = () => {
                 <a 
                   className="tracking-wide bg-blue-700 hover:bg-blue-900 text-white text-xl font-bold pt-3 pb-4 px-8 rounded-full"
                   href="https://api.whatsapp.com/send?phone=+573166996933&text=Hola"
+                  target="_blank"
                 >
                   Contacto
                 </a>
@@ -113,14 +113,14 @@ const Card1 = () => {
               <div className="mt-6 pb-8 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-center lg:justify-start">
                 <a
                   className="mx-3 h-8 w-8 fill-current text-gray-500 hover:text-blue-700"
-                  href=""
+                  href="https://www.facebook.com/beratenco/"
                   target="_blank"
                 >
-                  <IconLinkedin />
+                  <IconFacebook />
                 </a>
                 <a
                   className="mx-3 h-8 w-8 fill-current text-gray-500 hover:text-blue-700"
-                  href=""
+                  href="https://www.instagram.com/beratenco/"
                   target="_blank"
                 >
                   <IconInstagram />
