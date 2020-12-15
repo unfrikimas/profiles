@@ -98,7 +98,7 @@ const Card1 = () => {
                 <span><a href="https://cmasd.co" target="_blank" className="hover:underline">CMASD</a> | </span> Bogotá, Colombia
               </p>
               <p className="pt-8 text-sm" id="descripcion">
-              Pasado, presente y futuro, magia, sueños y cuerpo terrenal, cambio de alma y espíritu, energía y equilibrio. 🌾🍃🌿
+              Pasado, presente y futuro, magia, sueños y cuerpo terrenal, cambio de alma y espíritu, energía y equilibrio.<br></br> 🌾🍃🌿
               </p>
 
               <div className="pt-12 pb-8">
