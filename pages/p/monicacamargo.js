@@ -62,11 +62,6 @@ const Card1 = () => {
         <meta name="description" content=""></meta>
         <meta name="keywords" content=""></meta>
         <meta name="author" content=""></meta>
-        {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossOrigin="anonymous" /> */}
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
-        />
         <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js" />
         <script src="https://unpkg.com/tippy.js@4" />
       </Head>
