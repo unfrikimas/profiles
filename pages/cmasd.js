@@ -28,8 +28,8 @@ const cmasd = () => {
                 />
             </div>
           <div className="container mx-auto flex flex-wrap h-full">
-            <div className="lg:w-1/2 px-4 py-4 mx-auto bg-blue-200 rounded-t-3xl">
-                <div>
+            <div className="lg:w-1/2 w-full px-4 py-4 mx-auto bg-white rounded-t-3xl">
+                <div className="pl-2">
                     <p>Hola, somos</p>
                     <h1
                         className="text-xl font-bold"
@@ -47,12 +47,14 @@ const cmasd = () => {
                         </a>
                     </div>
                 </div>
-              <div className="flex flex-wrap h-1/2 -mx-2">
+                <div className="pl-2 pb-4">
+                    <h2 className="text-lg font-bold">Últimos artículos</h2>
+                </div>
+              <div className="flex flex-wrap -mx-2">
                 <div className="px-2 w-1/2">
-                  <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative rounded-3xl shadow-lg">
-                    <img alt="gallery" className="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="" />
+                  <div className="flex flex-wrap w-full h-full sm:py-24 py-20 sm:px-10 px-6 relative">
+                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608675986/brevi_site/posicionamiento-de-marca-01_qdbffi.jpg" />
                     <div className="text-center relative z-10 w-full">
-                      <h2 className="text-xl text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
                       <p className="leading-relaxed"></p>
                       <a className="mt-3 text-indigo-500 inline-flex items-center">Leer más
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
@@ -63,10 +65,9 @@ const cmasd = () => {
                   </div>
                 </div>
                 <div className="px-2 w-1/2">
-                  <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative rounded-3xl shadow-lg">
-                    <img alt="gallery" className="w-full object-cover h-full object-center block opacity-25 absolute inset-0" src="" />
+                  <div className="flex flex-wrap w-full sm:py-24 py-20 sm:px-10 px-6 relative">
+                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0  rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608676229/brevi_site/Branding-Estrat%C3%A9gico_akqe9q.jpg" />
                     <div className="text-center relative z-10 w-full">
-                      <h2 className="text-xl text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
                       <p className="leading-relaxed"></p>
                       <a className="mt-3 text-indigo-500 inline-flex items-center">Leer más
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
