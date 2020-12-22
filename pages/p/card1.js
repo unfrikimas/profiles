@@ -23,15 +23,7 @@ const Card1 = () => {
 
   const [redesSociales, setRedesSociales] = useState(redes_sociales);  
 
-  useEffect(() => {
-    setRedesSociales(redes_sociales);
-  }, [redes_sociales])
 
-
-  // //estado para los campos dinamicos
-  // const [redesSociales, setRedesSociales] = useState([
-  //   { id: shortid.generate(), redSocial: '' },
-  // ]);
 
 
     const handleSubmit = e => {
@@ -39,49 +31,6 @@ const Card1 = () => {
       console.log("Redes Sociales", redesSociales);
     };
     
-    // const handleChangeInput = (id, event) => {
-      //   const nuevaRedSocial = redesSociales.map(i => {
-        //     if(id === i.id) {
-          //       i[event.target.name] = event.target.value
-          //     }
-          //     return i;
-          //   })
-          
-          //   setRedesSociales(nuevaRedSocial);
-  // }
-  
-  // const handleAddFields = () => {
-    //   setRedesSociales([...redesSociales, { id: shortid.generate(),  redSocial: '' }])
-    // }
-    
-    // const handleRemoveFields = id => {
-      //   const values  = [...redesSociales];
-      //   values.splice(values.findIndex(value => value.id === id), 1);
-      //   setRedesSociales(values);
-      // }
-      
-  
-  // const [redesSociales, setRedesSociales] = useState([{ usuario: "" }]);
-      
-  // // handle input change
-  // const handleInputChange = (e, index) => {
-  //   const { name, value } = e.target;
-  //   const list = [...redesSociales];
-  //   list[index][name] = value;
-  //   setRedesSociales(list);
-  // };
- 
-  // // handle click event of the Remove button
-  // const handleRemoveClick = index => {
-  //   const list = [...redesSociales];
-  //   list.splice(index, 1);
-  //   setRedesSociales(list);
-  // };
- 
-  // // handle click event of the Add button
-  // const handleAddClick = () => {
-  //   setRedesSociales([...redesSociales, { usuario: "" }]);
-  // };
 
   // handle click event of the Remove button
   const handleRemoveClick = index => {
@@ -99,15 +48,13 @@ const Card1 = () => {
   const subirACloudinary = async (e) => {
     const files = e.target.files[0];
     const formData = new FormData();
-    formData.append("upload_preset", "brevisite");
     formData.append("file", files);
+    formData.append("upload_preset", "pets_preset");
     setCargando(true);
+    console.log(formData)
 
     try {
-      const res = await axios.post(
-        `https://api.cloudinary.com/v1_1/petportrait/upload`,
-        formData
-      );
+      const res = await axios.post("https://api.cloudinary.com/v1_1/petportrait/upload", formData);
       setUrlImagen(res.data.secure_url);
       setCargando(false);
     } catch (error) {
@@ -131,72 +78,73 @@ const Card1 = () => {
       </Head>
 
       <div
-        className="font-sans antialiased text-gray-900 leading-normal tracking-wider sm:bg-no-repeat bg-cover"
-        style={{backgroundImage: `url(https://source.unsplash.com/1L71sPT5XKc)`}}
+        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto sm:h-screen bg-cover"
+        style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
       >
-        <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-24 lg:my-0">
+        <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
 
-          <Formik
-            initialValues={{
-              url_imagen: '',
-              nombre: '',
-              profesion: '',
-              ubicacion: '',
-              resumen: '',
-              texto_boton: '',
-              numero_contacto: '',
-              medio_contacto: 'whatsapp',            
-              redes_sociales: [{ redsocial: "facebook", usuario: "" }]
-            }}
-            onSubmit={(values) => {
-              console.log(values)
-            }}
-          >
-            {(formikProps) => (
-              <form 
-                id="profile"
-                autoComplete="off"
-                className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0" 
-                onSubmit={formikProps.handleSubmit}
-              >
+          <div className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0">     
+            { !urlImagen 
+            ?
+            <div
+              className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+            >
+              <label className="flex flex-col items-center justify-center h-full w-full">
+                <span className="items-center">
+                  <IconCaptura />
+                </span>
+                { cargando
+                  ? <span className="mt-2">Subiendo foto...</span>
+                  : <span className="mt-2">Sube una foto</span> }
+                <input
+                  className="hidden"
+                  type="file" 
+                  name="fotografia"
+                  onChange={subirACloudinary}
+                />
+              </label>
+            </div>                  
+            : 
+            <div
+              className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+              style={{backgroundImage: `url(${urlImagen})`}} 
+            >
+              <label className="flex flex-col items-center justify-center h-48">
+                <IconCaptura stroke="#fff"/>
+                { cargando ? <span className="mt-2 text-white">Subiendo foto...</span> : null }
+                <input
+                  className="hidden"
+                  type="file" 
+                  name="fotografia"
+                  onChange={subirACloudinary}
+                />
+              </label>
+            </div>  }
 
-                <div className="p-4 md:p-12 text-center lg:text-left">     
-                  { !urlImagen 
-                  ?
-                  <div
-                      className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
-                  >
-                      <label className="flex flex-col items-center justify-center h-full w-full">
-                          <span className="items-center">
-                            <IconCaptura />
-                          </span>
-                          { cargando
-                          ? <span className="mt-2">Subiendo foto...</span>
-                          : <span className="mt-2">Sube una foto</span> }
-                          <input
-                              className="hidden"
-                              type="file" 
-                              name="fotografia"
-                              onChange={subirACloudinary}
-                          />
-                      </label>
-                  </div>                  
-                  : 
-                  <div
-                      className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
-                      style={{backgroundImage: `url(${urlImagen})`}} 
-                  >
-                      <label className="flex flex-col items-center justify-center h-48">
-                          <IconCaptura stroke="#fff"/>
-                          { cargando ? <span className="mt-2 text-white">Subiendo foto...</span> : null }
-                          <input
-                              className="hidden"
-                              type="file" 
-                              name="fotografia"
-                              onChange={subirACloudinary}
-                          />
-                      </label>
-                  </div>  }
+            <Formik
+              initialValues={{
+                url_imagen: '',
+                nombre: '',
+                profesion: '',
+                ubicacion: '',
+                resumen: '',
+                texto_boton: '',
+                numero_contacto: '',
+                medio_contacto: 'whatsapp',            
+                redes_sociales: [{ redsocial: "facebook", usuario: "" }]
+              }}
+              onSubmit={(values) => {
+                console.log(values)
+              }}
+            >
+              {(formikProps) => (
+                <form 
+                  id="profile"
+                  autoComplete="off"
+                  className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0" 
+                  onSubmit={formikProps.handleSubmit}
+                >
+
                   
                   <Field
                     name="nombre"
@@ -327,7 +275,7 @@ const Card1 = () => {
                                   name={`redes_sociales.${index}.redsocial`}
                                 >
                                   {(fieldPropsNombre) => (
-                                    <div className="absolute inset-y-0 left-2 flex items-center">
+                                    <div className="absolute inset-y-0 left-1 flex items-center">
                                       {/* <label htmlFor="redsocial">Redes Sociales</label> */}
                                       <select 
                                         className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 sm:text-sm rounded-md leading-8"
@@ -379,17 +327,17 @@ const Card1 = () => {
                     )}
                   </FieldArray>
 
-                <button
-                    className="cursor-pointer w-full focus:outline-none rounded-xl py-3 mt-8 mb-4 text-1xl lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
-                    type="submit"
-                    id="boton"
-                    name="boton"
-                >PUBLICAR</button>
-                </div>
+                  <button
+                      className="cursor-pointer w-full focus:outline-none rounded-xl py-3 mt-8 mb-4 text-1xl lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                      type="submit"
+                      id="boton"
+                      name="boton"
+                  >PUBLICAR</button>
 
-              </form>
-            )}
-          </Formik>
+                </form>
+              )}
+            </Formik>
+          </div>
           <div className="w-full lg:w-2/5">
             <img
               src="https://source.unsplash.com/MP0IUfwrn0A"

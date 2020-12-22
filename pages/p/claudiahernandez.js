@@ -71,6 +71,7 @@ const Card1 = () => {
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
       >
         <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
+          
           <div
             id="profile"
             className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0"
