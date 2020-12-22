@@ -21,15 +21,13 @@ const cmasd = () => {
         </Head>
 
         <section className="text-gray-700 body-font h-screen bg-black">
+            <div className="">
+                <img 
+                    className="w-auto"
+                    src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
+                />
+            </div>
           <div className="container mx-auto flex flex-wrap h-full">
-            <figure className="max-h-32">
-                <picture className="relative">
-                    <img 
-                        className="w-auto"
-                        src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
-                    />
-                </picture>
-            </figure>
             <div className="lg:w-1/2 px-4 py-4 mx-auto bg-blue-200 rounded-t-3xl">
                 <div>
                     <p>Hola, somos</p>
