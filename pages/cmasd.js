@@ -22,10 +22,10 @@ const cmasd = () => {
 
         <section className="text-gray-700 body-font h-screen bg-black">
           <div className="container mx-auto flex flex-wrap h-full">
-            <figure>
-                <picture>
+            <figure className="max-h-32">
+                <picture className="relative">
                     <img 
-                        className="h-auto"
+                        className="w-auto"
                         src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
                     />
                 </picture>
