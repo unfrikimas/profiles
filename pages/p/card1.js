@@ -148,8 +148,8 @@ const Card1 = () => {
               medio_contacto: 'whatsapp',            
               redes_sociales: [{ redsocial: "facebook", usuario: "" }]
             }}
-            onSubmit={(value) => {
-              console.log(value)
+            onSubmit={(values) => {
+              console.log(values)
             }}
           >
             {(formikProps) => (
@@ -275,7 +275,7 @@ const Card1 = () => {
 
                   <div>
                     <div className="mt-1 relative rounded-md">
-                      <div className="absolute inset-y-1 left-1 flex items-center pointer-events-none">
+                      <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
                           <IconPhone width={30} height={30}/>
                         </span>
@@ -285,7 +285,7 @@ const Card1 = () => {
                       >
                         {(fieldNumeroContacto) => (
                           <input 
-                            className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-md" 
+                            className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" 
                             placeholder="Número contacto"
                             autoComplete="off"
                             type="text" 
@@ -294,7 +294,7 @@ const Card1 = () => {
                           />
                         )}
                       </Field>
-                      <div className="absolute inset-y-0 right-2 flex items-center">
+                      <div className="absolute inset-y-0 right-0 flex items-center">
                         <label htmlFor="contacto" className="sr-only">Contacto</label>
                         <Field
                           name="medio_contacto"                          
@@ -322,12 +322,12 @@ const Card1 = () => {
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
-                            <div className="flex py-1 mt-2 relative border-2 border-dashed border-green-500 pr-1 rounded-xl">
+                            <div className="flex py-1 mt-2 relative border-2 border-dashed border-green-500 pr-3 rounded-xl">
                                 <Field
                                   name={`redes_sociales.${index}.redsocial`}
                                 >
                                   {(fieldPropsNombre) => (
-                                    <div className="absolute inset-y-0 left-1 flex items-center">
+                                    <div className="absolute inset-y-0 left-2 flex items-center">
                                       {/* <label htmlFor="redsocial">Redes Sociales</label> */}
                                       <select 
                                         className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 sm:text-sm rounded-md leading-8"
@@ -348,7 +348,7 @@ const Card1 = () => {
                                     <>
                                       <div>                         
                                         <input
-                                          className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full ml-1 pl-28 pr-12 sm:text-sm border-gray-300 rounded-md"
+                                          className="w-95% focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full ml-1 mr-2 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md"
                                           placeholder="Usuario"
                                           {...fieldProps.field}
                                         />
