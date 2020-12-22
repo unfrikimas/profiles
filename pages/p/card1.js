@@ -348,12 +348,12 @@ const Card1 = () => {
                                     <>
                                       <div>                         
                                         <input
-                                          className="w-95% focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full ml-1 mr-2 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md"
+                                          className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md"
                                           placeholder="Usuario"
                                           {...fieldProps.field}
                                         />
                                       </div>
-                                      <div className="flex flex-1 items-center justify-center text-xl">
+                                      <div className="flex flex-1 ml-2 items-center justify-center text-xl">
                                         <button
                                           type="button"
                                           onClick={() => fieldArrayProps.remove(index)}
