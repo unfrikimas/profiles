@@ -30,10 +30,18 @@ const cmasd = () => {
           <div className="container mx-auto flex flex-wrap h-full">
             <div className="lg:w-1/2 w-full px-4 py-4 mx-auto bg-white rounded-t-3xl">
                 <div className="pl-2">
-                    <p>Hola, somos</p>
+                    <p className="pl-1">Hola, somos</p>
                     <h1
-                        className="text-xl font-bold"
+                        className="text-2xl font-bold"
                     >Comunicación más digital</h1>
+                </div>
+                <div className="mt-1">
+                  <ul className="flex flex-wrap text-sm items-center">
+                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-100 text-gray-700">Branding</li>
+                    <li className="py-1 px-3 mx-1 my-1 rounded-lg bg-gray-100 text-gray-700">Inbound Marketing</li>
+                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-100 text-gray-700">Infoproductos</li>
+                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-100 text-gray-700">Transformación Digital</li>
+                  </ul>
                 </div>
                 <div className="flex flex-wrap w-full h-1/3 py-8 px-4 relative mb-4 mt-4">
                     <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608670068/brevi_site/IMG_CMASDWEB_HABLEMOS-2_wbdftk.png" />
@@ -41,14 +49,14 @@ const cmasd = () => {
                         <h2 className="text-3xl text-white font-medium title-font mb-2">¡Hablemos!</h2>
                         <p className="leading-relaxed"></p>
                         <a className="mt-2 pl-1 text-gray-800 inline-flex items-center">WhatsApp
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </a>
                     </div>
                 </div>
                 <div className="pl-2 pb-4">
-                    <h2 className="text-lg font-bold">Últimos artículos</h2>
+                    <h2 className="text-xl font-bold">Artículos destacados</h2>
                 </div>
               <div className="flex flex-wrap -mx-2">
                 <div className="px-2 w-1/2">
@@ -57,7 +65,7 @@ const cmasd = () => {
                     <div className="text-center relative z-10 w-full">
                       <p className="leading-relaxed"></p>
                       <a className="mt-3 text-indigo-500 inline-flex items-center">Leer más
-                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                           <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                       </a>
@@ -70,7 +78,7 @@ const cmasd = () => {
                     <div className="text-center relative z-10 w-full">
                       <p className="leading-relaxed"></p>
                       <a className="mt-3 text-indigo-500 inline-flex items-center">Leer más
-                        <svg fill="none" stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                           <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                       </a>
