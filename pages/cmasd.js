@@ -28,12 +28,12 @@ const cmasd = () => {
         <section className="text-gray-700 body-font h-auto bg-black">
           <div className="">
               <img 
-                  className="w-auto mx-auto"
+                  className="w-auto mx-auto md:w-1/2"
                   src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
               />
           </div>
-          <div className="w-full lg:w-1/2 mx-auto flex flex-wrap h-auto bg-white rounded-3xl">
-            <div className="lg:w-1/2 w-full px-4 py-4 mx-auto">
+          <div className="w-full md:w-1/2 lg:p-10 mx-auto flex flex-wrap h-auto bg-white rounded-3xl">
+            <div className="w-full px-4 py-4 mx-auto">
                 <div className="pl-2">
                     <p className="pl-1">Hola, somos</p>
                     <h1 className="text-2xl py-1 font-bold">Comunicación más digital</h1>
@@ -92,6 +92,16 @@ const cmasd = () => {
                     </div>
                   </a>
                 </div>
+              </div>
+              <div className="text-right">
+                <a 
+                  href="https://blog.cmasd.co/"
+                  target="_blank"
+                  className="mt-6 pl-1 text-gray-500 inline-flex items-center hover:underline">Más artículos
+                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
               </div>
               <div className="pl-2 mt-6 mb-4">
                 <h2 className="text-xl font-bold">Casos de éxito</h2>
