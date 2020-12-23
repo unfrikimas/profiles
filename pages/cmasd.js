@@ -1,5 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
+import IconFacebook from '../components/icons/socials/facebook';
+import IconInstagram from '../components/icons/socials/instagram';
+import IconLinkedin from '../components/icons/socials/linkedin';
 
 const cmasd = () => {
     return (  
@@ -43,7 +46,7 @@ const cmasd = () => {
                     <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-200 text-gray-700">Transformación Digital</li>
                   </ul>
                 </div>
-                <div className="flex flex-wrap w-full h-1/3 py-8 px-4 relative mb-4 mt-4">
+                <div className="flex flex-wrap w-full h-56 py-8 px-4 relative mb-4 mt-4">
                     <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608670068/brevi_site/IMG_CMASDWEB_HABLEMOS-2_wbdftk.png" />
                     <div className="relative z-10 w-full">
                         <h2 className="text-3xl text-white font-medium title-font mb-2">¡Hablemos!</h2>
@@ -107,7 +110,33 @@ const cmasd = () => {
                   </a>
                 </div>
               </div>
-              <div className="py-20"></div>
+              <div>
+                <div className="pl-2 mt-8 mb-6">
+                  <h2 className="text-xl text-center font-bold">¡Síguenos!</h2>
+                </div>
+                <div>
+                  <ul className="flex flex-wrap justify-center gap-8">
+                    <li className="">
+                      <a 
+                        className="fill-current text-gray-500 hover:text-pink-600"
+                        href="https://www.facebook.com/cmasd.co" target="_blank">
+                        <IconFacebook width={40} heigth={40} />
+                      </a>
+                    </li>
+                    <a
+                      className="fill-current text-gray-500 hover:text-pink-600"
+                      href="https://www.instagram.com/cmasd.co/" target="_blank">
+                      <li><IconInstagram width={40} heigth={40} /></li>
+                    </a>
+                    <a
+                      className="fill-current text-gray-500 hover:text-pink-600"
+                      href="https://www.linkedin.com/company/c-m%C3%A1s-d-comunicaci%C3%B3n-y-desarrollo/" target="_blank">
+                      <li><IconLinkedin width={40} heigth={40} /></li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+              <div className="py-10"></div>
             </div>
           </div>
         </section>  
