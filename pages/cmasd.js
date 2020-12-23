@@ -46,7 +46,7 @@ const cmasd = () => {
                     <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-200 text-gray-700">Transformación Digital</li>
                   </ul>
                 </div>
-                <div className="flex flex-wrap w-full h-56 py-8 px-4 relative mb-4 mt-4">
+                <div className="flex flex-wrap w-full h-52 py-8 px-4 relative mb-4 mt-4">
                     <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608670068/brevi_site/IMG_CMASDWEB_HABLEMOS-2_wbdftk.png" />
                     <div className="relative z-10 w-full">
                         <h2 className="text-3xl text-white font-medium title-font mb-2">¡Hablemos!</h2>
