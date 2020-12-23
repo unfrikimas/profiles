@@ -177,7 +177,7 @@ const cmasd = () => {
               </div>
               <div className="text-xl text-center font-bold text-gray-500 mt-14">
                 <p>
-                  <span className="text-blue-600">Somos una agencia tan grande</span><br></br>
+                  <span className="">Somos una agencia tan grande</span><br></br>
                   como sus proyectos
                 </p>
               </div>
