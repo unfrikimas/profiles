@@ -37,10 +37,10 @@ const cmasd = () => {
                 </div>
                 <div className="mt-1">
                   <ul className="flex flex-wrap text-sm items-center">
-                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-100 text-gray-700">Branding</li>
-                    <li className="py-1 px-3 mx-1 my-1 rounded-lg bg-gray-100 text-gray-700">Inbound Marketing</li>
-                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-100 text-gray-700">Infoproductos</li>
-                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-100 text-gray-700">Transformación Digital</li>
+                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-200 text-gray-700">Branding</li>
+                    <li className="py-1 px-3 mx-1 my-1 rounded-lg bg-gray-200 text-gray-700">Inbound Marketing</li>
+                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-200 text-gray-700">Infoproductos</li>
+                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-200 text-gray-700">Transformación Digital</li>
                   </ul>
                 </div>
                 <div className="flex flex-wrap w-full h-1/3 py-8 px-4 relative mb-4 mt-4">
