@@ -28,11 +28,11 @@ const cmasd = () => {
         <section className="text-gray-700 body-font h-auto bg-black">
           <div className="">
               <img 
-                  className="w-auto"
+                  className="w-auto mx-auto"
                   src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
               />
           </div>
-          <div className="container mx-auto flex flex-wrap h-auto bg-white rounded-3xl">
+          <div className="w-full lg:w-1/2 mx-auto flex flex-wrap h-auto bg-white rounded-3xl">
             <div className="lg:w-1/2 w-full px-4 py-4 mx-auto">
                 <div className="pl-2">
                     <p className="pl-1">Hola, somos</p>
@@ -60,7 +60,7 @@ const cmasd = () => {
                         <a 
                           href="https://api.whatsapp.com/send?phone=573058261064&text=Hola"
                           target="_blank"
-                          className="mt-2 pl-1 text-pink-600 inline-flex items-center">WhatsApp
+                          className="mt-2 pl-1 text-pink-600 inline-flex items-center hover:underline">WhatsApp
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
@@ -165,7 +165,17 @@ const cmasd = () => {
                   </div>
                 </div>
               </a>
-              <div className="text-xl text-center font-bold text-gray-500 mt-8">
+              <div className="text-right">
+                <a 
+                  href="https://cmasd.co/portafolio/"
+                  target="_blank"
+                  className="mt-4 pl-1 text-gray-500 inline-flex items-center hover:underline">Más casos de éxito
+                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+              <div className="text-xl text-center font-bold text-gray-500 mt-14">
                 <p>
                   <span className="text-blue-600">Somos una agencia tan grande</span><br></br>
                   como sus proyectos
@@ -206,7 +216,7 @@ const cmasd = () => {
           </div>
           <div className="py-10 bg-black">
             <div className="text-white text-center py-3 px-4 w-full lg:w-1/4 mx-auto lg:rounded-lg">
-              <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing">Brevi</a></p>
+              <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing" target="_blank">Brevi</a></p>
             </div>
           </div>
         </section>  
