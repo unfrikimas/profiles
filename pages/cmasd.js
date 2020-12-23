@@ -3,6 +3,8 @@ import Head from 'next/head';
 import IconFacebook from '../components/icons/socials/facebook';
 import IconInstagram from '../components/icons/socials/instagram';
 import IconLinkedin from '../components/icons/socials/linkedin';
+import IconLocation from '../components/icons/location';
+import IconBehance from '../components/icons/socials/behance';
 
 const cmasd = () => {
     return (  
@@ -23,20 +25,24 @@ const cmasd = () => {
             <script src="https://unpkg.com/tippy.js@4" />
         </Head>
 
-        <section className="text-gray-700 body-font h-screen bg-black pb-10">
-            <div className="">
-                <img 
-                    className="w-auto"
-                    src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
-                />
-            </div>
-          <div className="container mx-auto flex flex-wrap h-auto pb-10">
-            <div className="lg:w-1/2 w-full px-4 py-4 mx-auto bg-white rounded-t-3xl">
+        <section className="text-gray-700 body-font h-auto bg-black">
+          <div className="">
+              <img 
+                  className="w-auto"
+                  src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
+              />
+          </div>
+          <div className="container mx-auto flex flex-wrap h-auto bg-white rounded-3xl">
+            <div className="lg:w-1/2 w-full px-4 py-4 mx-auto">
                 <div className="pl-2">
                     <p className="pl-1">Hola, somos</p>
-                    <h1
-                        className="text-2xl py-1 font-bold"
-                    >Comunicación más digital</h1>
+                    <h1 className="text-2xl py-1 font-bold">Comunicación más digital</h1>
+                    <div className="flex">
+                      <span className="fill-current text-gray-600">
+                        <IconLocation width={15} heigth={15} />
+                      </span>
+                      <p className="pt-0.5 text-xs text-gray-500 pb-3">Bogotá, Colombia</p>
+                    </div>
                 </div>
                 <div className="mt-1">
                   <ul className="flex flex-wrap text-sm items-center">
@@ -51,7 +57,10 @@ const cmasd = () => {
                     <div className="relative z-10 w-full">
                         <h2 className="text-3xl text-white font-medium title-font mb-2">¡Hablemos!</h2>
                         <p className="leading-relaxed"></p>
-                        <a className="mt-2 pl-1 text-gray-800 inline-flex items-center">WhatsApp
+                        <a 
+                          href="https://api.whatsapp.com/send?phone=573058261064&text=Hola"
+                          target="_blank"
+                          className="mt-2 pl-1 text-pink-600 inline-flex items-center">WhatsApp
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
@@ -87,7 +96,7 @@ const cmasd = () => {
               <div className="pl-2 mt-6 mb-4">
                 <h2 className="text-xl font-bold">Casos de éxito</h2>
               </div>
-              <div className="flex w-full justify-between gap-2">
+              {/* <div className="flex w-full justify-between gap-2">
                 <div className="flex-1 h-36">
                   <a href="https://cmasd.co/portfolio/dr-pulido/" target="_blank">
                     <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
@@ -109,34 +118,95 @@ const cmasd = () => {
                     </div>
                   </a>
                 </div>
-              </div>
-              <div>
-                <div className="pl-2 mt-8 mb-6">
-                  <h2 className="text-xl text-center font-bold">¡Síguenos!</h2>
+              </div> */}
+              <a href="https://cmasd.co/portfolio/arrocito-en-bajo/" target="_blank">
+                <div className="flex p-2 my-4 bg-gray-100 rounded-2xl shadow-lg">
+                  <div className="relative w-1/3">
+                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl" src="https://res.cloudinary.com/petportrait/image/upload/v1608722970/brevi_site/arrocito-600_qbbghi.jpg" />
+                  </div>
+                  <div className="w-2/3 pl-2 py-2">
+                    <h3 className="text-lg font-bold pl-1 pb-2">Arrocito en bajo</h3>
+                    <ul className="flex flex-wrap text-xs items-center">
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Branding</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Social Media</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Desarrollo Web</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Estrategia</li>
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <ul className="flex flex-wrap justify-center gap-8">
-                    <li className="">
-                      <a 
-                        className="fill-current text-gray-500 hover:text-pink-600"
-                        href="https://www.facebook.com/cmasd.co" target="_blank">
-                        <IconFacebook width={40} heigth={40} />
-                      </a>
-                    </li>
-                    <a
-                      className="fill-current text-gray-500 hover:text-pink-600"
-                      href="https://www.instagram.com/cmasd.co/" target="_blank">
-                      <li><IconInstagram width={40} heigth={40} /></li>
-                    </a>
-                    <a
-                      className="fill-current text-gray-500 hover:text-pink-600"
-                      href="https://www.linkedin.com/company/c-m%C3%A1s-d-comunicaci%C3%B3n-y-desarrollo/" target="_blank">
-                      <li><IconLinkedin width={40} heigth={40} /></li>
-                    </a>
-                  </ul>
+              </a>
+              <a href="https://cmasd.co/portfolio/dr-pulido/" target="_blank">
+                <div className="flex p-2 my-4 bg-gray-100 rounded-2xl shadow-lg">
+                  <div className="relative w-1/3">
+                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl" src="https://res.cloudinary.com/petportrait/image/upload/v1608722042/brevi_site/doctor-pulido-600_qvngum.jpg" />
+                  </div>
+                  <div className="w-2/3 pl-2 py-2">
+                    <h3 className="text-lg font-bold pl-1 pb-2">Dr. Pulido</h3>
+                    <ul className="flex flex-wrap text-xs items-center">
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Dirección de Arte</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Rebranding</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Desarrollo Web</li>
+                    </ul>
+                  </div>
                 </div>
+              </a>
+              <a href="https://cmasd.co/portfolio/envia/" target="_blank">
+                <div className="flex p-2 my-4 bg-gray-100 rounded-2xl shadow-lg">
+                  <div className="relative w-1/3">
+                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl" src="https://res.cloudinary.com/petportrait/image/upload/v1608722605/brevi_site/envia-600_lpgneb.jpg" />
+                  </div>
+                  <div className="w-2/3 pl-2 py-2">
+                    <h3 className="text-lg font-bold pl-1 pb-2">Envía</h3>
+                    <ul className="flex flex-wrap text-xs items-center">
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Animación</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Motion Graphics</li>
+                      <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-300 text-gray-800">Dirección de Arte</li>
+                    </ul>
+                  </div>
+                </div>
+              </a>
+              <div className="text-xl text-center font-bold text-gray-500 mt-8">
+                <p>
+                  <span className="text-blue-600">Somos una agencia tan grande</span><br></br>
+                  como sus proyectos
+                </p>
               </div>
-              <div className="py-10"></div>
+            </div>
+            <div className="w-full my-8 rounded-3xl">
+              <div className="">
+                <ul className="flex h-12 justify-center items-center gap-6">
+                  <li className="">
+                    <a 
+                      className="fill-current text-pink-600 hover:text-gray-600"
+                      href="https://www.facebook.com/cmasd.co" target="_blank">
+                      <IconFacebook width={35} heigth={35} />
+                    </a>
+                  </li>
+                  <a
+                    className="fill-current text-pink-600 hover:text-gray-600"
+                    href="https://www.instagram.com/cmasd.co/" target="_blank">
+                    <li><IconInstagram width={35} heigth={35} /></li>
+                  </a>
+                  <a
+                    className="fill-current text-pink-600 hover:text-gray-600"
+                    href="https://www.linkedin.com/company/c-m%C3%A1s-d-comunicaci%C3%B3n-y-desarrollo/" target="_blank">
+                    <li><IconLinkedin width={35} heigth={35} /></li>
+                  </a>
+                  <a
+                    className="fill-current text-pink-600 hover:text-gray-600"
+                    href="https://www.behance.net/CmasD-agencia?tracking_source=search_users_recommended%7Ccmasd%20" target="_blank">
+                    <li><IconBehance width={35} heigth={35} /></li>
+                  </a>
+                </ul>
+              </div>
+              <div className="pl-2 mt-4 mb-4">
+                <h2 className="text-xl text-center text-pink-600 font-bold">¡Síguenos!</h2>
+              </div>
+            </div>            
+          </div>
+          <div className="py-10 bg-black">
+            <div className="text-white text-center py-3 px-4 w-full lg:w-1/4 mx-auto lg:rounded-lg">
+              <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing">Brevi</a></p>
             </div>
           </div>
         </section>  
