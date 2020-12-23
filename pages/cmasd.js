@@ -20,19 +20,19 @@ const cmasd = () => {
             <script src="https://unpkg.com/tippy.js@4" />
         </Head>
 
-        <section className="text-gray-700 body-font h-screen bg-black">
+        <section className="text-gray-700 body-font h-screen bg-black pb-10">
             <div className="">
                 <img 
                     className="w-auto"
                     src='https://res.cloudinary.com/petportrait/image/upload/v1608664466/brevi_site/Logo-con-el-M%C3%A1s-en-blanco_ssopqb.png'
                 />
             </div>
-          <div className="container mx-auto flex flex-wrap h-full">
+          <div className="container mx-auto flex flex-wrap h-auto pb-10">
             <div className="lg:w-1/2 w-full px-4 py-4 mx-auto bg-white rounded-t-3xl">
                 <div className="pl-2">
                     <p className="pl-1">Hola, somos</p>
                     <h1
-                        className="text-2xl font-bold"
+                        className="text-2xl py-1 font-bold"
                     >Comunicación más digital</h1>
                 </div>
                 <div className="mt-1">
@@ -55,37 +55,59 @@ const cmasd = () => {
                         </a>
                     </div>
                 </div>
-                <div className="pl-2 pb-4">
+                <div className="pl-2 pb-4 pt-2">
                     <h2 className="text-xl font-bold">Artículos destacados</h2>
                 </div>
               <div className="flex flex-wrap -mx-2">
                 <div className="px-2 w-1/2">
-                  <div className="flex flex-wrap w-full h-full sm:py-24 py-20 sm:px-10 px-6 relative">
-                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608675986/brevi_site/posicionamiento-de-marca-01_qdbffi.jpg" />
-                    <div className="text-center relative z-10 w-full">
-                      <p className="leading-relaxed"></p>
-                      <a className="mt-3 text-indigo-500 inline-flex items-center">Leer más
-                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                          <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
+                  <a href="https://blog.cmasd.co/posicionamiento-de-marca/" target="_blank">
+                    <div className="flex flex-wrap w-full h-48 sm:py-24 py-2 sm:px-10 px-2 relative">
+                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608675986/brevi_site/posicionamiento-de-marca-01_qdbffi.jpg" />
+                      
+                      <div className="flex relative z-10 w-full">
+                        <p className="absolute left-1 bottom-2 leading-5 font-bold text-white bg-pink-600 bg-opacity-50 rounded-lg px-1 pb-1 items-center">Posicionamiento de Marca</p>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
                 <div className="px-2 w-1/2">
-                  <div className="flex flex-wrap w-full sm:py-24 py-20 sm:px-10 px-6 relative">
-                    <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0  rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608676229/brevi_site/Branding-Estrat%C3%A9gico_akqe9q.jpg" />
-                    <div className="text-center relative z-10 w-full">
-                      <p className="leading-relaxed"></p>
-                      <a className="mt-3 text-indigo-500 inline-flex items-center">Leer más
-                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                          <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
+                  <a href="https://blog.cmasd.co/branding-estrategico-como-objetivos-empresariales/" target="_blank">
+                    <div className="flex flex-wrap w-full h-48 sm:py-24 py-2 sm:px-10 px-2 relative">
+                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608676229/brevi_site/Branding-Estrat%C3%A9gico_akqe9q.jpg" />
+                      <div className="relative z-10 w-full">
+                        <p className="absolute left-1 bottom-2 leading-5 font-bold text-white bg-blue-600 bg-opacity-50 rounded-lg px-1 pb-1 ">Branding Estratégico</p>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
+              <div className="pl-2 mt-6 mb-4">
+                <h2 className="text-xl font-bold">Casos de éxito</h2>
+              </div>
+              <div className="flex w-full justify-between gap-2">
+                <div className="flex-1 h-36">
+                  <a href="https://cmasd.co/portfolio/dr-pulido/" target="_blank">
+                    <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
+                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608722042/brevi_site/doctor-pulido-600_qvngum.jpg" />
+                    </div>
+                  </a>
+                </div>
+                <div className="flex-1 h-36">
+                  <a href="https://cmasd.co/portfolio/envia/" target="_blank">
+                    <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
+                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608722605/brevi_site/envia-600_lpgneb.jpg" />
+                    </div>
+                  </a>
+                </div>
+                <div className="flex-1 h-36">
+                  <a href="https://cmasd.co/portfolio/arrocito-en-bajo/" target="_blank">
+                    <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
+                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608722970/brevi_site/arrocito-600_qbbghi.jpg" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div className="py-20"></div>
             </div>
           </div>
         </section>  
