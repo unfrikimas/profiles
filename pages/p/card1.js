@@ -224,7 +224,7 @@ const Card1 = () => {
                   >
                     {(fieldUbicacion) => (                      
                       <input 
-                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-4 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                         type="text"
                         id="ubicacion"
                         autoComplete="off"
@@ -307,7 +307,7 @@ const Card1 = () => {
                   <FieldArray name="redes_sociales">
                     {(fieldArrayProps) => (
                       <>
-                        <div className="my-4 text-center text-gray-700 font-bold">
+                        <div className="mt-8 mb-4 text-center text-gray-700 font-bold">
                           <p>Redes Sociales</p>
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
@@ -375,7 +375,7 @@ const Card1 = () => {
                   </FieldArray>
 
                   <button
-                      className="cursor-pointer w-full focus:outline-none rounded-xl py-4 my-8 text-1xl lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 bg-green-500 text-white tracking-wider"
+                      className="cursor-pointer w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-green-500 text-white tracking-wider"
                       type="submit"
                       id="boton"
                       name="boton"
