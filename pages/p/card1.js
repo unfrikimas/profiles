@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect, Fragment } from "react";
+import { FirebaseContext } from '../../firebase';
 import { Formik, FieldArray, Field } from 'formik';
 import formContext from '../../context/form/formContext';
 import Head from "next/head";
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import IconCaptura from '../../components/icons/captura';
 import IconPhone from '../../components/icons/phone';
 import IconFacebook from '../../components/icons/socials/facebook';
@@ -23,14 +25,54 @@ const Card1 = () => {
 
   const [redesSociales, setRedesSociales] = useState(redes_sociales);  
 
+  //context de usuario
+  const { usuario, firebase } = useContext(FirebaseContext);
 
+  //routing
+  const router = useRouter();
 
-
-    const handleSubmit = e => {
-      e.preventDefault();
-      console.log("Redes Sociales", redesSociales);
-    };
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("Redes Sociales", redesSociales);
+  };
     
+
+    //Guardar tarjeta web en Firebase
+  function CrearTarjetaWeb(values) {
+
+    //si el usuario no esta autenticado llevar al login
+    // if(!usuario) {
+    //   return router.push('/landing');
+    // }  
+
+    //objeto de nuevo producto
+    const tarjeta = {
+      url: shortid.generate(),
+      urlimagenusuario: urlImagen,
+      nombre: values.nombre, 
+      profesion: values.profesion,
+      ubicacion: values.ubicacion,
+      resumen: values.resumen,
+      textoboton: values.texto_boton,
+      numerocontacto: values.numero_contacto,
+      mediocontacto: values.medio_contacto,
+      redessociales: values.redes_sociales,
+      creado: Date.now(),
+      // creador: {
+      //   id: usuario.uid,
+      //   nombre: usuario.displayName
+      // },
+    }
+    
+    console.log(tarjeta)
+
+    //insertar productos en la base de datos
+    firebase.db.collection('tarjetas').add(tarjeta);
+
+    //redireccionar luego de agregar un producto
+    return router.push('/');
+
+  }
 
   // handle click event of the Remove button
   const handleRemoveClick = index => {
@@ -51,7 +93,6 @@ const Card1 = () => {
     formData.append("file", files);
     formData.append("upload_preset", "brevisite");
     setCargando(true);
-    console.log(formData)
 
     try {
       const res = await axios.post("https://api.cloudinary.com/v1_1/petportrait/upload", formData);
@@ -106,7 +147,7 @@ const Card1 = () => {
             </div>                  
             : 
             <div
-              className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 ring-4 border-green-500 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
+              className="block lg:hidden rounded-full shadow-2xl mx-auto ring-4 ring-green-700 ring-opacity-50 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
               style={{backgroundImage: `url(${urlImagen})`}} 
             >
               <label className="flex flex-col items-center justify-center h-48">
@@ -123,7 +164,7 @@ const Card1 = () => {
 
             <Formik
               initialValues={{
-                url_imagen: '',
+                urlImagen: '',
                 nombre: '',
                 profesion: '',
                 ubicacion: '',
@@ -135,6 +176,7 @@ const Card1 = () => {
               }}
               onSubmit={(values) => {
                 console.log(values)
+                // CrearTarjetaWeb(values)
               }}
             >
               {(formikProps) => (
@@ -144,7 +186,6 @@ const Card1 = () => {
                   className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl px-4 lg:p-8 lg:mx-0" 
                   onSubmit={formikProps.handleSubmit}
                 >
-
                   
                   <Field
                     name="nombre"
@@ -186,7 +227,7 @@ const Card1 = () => {
                         type="text"
                         id="ubicacion"
                         autoComplete="off"
-                        placeholder="🗽 Dónde estás"
+                        placeholder="🗽 Dónde vives"
                         {...fieldUbicacion.field}
                       />
                     )}
@@ -284,6 +325,11 @@ const Card1 = () => {
                                         <option value="facebook">Facebook</option>
                                         <option value="instagram">Instagram</option>
                                         <option value="linkedin">Linkedin</option>
+                                        <option value="youtube">Youtube</option>
+                                        <option value="tiktok">Tik Tok</option>
+                                        <option value="pinterest">Pinterest</option>
+                                        <option value="dribbble">Dribbble</option>
+                                        <option value="behance">Behance</option>
                                       </select>
                                     </div>   
                                   )}
@@ -318,7 +364,7 @@ const Card1 = () => {
                           <button
                             className="focus:outline-none"
                             type="button"
-                            onClick={() => fieldArrayProps.push({ redsocial: "", usuario: "" })}
+                            onClick={() => fieldArrayProps.push({ redsocial: "facebook", usuario: "" })}
                           >
                             <IconPlus width={50} height={50}/>
                           </button>
@@ -332,7 +378,7 @@ const Card1 = () => {
                       type="submit"
                       id="boton"
                       name="boton"
-                  >PUBLICAR</button>
+                  >PUBLICAR TARJETA WEB</button>
 
                 </form>
               )}
