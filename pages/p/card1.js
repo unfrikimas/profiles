@@ -106,7 +106,7 @@ const Card1 = () => {
             </div>                  
             : 
             <div
-              className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+              className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 ring-4 border-green-500 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
               style={{backgroundImage: `url(${urlImagen})`}} 
             >
               <label className="flex flex-col items-center justify-center h-48">
@@ -265,7 +265,7 @@ const Card1 = () => {
                   <FieldArray name="redes_sociales">
                     {(fieldArrayProps) => (
                       <>
-                        <div className="my-4">
+                        <div className="my-4 text-center text-gray-700 font-bold">
                           <p>Redes Sociales</p>
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
@@ -297,7 +297,7 @@ const Card1 = () => {
                                       <div>                         
                                         <input
                                           className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md"
-                                          placeholder="Usuario"
+                                          placeholder="Nombre perfil"
                                           {...fieldProps.field}
                                         />
                                       </div>
@@ -313,7 +313,7 @@ const Card1 = () => {
                             </div>
                           </Fragment>
                         ))}
-                        <div className="flex items-center justify-center my-2">
+                        <div className="flex items-center justify-center my-2 text-gray-700">
                           <p>Agregar Red Social</p>
                           <button
                             className="focus:outline-none"
