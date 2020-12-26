@@ -49,7 +49,7 @@ const Card1 = () => {
     const files = e.target.files[0];
     const formData = new FormData();
     formData.append("file", files);
-    formData.append("upload_preset", "pets_preset");
+    formData.append("upload_preset", "brevisite");
     setCargando(true);
     console.log(formData)
 
@@ -78,18 +78,18 @@ const Card1 = () => {
       </Head>
 
       <div
-        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto sm:h-screen bg-cover"
+        className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
       >
-        <div className="max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
+        <div className="w-full max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
 
-          <div className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-6 lg:mx-0">     
+          <div className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 lg:mx-0">     
             { !urlImagen 
             ?
             <div
               className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
             >
-              <label className="flex flex-col items-center justify-center h-full w-full">
+              <label className="flex flex-col items-center justify-center h-full w-full cursor-pointer">
                 <span className="items-center">
                   <IconCaptura />
                 </span>
@@ -141,7 +141,7 @@ const Card1 = () => {
                 <form 
                   id="profile"
                   autoComplete="off"
-                  className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0" 
+                  className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl px-4 lg:p-8 lg:mx-0" 
                   onSubmit={formikProps.handleSubmit}
                 >
 
