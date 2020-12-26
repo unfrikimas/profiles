@@ -83,7 +83,7 @@ const Card1 = () => {
       >
         <div className="w-full max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
 
-          <div className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 lg:mx-0">     
+          <div className="w-full lg:w-3/5 rounded-2xl lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-4 lg:mx-0 ">     
             { !urlImagen 
             ?
             <div
