@@ -62,6 +62,7 @@ const Card1 = () => {
       //   id: usuario.uid,
       //   nombre: usuario.displayName
       // },
+      usuariopremium: false
     }
     
     console.log(tarjeta)
@@ -183,7 +184,7 @@ const Card1 = () => {
                 <form 
                   id="profile"
                   autoComplete="off"
-                  className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl px-4 lg:p-8 lg:mx-0" 
+                  className="w-full pb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl px-4 lg:p-8 lg:mx-0" 
                   onSubmit={formikProps.handleSubmit}
                 >
                   
@@ -313,7 +314,7 @@ const Card1 = () => {
                           <Fragment key={index}>
                             <div className="flex py-1 mt-2 relative border-2 border-dashed border-green-500 pr-3 rounded-xl">
                                 <Field
-                                  name={`redes_sociales.${index}.redsocial`}
+                                  name={`redes_sociales[${index}].redsocial`}
                                 >
                                   {(fieldPropsNombre) => (
                                     <div className="absolute inset-y-0 left-1 flex items-center">
@@ -336,7 +337,7 @@ const Card1 = () => {
                                 </Field>
 
                                 <Field
-                                  name={`redes_sociales.${index}.usuario`}
+                                  name={`redes_sociales[${index}].usuario`}
                                 >
                                   {(fieldProps) => (
                                     <>
@@ -366,7 +367,7 @@ const Card1 = () => {
                             type="button"
                             onClick={() => fieldArrayProps.push({ redsocial: "facebook", usuario: "" })}
                           >
-                            <IconPlus width={50} height={50}/>
+                            <IconPlus width={45} height={45}/>
                           </button>
                         </div>
                       </>
@@ -374,7 +375,7 @@ const Card1 = () => {
                   </FieldArray>
 
                   <button
-                      className="cursor-pointer w-full focus:outline-none rounded-xl py-3 mt-8 mb-4 text-1xl lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                      className="cursor-pointer w-full focus:outline-none rounded-xl py-4 my-8 text-1xl lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 bg-green-500 text-white tracking-wider"
                       type="submit"
                       id="boton"
                       name="boton"
