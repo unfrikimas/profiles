@@ -155,7 +155,7 @@ const Tarjeta = (props) => {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { url: "cmasd" } }],
+    paths: [{ params: { url: "x2qHVlhPS" } }],
     fallback: true,
   }
 }
