@@ -125,11 +125,11 @@ const Card1 = () => {
       >
         <div className="w-full max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
 
-          <div className="w-full lg:w-3/5 rounded-2xl lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-90 mx-4 lg:mx-0 ">     
+          <div className="w-full lg:w-3/5 rounded-2xl lg:rounded-l-lg lg:rounded-r-none shadow-xl bg-white opacity-90 mx-4 lg:mx-0 ">     
             { !urlImagen 
             ?
             <div
-              className="block lg:hidden rounded-full shadow-2xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+              className="block lg:hidden rounded-full shadow-xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
             >
               <label className="flex flex-col items-center justify-center h-full w-full cursor-pointer">
                 <span className="items-center">
@@ -148,7 +148,7 @@ const Card1 = () => {
             </div>                  
             : 
             <div
-              className="block lg:hidden rounded-full shadow-2xl mx-auto ring-4 ring-green-700 ring-opacity-50 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
+              className="block lg:hidden rounded-full shadow-xl mx-auto ring-4 ring-green-700 ring-opacity-50 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
               style={{backgroundImage: `url(${urlImagen})`}} 
             >
               <label className="flex flex-col items-center justify-center h-48">
@@ -307,7 +307,7 @@ const Card1 = () => {
                   <FieldArray name="redes_sociales">
                     {(fieldArrayProps) => (
                       <>
-                        <div className="mt-8 mb-4 text-center text-gray-700 font-bold">
+                        <div className="mt-12 mb-4 text-center text-gray-700 font-bold">
                           <p>Redes Sociales</p>
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
