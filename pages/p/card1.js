@@ -13,7 +13,7 @@ import IconGitHub from '../../components/icons/socials/github';
 import IconPlus from '../../components/icons/form/plus';
 import IconMinus from '../../components/icons/form/minus';
 import shortid from 'shortid';
-import Repeater from '../../components/ui/Repeater';
+import Repeater from '../../components/ui/RedesSociales';
 
 const Card1 = () => {
 
