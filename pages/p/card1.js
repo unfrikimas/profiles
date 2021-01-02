@@ -217,13 +217,14 @@ const Card1 = () => {
                     {(fieldProfesion) => (
                       <>
                       <input 
-                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-2 mb-1 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                         type="text"
                         id="profesion"
                         autoComplete="off"
                         placeholder="🎓 Qué haces"
                         {...fieldProfesion.field}
-                      />                   
+                      />
+                      <p className="text-sm text-center text-gray-500">Ej: Desarrollador Web</p>                                 
                       </>
                     )}
                   </Field>
@@ -257,6 +258,7 @@ const Card1 = () => {
                         placeholder="🚀 A qué te dedicas"
                         {...fieldResumen.field}
                       />
+                      <p className="text-sm text-center text-gray-500">Puedes agregar Emoticones 😉🙏💲</p>
                       </>
                     )}
                   </Field>
@@ -267,20 +269,21 @@ const Card1 = () => {
                     {(fieldTextBoton) => (
                       <>
                       <input 
-                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-4 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                         type="text"
                         id="boton"
                         autoComplete="off"
                         placeholder="TEXTO BOTÓN CONTACTO"
                         {...fieldTextBoton.field}
                       />
+                      <p className="text-sm text-center text-gray-500">Ej: CONTACTAR</p>
                       </>                      
                     )}
                   </Field>
 
                   <div>
-                    <p className="text-center font-bold text-gray-600 mt-8 mb-4">🙋 Cómo te contactan</p>
-                    <div className="mt-1 relative rounded-md">
+                    <p className="text-center font-bold text-gray-600 mt-12 mb-4">🙋 Cómo te contactarán</p>
+                    <div className="relative border-2 border-dashed border-green-500 rounded-xl py-1">
                       <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
                           <IconPhone width={30} height={30}/>
@@ -306,11 +309,11 @@ const Card1 = () => {
                         >
                           {(fieldMedioContacto) => (
                             <select 
-                              className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 sm:text-sm rounded-md leading-8"
+                              className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 sm:text-sm rounded-md leading-8"
                               {...fieldMedioContacto.field} 
                             >
-                              <option value="whatsapp">WHATSAPP</option>
-                              <option value="telefono">TELÉFONO</option>
+                              <option value="whatsapp">WhatsApp</option>
+                              <option value="telefono">Llamada</option>
                             </select>
                           )}
                         </Field>
@@ -322,7 +325,7 @@ const Card1 = () => {
                     {(fieldArrayProps) => (
                       <>
                         <div className="mt-12 mb-4 text-center text-gray-600 font-bold">
-                          <p>🎡 Redes Sociales</p>
+                          <p>🌟 Redes Sociales</p>
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
