@@ -112,17 +112,14 @@ const Card1 = () => {
           content="width=device-width, initial-scale=1.0"
         ></meta>
         <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-        <title>My Profile Card</title>
-        <meta name="description" content=""></meta>
-        <meta name="keywords" content=""></meta>
-        <meta name="author" content=""></meta>
+        <title>Crea tu tarjeta web | Brevi Site</title>
       </Head>
 
       <div
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
       >
-        <div className="w-full sm:max-w-lg flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
+        <div className="w-full sm:max-w-lg flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 sm:my-0">
 
           <div className="w-full rounded-3xl shadow-xl bg-white opacity-90 mx-4 lg:mx-0 ">     
             { !urlImagen 
