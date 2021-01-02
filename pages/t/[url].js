@@ -11,6 +11,12 @@ const Tarjeta = (props) => {
   const router = useRouter();
   if (router.isFallback) return <h1>Cargando...</h1>
 
+  if(!props.datos) {
+    return (
+      <p className="my-10 text-2xl text-center font-bold">No existe la tarjeta</p>
+    )
+  }
+
   const { urlimagenusuario, nombre, profesion, ubicacion, resumen, textoboton, numerocontacto, mediocontacto, redessociales } = props.datos[0]
 
   // if (process.browser) {
@@ -74,7 +80,7 @@ const Tarjeta = (props) => {
       <script src="https://unpkg.com/tippy.js@4" />
     </Head>
 
-    <body
+    <div
       id="tarjeta"
       className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto sm:h-screen bg-cover"
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
@@ -146,7 +152,7 @@ const Tarjeta = (props) => {
         <div className="bg-white text-center py-3 px-4 w-full lg:w-1/4 mx-auto lg:rounded-lg">
           <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing">Brevi</a></p>
         </div>
-    </body>
+    </div>
     </>    
 
   )
@@ -154,16 +160,31 @@ const Tarjeta = (props) => {
 }
 
 export async function getStaticPaths() {
+
+  const resultado = await fetch(`${process.env.frontendURL}/api/tarjetas`)
+  const tarjetas = await resultado.json()
+
   return {
-    paths: [{ params: { url: "x2qHVlhPS" } }],
-    fallback: true,
+    paths: tarjetas.tarjetas.map(tarjeta => ({
+      params: { url: tarjeta.url }
+    })),
+    fallback: true
   }
+
+  // return {
+  //   paths: [{ params: { url: "x2qHVlhPS" } }],
+  //   fallback: true,
+  // }
+
+
 }
   
 export async function getStaticProps(context) {
 
   const { params } = context
   const { url } = params
+  console.log(params)
+  console.log(url)
 
   return await firebase.db
     .collection('tarjetas')
@@ -172,7 +193,7 @@ export async function getStaticProps(context) {
     .then(snapshot => {
       if (snapshot.empty) {
         console.log('No existe esta tarjeta');
-        return;
+        return { props: {} }
       }
       const datos = snapshot.docs.map(doc => {
         const data = doc.data()

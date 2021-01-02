@@ -64,8 +64,6 @@ const Card1 = () => {
       // },
       usuariopremium: false
     }
-    
-    console.log(tarjeta)
 
     //insertar productos en la base de datos
     firebase.db.collection('tarjetas').add(tarjeta);
@@ -105,6 +103,7 @@ const Card1 = () => {
     }
   };
 
+
   return (
     <>
       <Head>
@@ -123,13 +122,13 @@ const Card1 = () => {
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
       >
-        <div className="w-full max-w-4xl flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
+        <div className="w-full sm:max-w-lg flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 lg:my-0">
 
-          <div className="w-full lg:w-3/5 rounded-2xl lg:rounded-l-lg lg:rounded-r-none shadow-xl bg-white opacity-90 mx-4 lg:mx-0 ">     
+          <div className="w-full rounded-3xl shadow-xl bg-white opacity-90 mx-4 lg:mx-0 ">     
             { !urlImagen 
             ?
             <div
-              className="block lg:hidden rounded-full shadow-xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+              className="block rounded-full shadow-xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
             >
               <label className="flex flex-col items-center justify-center h-full w-full cursor-pointer">
                 <span className="items-center">
@@ -148,7 +147,7 @@ const Card1 = () => {
             </div>                  
             : 
             <div
-              className="block lg:hidden rounded-full shadow-xl mx-auto ring-4 ring-green-700 ring-opacity-50 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
+              className="block rounded-full shadow-xl mx-auto ring-4 ring-green-700 ring-opacity-50 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
               style={{backgroundImage: `url(${urlImagen})`}} 
             >
               <label className="flex flex-col items-center justify-center h-48">
@@ -176,8 +175,7 @@ const Card1 = () => {
                 redes_sociales: [{ redsocial: "facebook", usuario: "" }]
               }}
               onSubmit={(values) => {
-                console.log(values)
-                CrearTarjetaWeb(values)
+                CrearTarjetaWeb(values)            
               }}
             >
               {(formikProps) => (
@@ -190,8 +188,19 @@ const Card1 = () => {
                   
                   <Field
                     name="nombre"
+                    // validate={(nombre) => {
+                    //   let error
+                    //   console.log(alerta)
+                    //   if(nombre.trim() === "" && alerta) {
+                    //     error = "El nombre es obligatorio"
+                    //   } else {
+                    //     error = ""
+                    //   }
+                    //   return error    
+                    // }}
                   >
-                    {(fieldNombre) => (                     
+                    {(fieldNombre) => (     
+                      <>
                       <input 
                         className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
                         autoComplete="off"
@@ -199,15 +208,17 @@ const Card1 = () => {
                         type="text"
                         {...fieldNombre.field}
                       />
+                      </>
                     )}
                   </Field>
 
-                  <div className="mx-auto lg:mx-0 w-4/5 pt-3 mb-3 border-b-2 border-green-500 opacity-25"></div>
+                  <div className="mx-auto w-4/5 pt-3 mb-3 border-b-2 border-green-500 opacity-25"></div>
                   
                   <Field
                     name="profesion"
                   >
                     {(fieldProfesion) => (
+                      <>
                       <input 
                         className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 my-2 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                         type="text"
@@ -215,14 +226,16 @@ const Card1 = () => {
                         autoComplete="off"
                         placeholder="🎓 Qué haces"
                         {...fieldProfesion.field}
-                      />
+                      />                   
+                      </>
                     )}
                   </Field>
                   
                   <Field
                     name="ubicacion"
                   >
-                    {(fieldUbicacion) => (                      
+                    {(fieldUbicacion) => (     
+                      <>                 
                       <input 
                         className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-4 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                         type="text"
@@ -230,7 +243,8 @@ const Card1 = () => {
                         autoComplete="off"
                         placeholder="🗽 Dónde vives"
                         {...fieldUbicacion.field}
-                      />
+                      />                 
+                      </>
                     )}
                   </Field>
 
@@ -238,6 +252,7 @@ const Card1 = () => {
                     name="resumen"
                   >
                     {(fieldResumen) => (
+                      <>
                       <textarea
                         className="resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm border-2 border-dashed border-green-500 px-2 py-2"
                         id="resumen"
@@ -245,6 +260,7 @@ const Card1 = () => {
                         placeholder="🚀 A qué te dedicas"
                         {...fieldResumen.field}
                       />
+                      </>
                     )}
                   </Field>
 
@@ -252,6 +268,7 @@ const Card1 = () => {
                     name="texto_boton"
                   >
                     {(fieldTextBoton) => (
+                      <>
                       <input 
                         className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-4 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
                         type="text"
@@ -260,6 +277,7 @@ const Card1 = () => {
                         placeholder="TEXTO BOTÓN CONTACTO"
                         {...fieldTextBoton.field}
                       />
+                      </>                      
                     )}
                   </Field>
 
@@ -348,8 +366,9 @@ const Card1 = () => {
                                           {...fieldProps.field}
                                         />
                                       </div>
-                                      <div className="flex flex-1 ml-2 items-center justify-center text-xl">
+                                      <div className="flex flex-1 ml-2 sm:ml-8 items-center justify-center text-xl">
                                         <button
+                                          className="focus:outline-none"
                                           type="button"
                                           onClick={() => fieldArrayProps.remove(index)}
                                         >X</button>
@@ -374,22 +393,27 @@ const Card1 = () => {
                     )}
                   </FieldArray>
 
+                  { !urlImagen || formikProps.values.nombre.trim() === "" || formikProps.values.profesion.trim() === "" || formikProps.values.ubicacion.trim() === "" || formikProps.values.resumen.trim() === "" || formikProps.values.texto_boton.trim() === "" || formikProps.values.numero_contacto.trim() === ""
+                  ?
+                  <button
+                      className="w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-green-100 text-gray-700 tracking-wider cursor-not-allowed"
+                      type="submit"
+                      id="boton"
+                      name="boton"
+                      disabled
+                  >COMPLETA TODOS LOS DATOS</button>                  
+                  :
                   <button
                       className="cursor-pointer w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-green-500 text-white tracking-wider"
                       type="submit"
                       id="boton"
                       name="boton"
                   >PUBLICAR TARJETA WEB</button>
+                  }
 
                 </form>
               )}
             </Formik>
-          </div>
-          <div className="w-full lg:w-2/5">
-            <img
-              src="https://source.unsplash.com/MP0IUfwrn0A"
-              className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-            />
           </div>
         </div>
       </div>
