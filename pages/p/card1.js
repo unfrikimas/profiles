@@ -279,6 +279,7 @@ const Card1 = () => {
                   </Field>
 
                   <div>
+                    <p className="text-center font-bold text-gray-600 mt-8 mb-4">🙋 Cómo te contactan</p>
                     <div className="mt-1 relative rounded-md">
                       <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
@@ -291,10 +292,9 @@ const Card1 = () => {
                         {(fieldNumeroContacto) => (
                           <input 
                             className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" 
-                            placeholder="Número contacto"
-                            autoComplete="off"
+                            placeholder="Ej: +34682811728"
                             type="text" 
-                            id="numero" 
+                            id="numero"
                             {...fieldNumeroContacto.field}
                           />
                         )}
@@ -307,7 +307,6 @@ const Card1 = () => {
                           {(fieldMedioContacto) => (
                             <select 
                               className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 sm:text-sm rounded-md leading-8"
-                              id="numero"
                               {...fieldMedioContacto.field} 
                             >
                               <option value="whatsapp">WHATSAPP</option>
@@ -322,8 +321,8 @@ const Card1 = () => {
                   <FieldArray name="redes_sociales">
                     {(fieldArrayProps) => (
                       <>
-                        <div className="mt-12 mb-4 text-center text-gray-700 font-bold">
-                          <p>Redes Sociales</p>
+                        <div className="mt-12 mb-4 text-center text-gray-600 font-bold">
+                          <p>🎡 Redes Sociales</p>
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
@@ -360,7 +359,7 @@ const Card1 = () => {
                                       <div>                         
                                         <input
                                           className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md"
-                                          placeholder="Nombre perfil"
+                                          placeholder="Tu perfil sin el @"
                                           {...fieldProps.field}
                                         />
                                       </div>
