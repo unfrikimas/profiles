@@ -224,7 +224,7 @@ const Card1 = () => {
                         placeholder="🎓 Qué haces"
                         {...fieldProfesion.field}
                       />
-                      <p className="text-sm text-center text-gray-500">Ej: Desarrollador Web</p>                                 
+                      <p className="text-sm tracking-normal text-center text-gray-500">Ej: Desarrollador Web</p>                                 
                       </>
                     )}
                   </Field>
@@ -258,7 +258,7 @@ const Card1 = () => {
                         placeholder="🚀 A qué te dedicas"
                         {...fieldResumen.field}
                       />
-                      <p className="text-sm text-center text-gray-500">Puedes agregar Emoticones 😉🙏💲</p>
+                      <p className="text-sm tracking-normal text-center text-gray-500">Puedes agregar Emoticones 😉🙏💲</p>
                       </>
                     )}
                   </Field>
@@ -276,13 +276,13 @@ const Card1 = () => {
                         placeholder="TEXTO BOTÓN CONTACTO"
                         {...fieldTextBoton.field}
                       />
-                      <p className="text-sm text-center text-gray-500">Ej: CONTACTAR</p>
+                      <p className="text-sm tracking-normal text-center text-gray-500">Ej: CONTACTAR</p>
                       </>                      
                     )}
                   </Field>
 
                   <div>
-                    <p className="text-center font-bold text-gray-600 mt-12 mb-4">🙋 Cómo te contactarán</p>
+                    <p className="text-center tracking-normal font-bold text-gray-600 mt-10 mb-4">🙋 Cómo te contactarán</p>
                     <div className="relative border-2 border-dashed border-green-500 rounded-xl py-1">
                       <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
@@ -319,6 +319,7 @@ const Card1 = () => {
                         </Field>
                       </div>
                     </div>
+                    <p className="mt-1 text-sm text-center text-gray-500 tracking-normal">¡No olvides el código del país!</p>
                   </div>
 
                   <FieldArray name="redes_sociales">
