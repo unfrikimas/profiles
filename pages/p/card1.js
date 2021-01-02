@@ -341,6 +341,7 @@ const Card1 = () => {
                                         <option value="facebook">Facebook</option>
                                         <option value="instagram">Instagram</option>
                                         <option value="linkedin">Linkedin</option>
+                                        <option value="twitter">Twitter</option>
                                         <option value="youtube">Youtube</option>
                                         <option value="tiktok">Tik Tok</option>
                                         <option value="pinterest">Pinterest</option>

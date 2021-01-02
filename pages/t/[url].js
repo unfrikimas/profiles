@@ -4,6 +4,13 @@ import { useRouter } from 'next/router';
 import firebase from '../../firebase/firebase';
 import IconFacebook from "../../components/icons/socials/facebook";
 import IconInstagram from '../../components/icons/socials/instagram';
+import IconLinkedin from '../../components/icons/socials/linkedin';
+import IconTwitter from '../../components/icons/socials/twitter';
+import IconYoutube from '../../components/icons/socials/youtube';
+import IconTikTok from '../../components/icons/socials/tiktok';
+import IconPinterest from '../../components/icons/socials/pinterest';
+import IconDribbble from '../../components/icons/socials/dribbble';
+import IconBehance from '../../components/icons/socials/behance';
 
 const Tarjeta = (props) => {
 
@@ -65,7 +72,7 @@ const Tarjeta = (props) => {
 
             <div className="pt-12 pb-8">
               <a 
-                className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold pt-3 pb-4 px-6 rounded-full items-center"
+                className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold pt-3 pb-3.5 px-6 rounded-full items-center"
                 href={`https://api.whatsapp.com/send?phone=${numerocontacto}&text=Hola`}
               >
                 {textoboton.toUpperCase()}
@@ -73,20 +80,83 @@ const Tarjeta = (props) => {
             </div>
 
             <div className="mt-6 pb-8 w-4/5 mx-auto flex flex-wrap items-center justify-center">
-              <a
-                className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
-                href={`https://www.facebook.com/${redessociales[0].usuario}`}
-                target="_blank"
-              >
-                <IconFacebook />
-              </a>
-              <a
-                className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
-                href={`https://www.instagram.com/${redessociales[0].usuario}`}
-                target="_blank"
-              >
-                <IconInstagram />
-              </a>
+              { redessociales.map(red => (
+
+                red.redsocial === "facebook" ?
+                  <a
+                    className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                    href={`https://www.facebook.com/${red.usuario}`}
+                    target="_blank"
+                  >
+                    <IconFacebook />
+                  </a>
+                : red.redsocial === "instagram" ? 
+                  <a
+                    className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                    href={`https://www.instagram.com/${red.usuario}`}
+                    target="_blank"
+                  >
+                    <IconInstagram />
+                  </a>
+                  : red.redsocial === "linkedin" ? 
+                    <a
+                      className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                      href={`https://www.linkedin.com/in/${red.usuario}`}
+                      target="_blank"
+                    >
+                      <IconLinkedin />
+                    </a>
+                    : red.redsocial === "twitter" ? 
+                      <a
+                        className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                        href={`https://twitter.com/${red.usuario}`}
+                        target="_blank"
+                      >
+                        <IconTwitter />
+                      </a>
+                      : red.redsocial === "youtube" ? 
+                        <a
+                          className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                          href={`https://www.youtube.com/c/${red.usuario}`}
+                          target="_blank"
+                        >
+                          <IconYoutube />
+                        </a>
+                        : red.redsocial === "tiktok" ? 
+                          <a
+                            className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                            href={`https://www.tiktok.com/@${red.usuario}`}
+                            target="_blank"
+                          >
+                            <IconTikTok />
+                          </a>
+                          : red.redsocial === "pinterest" ? 
+                            <a
+                              className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                              href={`https://www.pinterest.es/${red.usuario}`}
+                              target="_blank"
+                            >
+                              <IconPinterest />
+                            </a>
+                            : red.redsocial === "dribbble" ? 
+                              <a
+                                className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                                href={`https://dribbble.com/${red.usuario}`}
+                                target="_blank"
+                              >
+                                <IconDribbble />
+                              </a>
+                              : red.redsocial === "behance" ? 
+                                <a
+                                  className="mx-2 h-8 w-8 fill-current text-gray-500 hover:text-green-700"
+                                  href={`https://www.behance.net/${red.usuario}`}
+                                  target="_blank"
+                                >
+                                  <IconBehance />
+                                </a>
+
+                                : null
+              )) }
             </div>
           </div>
         </div>
