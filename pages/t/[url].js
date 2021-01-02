@@ -51,13 +51,13 @@ const Tarjeta = (props) => {
               }}
             ></div>
 
-            <h1 className="mx-auto text-3xl font-bold pt-8" id="nombre">{nombre}</h1>
+            <h1 className="mx-auto text-3xl font-bold pt-8 tracking-tight" id="nombre">{nombre.replace(/\b\w/g, l => l.toUpperCase())}</h1>
             <div className="mx-auto w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
             <p className="pt-4 text-base font-bold flex items-center justify-center" id="profesion">
-            {profesion}
+            {profesion.replace(/\b\w/g, l => l.toUpperCase())}
             </p>
             <p className="pt-2 text-gray-600 text-xs flex items-center justify-center">
-              {ubicacion}
+              {ubicacion.replace(/\b\w/g, l => l.toUpperCase())}
             </p>
             <p className="pt-8 text-sm" id="descripcion">
               {resumen}
@@ -65,10 +65,10 @@ const Tarjeta = (props) => {
 
             <div className="pt-12 pb-8">
               <a 
-                className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-xl font-bold py-3 px-6 rounded-full items-center"
+                className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold pt-3 pb-4 px-6 rounded-full items-center"
                 href={`https://api.whatsapp.com/send?phone=${numerocontacto}&text=Hola`}
               >
-                {textoboton}
+                {textoboton.toUpperCase()}
               </a>
             </div>
 
