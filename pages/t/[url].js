@@ -161,15 +161,29 @@ const Tarjeta = (props) => {
 
 export async function getStaticPaths() {
 
-  const resultado = await fetch(`${process.env.frontendURL}/api/tarjetas`)
-  const tarjetas = await resultado.json()
+  const tarjetas = await firebase.db.collection("tarjetas").get()
+  const paths = tarjetas.docs.map(tarjeta => ({
+    params: {
+      url: tarjeta.data().url
+    }
+  }));
+
+  console.log(paths)
 
   return {
-    paths: tarjetas.tarjetas.map(tarjeta => ({
-      params: { url: tarjeta.url }
-    })),
+    paths,
     fallback: true
-  }
+  }  
+
+  // const resultado = await fetch(`${process.env.frontendURL}/api/tarjetas`)
+  // const tarjetas = await resultado.json()
+
+  // return {
+  //   paths: tarjetas.tarjetas.map(tarjeta => ({
+  //     params: { url: tarjeta.url }
+  //   })),
+  //   fallback: true
+  // }
 
   // return {
   //   paths: [{ params: { url: "x2qHVlhPS" } }],
@@ -183,8 +197,6 @@ export async function getStaticProps(context) {
 
   const { params } = context
   const { url } = params
-  console.log(params)
-  console.log(url)
 
   return await firebase.db
     .collection('tarjetas')

@@ -10,7 +10,6 @@ const TodasTarjetas = async (request, response) => {
                 response.json({
                     msg: "No hay tarjetas"
                 })
-                // response.status(404).end()
                 return;
             }
 
