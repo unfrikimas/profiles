@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head'
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
@@ -101,7 +102,12 @@ const Tarjeta = (props) => {
           <button className="js-change-theme focus:outline-none">🌙</button>
         </div>
         <div className="text-white text-center w-full mx-auto mt-8">
-          <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing">Brevi</a></p>
+          <p>
+            Hecho en 
+            <Link href="/">
+              <a className="text-purple-600 font-bold hover:underline"> Brevi</a>
+            </Link>
+          </p>
         </div>
       </div>
     </div>

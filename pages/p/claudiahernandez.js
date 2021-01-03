@@ -1,52 +1,53 @@
 import React from "react";
 import Head from "next/head";
+import Link from 'next/link';
 import IconFacebook from "../../components/icons/socials/facebook";
 import IconInstagram from '../../components/icons/socials/instagram';
 
 const Card1 = () => {
     
-  if (process.browser) {
-    //Init tooltips
-    tippy(".link", {
-      placement: "bottom",
-    });
+  // if (process.browser) {
+  //   //Init tooltips
+  //   tippy(".link", {
+  //     placement: "bottom",
+  //   });
 
-    //Toggle mode
-    const toggle = document.querySelector(".js-change-theme");
-    const body = document.querySelector("body");
-    const profile = document.getElementById("profile");
-    const descripcion = document.getElementById("descripcion");
-    const nombre = document.getElementById("nombre");
-    const profesion = document.getElementById("profesion");
+  //   //Toggle mode
+  //   const toggle = document.querySelector(".js-change-theme");
+  //   const body = document.querySelector("body");
+  //   const profile = document.getElementById("profile");
+  //   const descripcion = document.getElementById("descripcion");
+  //   const nombre = document.getElementById("nombre");
+  //   const profesion = document.getElementById("profesion");
 
-    toggle.addEventListener("click", () => {
-      if (body.classList.contains("text-gray-900")) {
-        toggle.innerHTML = "☀️";
-        body.classList.remove("text-gray-900");
-        descripcion.classList.remove("text-gray-900");
-        nombre.classList.remove("text-gray-900");
-        profesion.classList.remove("text-gray-900");
-        body.classList.add("text-gray-100");
-        descripcion.classList.add("text-gray-100");
-        nombre.classList.add("text-gray-100");
-        profesion.classList.add("text-gray-100");
-        profile.classList.remove("bg-white");
-        profile.classList.add("bg-gray-900");
-      } else {
-        toggle.innerHTML = "🌙";
-        body.classList.remove("text-gray-100");
-        descripcion.classList.remove("text-gray-100");
-        nombre.classList.remove("text-gray-100");
-        profesion.classList.remove("text-gray-100");
-        body.classList.add("text-gray-900");
-        descripcion.classList.add("text-gray-900");
-        nombre.classList.add("text-gray-900");
-        profesion.classList.add("text-gray-900");
-        profile.classList.remove("bg-gray-900");
-        profile.classList.add("bg-white");
-      }
-    });
-  }
+  //   toggle.addEventListener("click", () => {
+  //     if (body.classList.contains("text-gray-900")) {
+  //       toggle.innerHTML = "☀️";
+  //       body.classList.remove("text-gray-900");
+  //       descripcion.classList.remove("text-gray-900");
+  //       nombre.classList.remove("text-gray-900");
+  //       profesion.classList.remove("text-gray-900");
+  //       body.classList.add("text-gray-100");
+  //       descripcion.classList.add("text-gray-100");
+  //       nombre.classList.add("text-gray-100");
+  //       profesion.classList.add("text-gray-100");
+  //       profile.classList.remove("bg-white");
+  //       profile.classList.add("bg-gray-900");
+  //     } else {
+  //       toggle.innerHTML = "🌙";
+  //       body.classList.remove("text-gray-100");
+  //       descripcion.classList.remove("text-gray-100");
+  //       nombre.classList.remove("text-gray-100");
+  //       profesion.classList.remove("text-gray-100");
+  //       body.classList.add("text-gray-900");
+  //       descripcion.classList.add("text-gray-900");
+  //       nombre.classList.add("text-gray-900");
+  //       profesion.classList.add("text-gray-900");
+  //       profile.classList.remove("bg-gray-900");
+  //       profile.classList.add("bg-white");
+  //     }
+  //   });
+  // }
 
   return (
     <>
@@ -58,14 +59,14 @@ const Card1 = () => {
         ></meta>
         <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
         <title>Claudia Hernández | Brevi Site</title>
-        <meta name="description" content=""></meta>
+        {/* <meta name="description" content=""></meta>
         <meta name="keywords" content=""></meta>
         <meta name="author" content=""></meta>
         <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js" />
-        <script src="https://unpkg.com/tippy.js@4" />
+        <script src="https://unpkg.com/tippy.js@4" /> */}
       </Head>
 
-      <body
+      <div
         id="tarjeta"
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto sm:h-screen bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
@@ -135,9 +136,14 @@ const Card1 = () => {
           </div>
         </div>
           <div className="bg-white text-center py-3 px-4 w-full lg:w-1/4 mx-auto lg:rounded-lg">
-            <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing">Brevi</a></p>
+            <p>
+              Hecho en
+              <Link href="/">
+                <a className="text-purple-600 font-bold hover:underline"> Brevi</a>
+              </Link>
+            </p>
           </div>
-      </body>
+      </div>
     </>
   );
 };

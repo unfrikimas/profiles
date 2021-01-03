@@ -17,13 +17,14 @@ import Repeater from '../../components/ui/RedesSociales';
 
 const Card1 = () => {
 
+  //context con los datos de la tarjeta
   const FormContext = useContext(formContext);
-  const { redes_sociales, actualizarRedes } = FormContext;
+  const { guardarUrlTarjeta } = FormContext;
  
   const [ urlImagen, setUrlImagen ] = useState('')
   const [ cargando, setCargando ] = useState(false)
 
-  const [redesSociales, setRedesSociales] = useState(redes_sociales);  
+  // const [redesSociales, setRedesSociales] = useState(redes_sociales);  
 
   //context de usuario
   const { usuario, firebase } = useContext(FirebaseContext);
@@ -65,26 +66,21 @@ const Card1 = () => {
       usuariopremium: false
     }
 
-    //insertar productos en la base de datos
-    firebase.db.collection('tarjetas').add(tarjeta);
-
-    //redireccionar luego de agregar un producto
-    return router.push('/');
+    try {      
+      //insertar productos en la base de datos
+      firebase.db.collection('tarjetas').add(tarjeta);
+  
+      //llamada a la funcion del context
+      guardarUrlTarjeta(tarjeta.url)
+  
+      //redireccionar luego de agregar un producto
+      return router.push('/tarjetacreada');
+    } catch (error) {
+      console.log(error)
+      //redireccionar si hay error
+    }
 
   }
-
-  // handle click event of the Remove button
-  const handleRemoveClick = index => {
-    const list = [...redesSociales];
-    list.splice(index, 1);
-    setRedesSociales(list);
-  };
- 
-  // handle click event of the Add button
-  const handleAddClick = () => {
-    actualizarRedes(redesSociales);
-    // setRedesSociales([...redesSociales, { red_social: ""}]);
-  };
 
   const subirACloudinary = async (e) => {
     const files = e.target.files[0];
@@ -189,7 +185,7 @@ const Card1 = () => {
                     {(fieldNombre) => (     
                       <>
                         <input 
-                          className={`focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 lg:pt-0 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-green-500" : "" }`}
+                          className={`focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-green-500" : "" }`}
                           autoComplete="off"
                           placeholder="👶 Nombre"
                           type="text"
@@ -259,7 +255,7 @@ const Card1 = () => {
                     {(fieldTextBoton) => (
                       <>
                       <input 
-                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-2 text-base text-center font-bold flex items-center justify-center border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-green-500" : "tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold" }`}
+                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-2 text-base text-center font-bold flex items-center justify-center tracking-wide uppercase ${ formikProps.values.texto_boton.trim() === "" ? "border-2 border-dashed border-green-500" : "bg-green-700 hover:bg-green-900 text-white text-lg font-bold" }`}
                         type="text"
                         id="boton"
                         placeholder="TEXTO BOTÓN CONTACTO"
@@ -351,7 +347,7 @@ const Card1 = () => {
                                     <>
                                       <div>                         
                                         <input
-                                          className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md"
+                                          className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md lowercase"
                                           placeholder="Tu perfil sin el @"
                                           {...fieldProps.field}
                                         />

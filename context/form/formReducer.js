@@ -1,14 +1,14 @@
 import React from 'react';
 import {  
-    ACTUALIZAR_REDES_SOCIALES
+    ACTUALIZAR_URL_TARJETA
 } from '../../types';
 
 const formReducer = (state, action) => {
     switch(action.type) {
-        case ACTUALIZAR_REDES_SOCIALES:
+        case ACTUALIZAR_URL_TARJETA:
             return {
                 ...state,
-                redes_sociales: action.payload
+                urlTarjeta: action.payload
             }
         default:
             return state;

@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Link from 'next/link';
 
 const Landing = () => {
   return (
@@ -11,11 +12,7 @@ const Landing = () => {
           content="width=device-width, initial-scale=1.0"
         ></meta>
         <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-        <title>Crea tu tarjeta web en Brevi</title>
-        {/* <meta name="description" content=""></meta>
-        <meta name="keywords" content=""></meta>
-        <meta name="author" content=""></meta> */}
-        {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossOrigin="anonymous" /> */}
+        <title>Crea una tarjeta web | Brevi Site</title>
         <link
           rel="stylesheet"
           href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
@@ -30,7 +27,7 @@ const Landing = () => {
               <span className="text-purple-600"> Brevi</span>
             </span>
           </h1>
-          <p className="block mx-auto text-center items-center mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg lg:w-1/2 md:w-1/2 md:mt-5 md:text-xl">
+          <p className="block px-2 mx-auto text-center items-center mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg lg:w-1/2 md:w-1/2 md:mt-5 md:text-xl">
             Crea una tarjeta web para mostrarle al mundo lo que sabes hacer!
             Colócala en la Biografía de tus redes sociales.
           </p>
@@ -45,13 +42,13 @@ const Landing = () => {
               </a>
             </div>
             <div className="mt-3 sm:mt-0 sm:ml-3">
-              <a
-                href="https://brevi.site/p/claudiahernandez"
-                target="_blank"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
-              >
-                Demo en vivo
-              </a>
+              <Link href="/p/claudiahernandez">
+                <a
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                >
+                  Demo en vivo
+                </a>
+              </Link>
             </div>
           </div>
         </div>
