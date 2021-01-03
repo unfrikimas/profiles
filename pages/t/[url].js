@@ -37,14 +37,14 @@ const Tarjeta = (props) => {
       className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
-      <div className="w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto pt-24 pb-16 sm:my-0">
+      <div className="w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto pt-32 pb-16">
         
         <div
-          className="w-full rounded-3xl shadow-xl bg-white opacity-90 mx-4"
+          className="w-full rounded-2xl shadow-xl bg-white opacity-90 mx-6"
         >
           <div className="p-4 text-center">
             <div
-              className="block rounded-full shadow-2xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+              className="block rounded-full shadow-2xl mx-auto -mt-24 h-48 w-48 bg-cover bg-center"
               style={{
                 backgroundImage: `url(${urlimagenusuario})`,
               }}
@@ -58,7 +58,7 @@ const Tarjeta = (props) => {
             <p className="pt-2 text-gray-600 text-xs flex items-center justify-center">
               {ubicacion.replace(/\b\w/g, l => l.toUpperCase())}
             </p>
-            <p className="pt-8 text-sm" id="descripcion">
+            <p className="pt-8 text-sm px-4" id="descripcion">
               {resumen}
             </p>
 
