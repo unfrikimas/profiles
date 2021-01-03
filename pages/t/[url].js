@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
+import IconLocation from '../../components/icons/location'
 
 const Tarjeta = (props) => {
 
@@ -55,9 +56,14 @@ const Tarjeta = (props) => {
             <p className="pt-4 text-base font-bold flex items-center justify-center" id="profesion">
             {profesion.replace(/\b\w/g, l => l.toUpperCase())}
             </p>
-            <p className="pt-2 text-gray-600 text-xs flex items-center justify-center">
-              {ubicacion.replace(/\b\w/g, l => l.toUpperCase())}
-            </p>
+            <div className="flex justify-center items-center pt-1">
+              <span className="fill-current text-green-700">
+                <IconLocation width={15} heigth={15} />
+              </span>
+              <p className="text-gray-600 text-xs flex">
+                {ubicacion.replace(/\b\w/g, l => l.toUpperCase())}
+              </p>
+            </div>
             <p className="pt-8 text-sm px-4" id="descripcion">
               {resumen}
             </p>
