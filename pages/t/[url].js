@@ -46,7 +46,7 @@ const Tarjeta = (props) => {
         >
           <div className="p-4 text-center">
             <div
-              className="block rounded-full shadow-2xl mx-auto -mt-24 h-48 w-48 bg-cover bg-center"
+              className="block rounded-full shadow-2xl mx-auto -mt-24 h-48 w-48 bg-cover bg-top"
               style={{
                 backgroundImage: `url(${urlimagenusuario})`,
               }}
@@ -55,7 +55,7 @@ const Tarjeta = (props) => {
             <h1 className="mx-auto text-3xl font-bold pt-8 tracking-tight" id="nombre">{nombre.replace(/\b\w/g, l => l.toUpperCase())}</h1>
             <div className="mx-auto w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
             <p className="pt-4 text-base font-bold flex items-center justify-center" id="profesion">
-            {profesion.replace(/\b\w/g, l => l.toUpperCase())}
+            {profesion}
             </p>
             <div className="flex justify-center items-center pt-1">
               <span className="fill-current text-green-700">
