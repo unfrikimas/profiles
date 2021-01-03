@@ -125,7 +125,7 @@ const Card1 = () => {
             { !urlImagen 
             ?
             <div
-              className="block rounded-full shadow-xl mx-auto border-2 border-dashed border-green-500 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center" 
+              className={`block rounded-full shadow-xl mx-auto border-2 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center ${ !urlImagen ? "border-dashed border-green-500" : "" }`} 
             >
               <label className="flex flex-col items-center justify-center h-full w-full cursor-pointer">
                 <span className="items-center">
@@ -144,7 +144,7 @@ const Card1 = () => {
             </div>                  
             : 
             <div
-              className="block rounded-full shadow-xl mx-auto ring-4 ring-green-700 ring-opacity-50 -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
+              className="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
               style={{backgroundImage: `url(${urlImagen})`}} 
             >
               <label className="flex flex-col items-center justify-center h-48">
@@ -185,26 +185,16 @@ const Card1 = () => {
                   
                   <Field
                     name="nombre"
-                    // validate={(nombre) => {
-                    //   let error
-                    //   console.log(alerta)
-                    //   if(nombre.trim() === "" && alerta) {
-                    //     error = "El nombre es obligatorio"
-                    //   } else {
-                    //     error = ""
-                    //   }
-                    //   return error    
-                    // }}
                   >
                     {(fieldNombre) => (     
                       <>
-                      <input 
-                        className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 lg:pt-0 border-2 border-dashed border-green-500"
-                        autoComplete="off"
-                        placeholder="👶 Nombre"
-                        type="text"
-                        {...fieldNombre.field}
-                      />
+                        <input 
+                          className={`focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 lg:pt-0 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-green-500" : "" }`}
+                          autoComplete="off"
+                          placeholder="👶 Nombre"
+                          type="text"
+                          {...fieldNombre.field}
+                        />
                       </>
                     )}
                   </Field>
@@ -217,7 +207,7 @@ const Card1 = () => {
                     {(fieldProfesion) => (
                       <>
                       <input 
-                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-2 mb-1 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-2 mb-1 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.profesion.trim() === "" ? "border-dashed border-green-500" : "" }`}
                         type="text"
                         id="profesion"
                         autoComplete="off"
@@ -235,7 +225,7 @@ const Card1 = () => {
                     {(fieldUbicacion) => (     
                       <>                 
                       <input 
-                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-4 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-4 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.ubicacion.trim() === "" ? "border-dashed border-green-500" : "" }`}
                         type="text"
                         id="ubicacion"
                         autoComplete="off"
@@ -252,7 +242,7 @@ const Card1 = () => {
                     {(fieldResumen) => (
                       <>
                       <textarea
-                        className="resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm border-2 border-dashed border-green-500 px-2 py-2"
+                        className={`resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm text-center border-2 px-2 py-2 ${ formikProps.values.resumen.trim() === "" ? "border-dashed border-green-500" : "" }`}
                         id="resumen"
                         autoComplete="off"
                         placeholder="🚀 A qué te dedicas"
@@ -269,10 +259,9 @@ const Card1 = () => {
                     {(fieldTextBoton) => (
                       <>
                       <input 
-                        className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 border-dashed border-green-500"
+                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-2 text-base text-center font-bold flex items-center justify-center border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-green-500" : "tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold" }`}
                         type="text"
                         id="boton"
-                        autoComplete="off"
                         placeholder="TEXTO BOTÓN CONTACTO"
                         {...fieldTextBoton.field}
                       />
@@ -283,7 +272,7 @@ const Card1 = () => {
 
                   <div>
                     <p className="text-center tracking-normal font-bold text-gray-600 mt-10 mb-4">🙋 Cómo te contactarán</p>
-                    <div className="relative border-2 border-dashed border-green-500 rounded-xl py-1">
+                    <div className={`relative border-2 rounded-xl py-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-green-500" : "" }`}>
                       <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
                           <IconPhone width={30} height={30}/>
@@ -294,7 +283,7 @@ const Card1 = () => {
                       >
                         {(fieldNumeroContacto) => (
                           <input 
-                            className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" 
+                            className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" 
                             placeholder="Ej: +34682811728"
                             type="text" 
                             id="numero"
@@ -330,7 +319,7 @@ const Card1 = () => {
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
-                            <div className="flex py-1 mt-2 relative border-2 border-dashed border-green-500 pr-3 rounded-xl">
+                            <div className={`flex py-1 mt-2 relative border-2 pr-3 rounded-xl ${redsocial.usuario.trim() === "" ? 'border-dashed border-green-500' : ''}`}>
                                 <Field
                                   name={`redes_sociales[${index}].redsocial`}
                                 >
@@ -381,7 +370,7 @@ const Card1 = () => {
                           </Fragment>
                         ))}
                         <div className="flex items-center justify-center my-2 text-gray-700">
-                          <p>Agregar Red Social</p>
+                          <p>Agrega otra Red</p>
                           <button
                             className="focus:outline-none"
                             type="button"
@@ -405,7 +394,7 @@ const Card1 = () => {
                   >COMPLETA TODOS LOS DATOS</button>                  
                   :
                   <button
-                      className="cursor-pointer w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-green-500 text-white tracking-wider"
+                      className="cursor-pointer w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-purple-600 text-white tracking-wider"
                       type="submit"
                       id="boton"
                       name="boton"
