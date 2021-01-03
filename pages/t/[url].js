@@ -10,7 +10,7 @@ const Tarjeta = (props) => {
 
   // Routing para obtener la url de la tarjeta
   const router = useRouter();
-  if (router.isFallback) return <h1>Cargando...</h1>
+  if (router.isFallback) return <h1 className="text-center pt-16">Cargando...</h1>
 
   if(!props.datos) {
     return (

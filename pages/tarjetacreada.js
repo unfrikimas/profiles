@@ -10,7 +10,7 @@ const TarjetaCreada = () => {
 
       //funcion que copia el enlace
     const copiarEnlace = () => {
-        navigator.clipboard.writeText(`${process.env.frontendURL}/t/${urlTarjeta}`);
+        navigator.clipboard.writeText(`https://brevi.site/t/${urlTarjeta}`);
         document.getElementById('copiarEnlace').innerHTML="¡Copiado!";
         setTimeout(() => {
             document.getElementById('copiarEnlace').innerHTML="Copiar Enlace";
@@ -21,14 +21,14 @@ const TarjetaCreada = () => {
 
         <div className="flex flex-col h-screen items-center justify-center">
             <div>
-                <h1 className="text-2xl text-purple-600 text-center font-bold pb-4">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
+                <h1 className="-mt-12 text-2xl text-purple-600 text-center font-bold pb-4">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
             </div>
             <picture>
                 <Image
-                    src="/img/brevi-success-3.gif"
+                    src="/img/brevi-success-2.gif"
                     alt="Tarjeta creada con éxito"
                     width={300}
-                    height={300}
+                    height={250}
                 />
             </picture>
             <div className="w-1/2 max-w-lg text-center mt-4">
@@ -40,7 +40,7 @@ const TarjetaCreada = () => {
                 >
                     Copiar Enlace
                 </button>
-                <Link href={`${process.env.frontendURL}/t/${urlTarjeta}`}>
+                <Link href={`/t/${urlTarjeta}`}>
                     <a className="block w-full pt-3 pb-3.5 rounded-xl my-2 bg-purple-600 text-white font-bold">
                         Ver Tarjeta
                     </a>
