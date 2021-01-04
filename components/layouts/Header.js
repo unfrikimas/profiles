@@ -9,7 +9,7 @@ import { FirebaseContext } from '../../firebase';
 const Logo = styled.a`
   font-family: 'Playfair Display', serif;
   color: #fe2c55;
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
 `;
 

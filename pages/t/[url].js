@@ -2,9 +2,17 @@ import React, { Fragment } from 'react';
 import Head from 'next/head'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import styled from "@emotion/styled";
 import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
 import IconLocation from '../../components/icons/location'
+
+const Logo = styled.a`
+  font-family: 'Playfair Display', serif;
+  color: #fe2c55;
+  font-size: 1.1rem;
+  font-weight: 700;
+`;
 
 const Tarjeta = (props) => {
 
@@ -105,7 +113,7 @@ const Tarjeta = (props) => {
           <p>
             Hecho en 
             <Link href="/">
-              <a className="text-purple-600 font-bold hover:underline"> Brevi</a>
+              <Logo className="font-bold hover:text-principal-hover cursor-pointer"> Brevi</Logo>
             </Link>
           </p>
         </div>

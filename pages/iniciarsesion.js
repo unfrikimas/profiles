@@ -56,7 +56,7 @@ const IniciarSesion = () => {
               >
                 <div className="mb-4">
                   <input
-                    className="text-xl appearance-none border w-full py-4 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
+                    className="text-lg appearance-none border w-full py-4 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
                     type="email"
                     id="email"
                     placeholder="Email"
@@ -69,7 +69,7 @@ const IniciarSesion = () => {
                 {errores.email && <Error>{errores.email}</Error>}
                 <div className="mb-4">
                   <input
-                    className="text-xl appearance-none border w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
+                    className="text-lg appearance-none border w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
                     type="password"
                     id="password"
                     placeholder="Contraseña"
@@ -82,12 +82,12 @@ const IniciarSesion = () => {
                 {errores.password && <Error>{errores.password}</Error>}
                 {error && <Error>{error}</Error>}
                 <input
-                  className="text-2xl bg-principal hover:bg-principal-hover w-full p-4 text-white font-bold cursor-pointer mb-5"
+                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white font-bold cursor-pointer mb-5"
                   type="submit"
                   value="Iniciar sesión"
                 />
                 <Link href="/crearcuenta">
-                  <a className="block text-gray-600 text-right mt-4">Crea una cuenta</a>
+                  <a className="block text-gray-400 text-right mt-4">Crea una cuenta</a>
                 </Link>
               </form>
             </div>

@@ -10,7 +10,7 @@ export default function validarIniciarSesion(valores) {
 
     //validar el password
     if(!valores.password) {
-        errores.password = 'El password es obligatorio';
+        errores.password = 'La contraseña es obligatoria';
     }
 
     return errores;
