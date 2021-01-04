@@ -24,19 +24,19 @@ const Header = () => {
         <div className="h-32 flex items-center justify-center">
             <Logo>Brevi</Logo>
         </div>
-        <div>
+        {/* <div>
           {usuario ? (
             <>
               <p className="text-xl text-gray-700 text-center py-5">
                 Hola { usuario.displayName }
               </p>
-              {/* <button 
+              <button 
                 onClick={ () => firebase.cerrarSesion() }
-              >Cerrar sesión</button> */}
+              >Cerrar sesión</button>
             </>
           ) 
           : null }
-        </div>
+        </div> */}
       </div>
     </header>
   );

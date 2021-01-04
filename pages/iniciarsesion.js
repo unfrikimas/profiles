@@ -87,7 +87,7 @@ const IniciarSesion = () => {
                   value="Iniciar sesión"
                 />
                 <Link href="/crearcuenta">
-                  <a className="block text-gray-400 text-right mt-4">Crea una cuenta</a>
+                  <a className="block text-gray-400 text-right mt-4">¿No tienes cuenta?</a>
                 </Link>
               </form>
             </div>
