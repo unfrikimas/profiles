@@ -42,21 +42,21 @@ const IniciarSesion = () => {
   return (
     <>
       <Layout>
-        <div className="md:w-4/5 xl:w-3/5 mx-auto mb-32">
-          <h1 className="text-2xl font-sans font-bold text-gray-800 text-center pt-5">
-            Inicia sesión
+        <div className="sm:w-lg mx-auto">
+          <h1 className="text-xl font-sans font-bold text-gray-600 text-center pt-16">
+            Inicia Sesión
           </h1>
           {/* { mensaje && <Alerta /> } */}
           <div className="flex justify-center mt-5">
             <div className="w-full max-w-lg">
               <form
-                className="bg-white rounded-lg shadow-md px-8 pt-10 pb-10 mb-4"
+                className="px-4"
                 onSubmit={handleSubmit}
                 noValidate
               >
                 <div className="mb-4">
                   <input
-                    className="text-xl  appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="text-xl appearance-none border w-full py-4 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
                     type="email"
                     id="email"
                     placeholder="Email"
@@ -69,10 +69,10 @@ const IniciarSesion = () => {
                 {errores.email && <Error>{errores.email}</Error>}
                 <div className="mb-4">
                   <input
-                    className="text-xl appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="text-xl appearance-none border w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
                     type="password"
                     id="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     name="password"
                     value={password}
                     onChange={handleChange}
@@ -82,12 +82,12 @@ const IniciarSesion = () => {
                 {errores.password && <Error>{errores.password}</Error>}
                 {error && <Error>{error}</Error>}
                 <input
-                  className="text-xl bg-red-500 hover:bg-gray-900 w-full rounded-lg p-4 text-white uppercase font-bold cursor-pointer mb-5"
+                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white uppercase font-bold cursor-pointer mb-5"
                   type="submit"
                   value="Iniciar sesión"
                 />
                 <Link href="/crearcuenta">
-                  <a className="block text-gray-800 text-right">Crear cuenta</a>
+                  <a className="block text-gray-600 text-right mt-2">Crear cuenta</a>
                 </Link>
               </form>
             </div>

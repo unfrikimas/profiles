@@ -14,9 +14,9 @@ const Home = () => {
   const { usuario, firebase } = useContext(FirebaseContext);
   const router = useRouter();
 
-  useEffect(() => {
-    usuario === USER_STATES.NOT_LOGGED && router.push("/landing")
-  }, [usuario])
+  // useEffect(() => {
+  //   usuario === USER_STATES.NOT_LOGGED && router.push("/landing")
+  // }, [usuario])
 
   return (
     <>

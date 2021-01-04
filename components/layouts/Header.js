@@ -6,29 +6,11 @@ import Buscar from "../ui/Buscar";
 import Boton from "../ui/Boton";
 import { FirebaseContext } from '../../firebase';
 
-const ContenedorHeader = styled.div`
-  max-width: 1200px;
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  flex: 1;
-  @media (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
 const Logo = styled.a`
-  color: var(--naranja);
-  font-size: 4rem;
-  line-height: 0;
+  font-family: 'Playfair Display', serif;
+  color: #fe2c55;
+  font-size: 3rem;
   font-weight: 700;
-  font-family: "Roboto Slab", serif;
-  margin-right: 2rem;
-  margin: 0 auto;
-  text-align: center;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const Header = () => {
@@ -37,10 +19,10 @@ const Header = () => {
 
   return (
     
-    <header className="mx-auto py-10">
+    <header className="w-full min-h-16">
       <div>
-        <div>
-            <h1 className="text-3xl text-center font-bold">Brevi</h1>
+        <div className="text-center">
+            <Logo>Brevi</Logo>
         </div>
         <div>
           {usuario ? (

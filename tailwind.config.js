@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'accent-1': '#333',
+        'principal': '#fe2c55',
+        'principal-hover': '#ef2950',
       },
     },
   },
