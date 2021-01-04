@@ -19,9 +19,9 @@ const Header = () => {
 
   return (
     
-    <header className="w-full min-h-16">
+    <header className="w-full min-h-32">
       <div>
-        <div className="text-center">
+        <div className="h-32 flex items-center justify-center">
             <Logo>Brevi</Logo>
         </div>
         <div>

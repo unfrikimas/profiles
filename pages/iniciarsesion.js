@@ -43,7 +43,7 @@ const IniciarSesion = () => {
     <>
       <Layout>
         <div className="sm:w-lg mx-auto">
-          <h1 className="text-xl font-sans font-bold text-gray-600 text-center pt-16">
+          <h1 className="text-xl font-sans font-bold text-gray-600 text-center pt-8">
             Inicia Sesión
           </h1>
           {/* { mensaje && <Alerta /> } */}
@@ -82,12 +82,12 @@ const IniciarSesion = () => {
                 {errores.password && <Error>{errores.password}</Error>}
                 {error && <Error>{error}</Error>}
                 <input
-                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white uppercase font-bold cursor-pointer mb-5"
+                  className="text-2xl bg-principal hover:bg-principal-hover w-full p-4 text-white font-bold cursor-pointer mb-5"
                   type="submit"
                   value="Iniciar sesión"
                 />
                 <Link href="/crearcuenta">
-                  <a className="block text-gray-600 text-right mt-2">Crear cuenta</a>
+                  <a className="block text-gray-600 text-right mt-4">Crea una cuenta</a>
                 </Link>
               </form>
             </div>
