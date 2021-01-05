@@ -3,19 +3,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import formContext from '../context/form/formContext';
+import HeaderUser from '../components/layouts/HeaderUser';
 
 const TarjetaCreada = () => {
 
+    //context de los datos de tarjeta
     const FormContext = useContext(formContext);
     const { urlTarjeta } = FormContext;
 
     const router = useRouter()
     
-    useEffect(() => {
-        if(!urlTarjeta) {
-            return router.push('/')
-        }
-    }, [urlTarjeta])
+    // useEffect(() => {
+    //     if(!urlTarjeta) {
+    //         return router.push('/')
+    //     }
+    // }, [urlTarjeta])
 
     //funcion que copia el enlace
     const copiarEnlace = () => {
@@ -28,10 +30,11 @@ const TarjetaCreada = () => {
 
     return (  
         <>
-        { urlTarjeta && (
+        {/* { urlTarjeta && ( */}
+            <HeaderUser />
             <div className="flex flex-col h-screen items-center justify-center">
                 <div>
-                    <h1 className="-mt-16 text-2xl text-purple-600 text-center font-bold pb-4">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
+                    <h1 className="-mt-16 py-2 px-12 mb-4 bg-green-200 text-lg text-gray-600 text-center">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
                 </div>
                 <picture>
                     <img
@@ -43,21 +46,21 @@ const TarjetaCreada = () => {
                 </picture>
                 <div className="w-1/2 max-w-lg text-center mt-4">
                     <button 
-                        className="block w-full pt-2 pb-2.5 border-2 rounded-xl my-2 border-purple-600 text-purple-600 focus:outline-none"
+                        className="block w-full pt-2.5 pb-3 border my-4 border-principal text-principal focus:outline-none"
                         type="button"
                         id="copiarEnlace"
                         onClick={ () => copiarEnlace() }
                     >
-                        Copiar Enlace
+                        Copiar enlace
                     </button>
                     <Link href={`/t/${urlTarjeta}`}>
-                        <a className="block w-full pt-3 pb-3.5 rounded-xl my-2 bg-purple-600 text-white font-bold">
-                            Ver Tarjeta
+                        <a className="block w-full pt-3 pb-3.5 my-4 bg-principal hover:bg-principal-hover text-white font-bold">
+                            Ver tarjeta web
                         </a>
                     </Link>
                 </div>
             </div>
-        )}
+        {/* )} */}
         </>
     );
 }

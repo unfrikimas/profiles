@@ -15,6 +15,11 @@ import IconMinus from '../../components/icons/form/minus';
 import shortid from 'shortid';
 import Repeater from '../../components/ui/RedesSociales';
 
+export const USER_STATES = {
+  NOT_LOGGED: null,
+  NOT_KNOWN: undefined,
+}
+
 const Card1 = () => {
 
   //context con los datos de la tarjeta
@@ -32,19 +37,13 @@ const Card1 = () => {
   //routing
   const router = useRouter();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log("Redes Sociales", redesSociales);
-  };
+  useEffect(() => {
+    usuario === USER_STATES.NOT_LOGGED && router.push("/crearcuenta")
+  }, [usuario])
     
 
     //Guardar tarjeta web en Firebase
   function CrearTarjetaWeb(values) {
-
-    //si el usuario no esta autenticado llevar al login
-    // if(!usuario) {
-    //   return router.push('/landing');
-    // }  
 
     //objeto de nuevo producto
     const tarjeta = {
@@ -59,11 +58,11 @@ const Card1 = () => {
       mediocontacto: values.medio_contacto,
       redessociales: values.redes_sociales,
       creado: Date.now(),
-      // creador: {
-      //   id: usuario.uid,
-      //   nombre: usuario.displayName
-      // },
-      usuariopremium: false
+      creador: {
+        id: usuario.uid,
+        nombre: usuario.displayName
+      },
+      usuariopremium: false,
     }
 
     try {      
@@ -99,9 +98,11 @@ const Card1 = () => {
     }
   };
 
-
   return (
+    
     <>
+    { usuario ?
+      <>
       <Head>
         <meta
           name="viewport"
@@ -121,15 +122,15 @@ const Card1 = () => {
             { !urlImagen 
             ?
             <div
-              className={`block rounded-full shadow-xl mx-auto border-2 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center ${ !urlImagen ? "border-dashed border-green-500" : "" }`} 
+              className={`block rounded-full shadow-xl mx-auto border-2 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center ${ !urlImagen ? "border-dashed border-red-200" : "" }`} 
             >
               <label className="flex flex-col items-center justify-center h-full w-full cursor-pointer">
                 <span className="items-center">
                   <IconCaptura />
                 </span>
                 { cargando
-                  ? <span className="mt-2">Subiendo foto...</span>
-                  : <span className="mt-2">Sube una foto</span> }
+                  ? <span className="mt-2 text-gray-700">Subiendo foto...</span>
+                  : <span className="mt-2 text-gray-700">Sube una foto</span> }
                 <input
                   className="hidden"
                   type="file" 
@@ -185,8 +186,7 @@ const Card1 = () => {
                     {(fieldNombre) => (     
                       <>
                         <input 
-                          className={`focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white w-full rounded-xl text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-green-500" : "" }`}
-                          autoComplete="off"
+                          className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                           placeholder="👶 Nombre"
                           type="text"
                           {...fieldNombre.field}
@@ -195,7 +195,7 @@ const Card1 = () => {
                     )}
                   </Field>
 
-                  <div className="mx-auto w-4/5 pt-3 mb-3 border-b-2 border-green-500 opacity-25"></div>
+                  <div className="mx-auto w-4/5 pt-3 mb-3 border-b-2 border-red-200 opacity-25"></div>
                   
                   <Field
                     name="profesion"
@@ -203,7 +203,7 @@ const Card1 = () => {
                     {(fieldProfesion) => (
                       <>
                       <input 
-                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-2 mb-1 text-base text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.profesion.trim() === "" ? "border-dashed border-green-500" : "" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mt-2 mb-1 text-base text-gray-700 text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.profesion.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                         type="text"
                         id="profesion"
                         autoComplete="off"
@@ -221,7 +221,7 @@ const Card1 = () => {
                     {(fieldUbicacion) => (     
                       <>                 
                       <input 
-                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-4 mb-2 text-base lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.ubicacion.trim() === "" ? "border-dashed border-green-500" : "" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mt-4 mb-2 text-base text-gray-700 lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.ubicacion.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                         type="text"
                         id="ubicacion"
                         autoComplete="off"
@@ -238,7 +238,7 @@ const Card1 = () => {
                     {(fieldResumen) => (
                       <>
                       <textarea
-                        className={`resize-none w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white h-36 rounded-xl mt-2 text-sm text-center border-2 px-2 py-2 ${ formikProps.values.resumen.trim() === "" ? "border-dashed border-green-500" : "" }`}
+                        className={`resize-none w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white h-36 mt-2 text-sm text-gray-700 text-center border-2 px-2 py-2 ${ formikProps.values.resumen.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                         id="resumen"
                         autoComplete="off"
                         placeholder="🚀 A qué te dedicas"
@@ -255,7 +255,7 @@ const Card1 = () => {
                     {(fieldTextBoton) => (
                       <>
                       <input 
-                        className={`w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white rounded-xl py-3 mt-8 mb-2 text-base text-center font-bold flex items-center justify-center tracking-wide uppercase ${ formikProps.values.texto_boton.trim() === "" ? "border-2 border-dashed border-green-500" : "bg-green-700 hover:bg-green-900 text-white text-lg font-bold" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mt-8 mb-2 text-base text-gray-700 text-center font-bold flex items-center justify-center tracking-wide uppercase border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-red-200" : "border-green-200 font-bold" }`}
                         type="text"
                         id="boton"
                         placeholder="TEXTO BOTÓN CONTACTO"
@@ -267,8 +267,8 @@ const Card1 = () => {
                   </Field>
 
                   <div>
-                    <p className="text-center tracking-normal font-bold text-gray-600 mt-10 mb-4">🙋 Cómo te contactarán</p>
-                    <div className={`relative border-2 rounded-xl py-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-green-500" : "" }`}>
+                    <p className="text-center tracking-normal text-gray-700 mt-10 mb-4">🙋 Cómo te contactarán</p>
+                    <div className={`relative border-2 py-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}>
                       <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
                           <IconPhone width={30} height={30}/>
@@ -279,7 +279,7 @@ const Card1 = () => {
                       >
                         {(fieldNumeroContacto) => (
                           <input 
-                            className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" 
+                            className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-7 pr-12 text-gray-700 border-gray-300" 
                             placeholder="Ej: +34682811728"
                             type="text" 
                             id="numero"
@@ -294,7 +294,7 @@ const Card1 = () => {
                         >
                           {(fieldMedioContacto) => (
                             <select 
-                              className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 sm:text-sm rounded-md leading-8"
+                              className="focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 text-gray-700 leading-8"
                               {...fieldMedioContacto.field} 
                             >
                               <option value="whatsapp">WhatsApp</option>
@@ -310,12 +310,12 @@ const Card1 = () => {
                   <FieldArray name="redes_sociales">
                     {(fieldArrayProps) => (
                       <>
-                        <div className="mt-12 mb-4 text-center text-gray-600 font-bold">
+                        <div className="mt-12 mb-4 text-center text-gray-700">
                           <p>🌟 Redes Sociales</p>
                         </div>
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
-                            <div className={`flex py-1 mt-2 relative border-2 pr-3 rounded-xl ${redsocial.usuario.trim() === "" ? 'border-dashed border-green-500' : ''}`}>
+                            <div className={`flex py-1 mt-2 relative border-2 pr-3 ${redsocial.usuario.trim() === "" ? "border-dashed border-red-200" : "border-green-200"}`}>
                                 <Field
                                   name={`redes_sociales[${index}].redsocial`}
                                 >
@@ -323,7 +323,7 @@ const Card1 = () => {
                                     <div className="absolute inset-y-0 left-1 flex items-center">
                                       {/* <label htmlFor="redsocial">Redes Sociales</label> */}
                                       <select 
-                                        className="focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 pl-1 sm:text-sm rounded-md leading-8"
+                                        className="focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 leading-8"
                                         {...fieldPropsNombre.field}
                                       >
                                         <option value="facebook">Facebook</option>
@@ -347,7 +347,7 @@ const Card1 = () => {
                                     <>
                                       <div>                         
                                         <input
-                                          className="w-full focus:outline-none focus:ring-4 focus:ring-green-700 focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 rounded-md lowercase"
+                                          className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 lowercase"
                                           placeholder="Tu perfil sin el @"
                                           {...fieldProps.field}
                                         />
@@ -382,19 +382,19 @@ const Card1 = () => {
                   { !urlImagen || formikProps.values.nombre.trim() === "" || formikProps.values.profesion.trim() === "" || formikProps.values.ubicacion.trim() === "" || formikProps.values.resumen.trim() === "" || formikProps.values.texto_boton.trim() === "" || formikProps.values.numero_contacto.trim() === ""
                   ?
                   <button
-                      className="w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-green-100 text-gray-700 tracking-wider cursor-not-allowed"
+                      className="w-full focus:outline-none py-4 mt-12 mb-8 text-xl text-center  bg-red-200 text-gray-600 tracking-normal cursor-not-allowed"
                       type="submit"
                       id="boton"
                       name="boton"
                       disabled
-                  >COMPLETA TODOS LOS DATOS</button>                  
+                  >Completa todos los datos</button>                  
                   :
                   <button
-                      className="cursor-pointer w-full focus:outline-none rounded-xl py-4 mt-12 mb-8 text-1xl lg:text-sm text-center font-bold bg-purple-600 text-white tracking-wider"
+                      className="cursor-pointer w-full focus:outline-none py-4 mt-12 mb-8 text-xl text-center font-bold bg-principal hover:bg-principal-hover text-white tracking-normal"
                       type="submit"
                       id="boton"
                       name="boton"
-                  >PUBLICAR TARJETA WEB</button>
+                  >Publicar tarjeta web</button>
                   }
 
                 </form>
@@ -403,8 +403,11 @@ const Card1 = () => {
           </div>
         </div>
       </div>
+      </>
+    : null }
     </>
   );
+
 };
 
 export default Card1;
