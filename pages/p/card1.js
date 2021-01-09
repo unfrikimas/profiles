@@ -501,15 +501,17 @@ const Card1 = () => {
       </div>
       </>
     : 
-    
-    <Head>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
-      <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-      <title>Crea tu tarjeta web | Brevi Site</title>
-   </Head>
+      <>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          ></meta>
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
+          <title>Crea tu tarjeta web | Brevi Site</title>
+        </Head>
+        <p className="text-center pt-32">Cargando...</p>
+      </>
 
     }
     </>
