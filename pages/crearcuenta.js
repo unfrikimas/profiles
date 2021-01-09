@@ -96,7 +96,7 @@ const CrearCuenta = () => {
                 {errores.password && <Error>{errores.password}</Error>}
                 {error && <Error>{error}</Error>}
                 <input
-                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white mb-5 font-bold cursor-pointer"
+                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white mb-5 font-bold cursor-pointer focus:outline-none"
                   type="submit"
                   value="Crear cuenta"
                 />

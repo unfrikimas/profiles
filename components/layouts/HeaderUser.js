@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from "@emotion/styled";
-import { FirebaseContext } from '../../firebase';
+import Link from 'next/link';
+import formContext from '../../context/form/formContext';
 import { Transition } from '@headlessui/react'
 
 const Logo = styled.a`
@@ -8,22 +9,31 @@ const Logo = styled.a`
   color: #fe2c55;
   font-size: 2rem;
   font-weight: 700;
+  cursor: pointer;
 `;
 
-const HeaderUser = () => {
+const HeaderUser = ({usuario, firebase}) => {
 
-    //context de usuario
-    const { usuario, firebase } = useContext(FirebaseContext);
+    //context datos de tarjeta
+    const FormContext = useContext(formContext);
+    const { limpiarDatosTarjeta } = FormContext;
 
     //Estado para el dropdown
     const [ menuDropDown, setMenuDropDown ] = useState(false)
+
+    const cerrarSesion = () => {
+      firebase.cerrarSesion();
+      limpiarDatosTarjeta();
+    }
 
     return (  
 
         <header className="h-16 py-2 px-4 border-1 border-b border-gray-300">
           <div className="flex justify-between items-center">
-            <Logo>Brevi</Logo>
 
+            <Link href="/">
+              <Logo>Brevi</Logo>
+            </Link>
             <div className="text-gray-500">
               { usuario && (             
               <>
@@ -65,10 +75,10 @@ const HeaderUser = () => {
                           <a href="#" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Tu cuenta</a>
 
                           <button 
-                            type="submit" 
+                            type="button" 
                             className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" 
                             role="menuitem"
-                            onClick={ () => firebase.cerrarSesion() }
+                            onClick={ () => cerrarSesion() }
                           >
                             Cerrar sesión
                           </button>

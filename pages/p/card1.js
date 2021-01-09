@@ -7,13 +7,11 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import IconCaptura from '../../components/icons/captura';
 import IconPhone from '../../components/icons/phone';
-import IconFacebook from '../../components/icons/socials/facebook';
-import IconTwitter from '../../components/icons/socials/twitter';
-import IconGitHub from '../../components/icons/socials/github';
 import IconPlus from '../../components/icons/form/plus';
-import IconMinus from '../../components/icons/form/minus';
 import shortid from 'shortid';
-import Repeater from '../../components/ui/RedesSociales';
+import HeaderUser from '../../components/layouts/HeaderUser';
+import useTarjeta from '../../hooks/useTarjeta';
+import obtenerTarjeta from '../../utils/obtenerTarjeta';
 
 export const USER_STATES = {
   NOT_LOGGED: null,
@@ -22,14 +20,36 @@ export const USER_STATES = {
 
 const Card1 = () => {
 
+
+  // const tarjetaHook = useTarjeta();
+  // const { tarjeta } = tarjetaHook;
+  // console.log(tarjeta);
+
+  const [ cargando, setCargando ] = useState(false)
+  const [ datosTarjeta, setDatosTarjeta ] = useState("")
+
   //context con los datos de la tarjeta
   const FormContext = useContext(formContext);
-  const { guardarUrlTarjeta } = FormContext;
- 
-  const [ urlImagen, setUrlImagen ] = useState('')
-  const [ cargando, setCargando ] = useState(false)
 
-  // const [redesSociales, setRedesSociales] = useState(redes_sociales);  
+  const { 
+    id,
+    urlTarjeta,
+    urlImagenUsuario,
+    nombre,
+    profesion,
+    ubicacion,
+    resumen,
+    textoBoton,
+    numeroContacto,
+    medioContacto,
+    redesSociales,
+    creador,
+    creado,
+    guardarTarjetaContext
+  } = FormContext;
+
+  const [ urlImagen, setUrlImagen ] = useState(urlImagenUsuario)
+  const [ pasar, setPasar ] = useState(false);
 
   //context de usuario
   const { usuario, firebase } = useContext(FirebaseContext);
@@ -40,10 +60,29 @@ const Card1 = () => {
   useEffect(() => {
     usuario === USER_STATES.NOT_LOGGED && router.push("/crearcuenta")
   }, [usuario])
-    
+  
+  useEffect(() => {
 
-    //Guardar tarjeta web en Firebase
-  function CrearTarjetaWeb(values) {
+  })
+
+  const obtenerDatosTarjeta = (usuario) => {
+    obtenerTarjeta(usuario)
+      .then((newTarjeta) => {
+        guardarTarjetaContext(newTarjeta);
+        setDatosTarjeta(newTarjeta);
+        setUrlImagen(newTarjeta?.urlimagenusuario)
+        setPasar(true);
+      })
+  }
+
+  useEffect(() => {
+    if(usuario) {
+      obtenerDatosTarjeta(usuario)
+    }
+  }, [usuario]);
+
+  //Guardar tarjeta web en Firebase
+  function crearTarjetaWeb(values) {
 
     //objeto de nuevo producto
     const tarjeta = {
@@ -70,7 +109,49 @@ const Card1 = () => {
       firebase.db.collection('tarjetas').add(tarjeta);
   
       //llamada a la funcion del context
-      guardarUrlTarjeta(tarjeta.url)
+      guardarTarjetaContext(tarjeta)
+  
+      //redireccionar luego de agregar un producto
+      return router.push('/tarjetacreada');
+    } catch (error) {
+      console.log(error)
+      //redireccionar si hay error
+    }
+
+  }
+
+  //Actualizar tarjeta web en Firebase
+  const actualizarTarjetaWeb = async (values) => {
+
+    //objeto de nuevo producto
+    const tarjeta = {
+      // url: shortid.generate(),
+      urlimagenusuario: urlImagen,
+      nombre: values.nombre, 
+      profesion: values.profesion,
+      ubicacion: values.ubicacion,
+      resumen: values.resumen,
+      textoboton: values.texto_boton,
+      numerocontacto: values.numero_contacto,
+      mediocontacto: values.medio_contacto,
+      redessociales: values.redes_sociales
+      // creado: Date.now(),
+      // creador: {
+      //   id: usuario.uid,
+      //   nombre: usuario.displayName
+      // },
+      // usuariopremium: false,
+    }
+
+    try {      
+      //insertar productos en la base de datos
+      const tarjetaRef = firebase.db.collection('tarjetas').doc(id);
+      const res = await tarjetaRef.update(tarjeta);
+
+      // firebase.db.collection('tarjetas').add(tarjeta);
+  
+      //llamada a la funcion del context
+      guardarTarjetaContext(tarjeta)
   
       //redireccionar luego de agregar un producto
       return router.push('/tarjetacreada');
@@ -101,8 +182,9 @@ const Card1 = () => {
   return (
     
     <>
-    { usuario ?
+    { usuario && pasar ?
       <>
+      { console.log('pase el filtro', urlImagen) }
       <Head>
         <meta
           name="viewport"
@@ -112,6 +194,11 @@ const Card1 = () => {
         <title>Crea tu tarjeta web | Brevi Site</title>
       </Head>
 
+      <HeaderUser 
+        usuario={usuario}
+        firebase={firebase}
+      />
+
       <div
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
@@ -119,7 +206,7 @@ const Card1 = () => {
         <div className="w-full sm:max-w-lg flex h-auto items-center flex-wrap mx-auto pt-32 pb-16 sm:my-0">
 
           <div className="w-full rounded-3xl shadow-xl bg-white opacity-90 mx-4 lg:mx-0 ">     
-            { !urlImagen 
+            { !urlImagen
             ?
             <div
               className={`block rounded-full shadow-xl mx-auto border-2 -mt-16 h-48 w-48 bg-cover bg-center bg-white mb-6 items-center ${ !urlImagen ? "border-dashed border-red-200" : "" }`} 
@@ -130,7 +217,8 @@ const Card1 = () => {
                 </span>
                 { cargando
                   ? <span className="mt-2 text-gray-700">Subiendo foto...</span>
-                  : <span className="mt-2 text-gray-700">Sube una foto</span> }
+                  : <span className="mt-2 text-gray-700">Sube una foto</span> 
+                }
                 <input
                   className="hidden"
                   type="file" 
@@ -142,9 +230,9 @@ const Card1 = () => {
             : 
             <div
               className="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-top bg-white mb-6 items-center" 
-              style={{backgroundImage: `url(${urlImagen})`}} 
+              style={ { backgroundImage: `url(${urlImagen})` } } 
             >
-              <label className="flex flex-col items-center justify-center h-48">
+              <label className="flex flex-col items-center justify-center h-48 cursor-pointer">
                 <IconCaptura stroke="#fff"/>
                 { cargando ? <span className="mt-2 text-white">Subiendo foto...</span> : null }
                 <input
@@ -158,18 +246,22 @@ const Card1 = () => {
 
             <Formik
               initialValues={{
-                urlImagen: '',
-                nombre: '',
-                profesion: '',
-                ubicacion: '',
-                resumen: '',
-                texto_boton: '',
-                numero_contacto: '',
-                medio_contacto: 'whatsapp',            
-                redes_sociales: [{ redsocial: "facebook", usuario: "" }]
+                urlImagen: urlImagenUsuario,
+                nombre: nombre,
+                profesion: profesion,
+                ubicacion: ubicacion,
+                resumen: resumen,
+                texto_boton: textoBoton,
+                numero_contacto: numeroContacto,
+                medio_contacto: medioContacto,            
+                redes_sociales: redesSociales
               }}
               onSubmit={(values) => {
-                CrearTarjetaWeb(values)            
+                if(id) {
+                  actualizarTarjetaWeb(values)
+                } else {
+                  crearTarjetaWeb(values)            
+                }
               }}
             >
               {(formikProps) => (
@@ -185,10 +277,14 @@ const Card1 = () => {
                   >
                     {(fieldNombre) => (     
                       <>
+                        { console.log('nombre', nombre) }
                         <input 
                           className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                           placeholder="👶 Nombre"
+                          name="nombre"
                           type="text"
+                          // value={nombre}
+                          // onChange={formikProps.values.nombre.handleChange}
                           {...fieldNombre.field}
                         />
                       </>
@@ -366,7 +462,7 @@ const Card1 = () => {
                           </Fragment>
                         ))}
                         <div className="flex items-center justify-center my-2 text-gray-700">
-                          <p>Agrega otra Red</p>
+                          <p>Agregar red social</p>
                           <button
                             className="focus:outline-none"
                             type="button"
@@ -394,7 +490,7 @@ const Card1 = () => {
                       type="submit"
                       id="boton"
                       name="boton"
-                  >Publicar tarjeta web</button>
+                  >{ !id ? 'Publicar tarjeta web' : 'Actualizar tarjeta web' }</button>
                   }
 
                 </form>
@@ -404,7 +500,18 @@ const Card1 = () => {
         </div>
       </div>
       </>
-    : null }
+    : 
+    
+    <Head>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
+      <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
+      <title>Crea tu tarjeta web | Brevi Site</title>
+   </Head>
+
+    }
     </>
   );
 

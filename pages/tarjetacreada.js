@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { FirebaseContext } from '../firebase';
 import formContext from '../context/form/formContext';
 import HeaderUser from '../components/layouts/HeaderUser';
 
@@ -10,6 +11,9 @@ const TarjetaCreada = () => {
     //context de los datos de tarjeta
     const FormContext = useContext(formContext);
     const { urlTarjeta } = FormContext;
+
+    //context de usuario
+    const { usuario, firebase } = useContext(FirebaseContext);
 
     const router = useRouter()
     
@@ -31,10 +35,13 @@ const TarjetaCreada = () => {
     return (  
         <>
         {/* { urlTarjeta && ( */}
-            <HeaderUser />
-            <div className="flex flex-col h-screen items-center justify-center">
+            <HeaderUser 
+                usuario={usuario}
+                firebase={firebase}
+            />
+            <div className="flex flex-col h-full items-center justify-center">
                 <div>
-                    <h1 className="-mt-16 py-2 px-12 mb-4 bg-green-200 text-lg text-gray-600 text-center">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
+                    <h1 className="mt-8 py-2 px-12 mb-4 bg-green-200 text-lg text-gray-600 text-center">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
                 </div>
                 <picture>
                     <img

@@ -30,8 +30,7 @@ const IniciarSesion = () => {
 
   async function iniciarSesion() {
     try {
-      const usuario = await firebase.login(email, password);
-      // console.log(usuario);
+      await firebase.login(email, password);
       Router.push("/");
     } catch (error) {
       console.error("Hubo un error al iniciar sesion", error.message);
@@ -82,7 +81,7 @@ const IniciarSesion = () => {
                 {errores.password && <Error>{errores.password}</Error>}
                 {error && <Error>{error}</Error>}
                 <input
-                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white font-bold cursor-pointer mb-5"
+                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white font-bold cursor-pointer mb-5 focus:outline-none"
                   type="submit"
                   value="Iniciar sesión"
                 />
