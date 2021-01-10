@@ -1,6 +1,7 @@
 import React from 'react';
 import {  
     ACTUALIZAR_DATOS_TARJETA,
+    NO_HAY_TARJETA,
     LIMPIAR_DATOS_TARJETA
 } from '../../types';
 
@@ -22,6 +23,11 @@ const formReducer = (state, action) => {
                 redesSociales: action.payload.redessociales,
                 creador: action.payload.creador,
                 creado: action.payload.creado
+            }
+        case NO_HAY_TARJETA:
+            return {
+                ...state,
+                id: '0'
             }
         case LIMPIAR_DATOS_TARJETA:
             return {

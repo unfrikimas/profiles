@@ -3,6 +3,7 @@ import formContext from '../form/formContext';
 import formReducer from '../form/formReducer';
 import {  
     ACTUALIZAR_DATOS_TARJETA,
+    NO_HAY_TARJETA,
     LIMPIAR_DATOS_TARJETA
 } from '../../types';
 
@@ -41,6 +42,12 @@ const FormState = ({children}) => {
             type: LIMPIAR_DATOS_TARJETA
         })
     }
+
+    const noHayTarjeta = () => {
+        dispatch({
+            type: NO_HAY_TARJETA
+        })
+    }
  
     return (
         <formContext.Provider
@@ -59,6 +66,7 @@ const FormState = ({children}) => {
                 creador: state.creador,
                 creado: state.creado,
                 guardarTarjetaContext,
+                noHayTarjeta,
                 limpiarDatosTarjeta
             }}
         >

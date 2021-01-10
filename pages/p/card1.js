@@ -45,9 +45,6 @@ const Card1 = () => {
   } = FormContext;
 
   const [ urlImagen, setUrlImagen ] = useState(urlImagenUsuario)
-  const [ campoNombre, setCampoNombre ] = useState("")
-  const [ pasar, setPasar ] = useState(false);
-  const [ inputNombre, setInputNombre ] = useState(nombre)
 
   //context de usuario
   const { usuario, firebase } = useContext(FirebaseContext);
@@ -55,46 +52,18 @@ const Card1 = () => {
   //routing
   const router = useRouter();
 
-  // const obtenerDatosTarjeta = (usuario) => {
-  //   obtenerTarjeta(usuario)
-  //     .then((newTarjeta) => {
-  //       guardarTarjetaContext(newTarjeta);
-  //       setDatosTarjeta(newTarjeta);
-  //       setUrlImagen(newTarjeta?.urlimagenusuario)
-  //       setPasar(true);
-  //     })
-  // }
-
-  //Si no hay usuario logueado, se redirecciona a al formulario
-  // useEffect(() => {
-  //   console.log(id)
-  //   if(usuario === USER_STATES.NOT_LOGGED) {
-  //     router.replace("/crearcuenta")
-  //   }
-  //   let unsubscribe
-  //   if(usuario && id === NOT_KNOWN) {
-  //       unsubscribe = obtenerDatosTarjeta(usuario)
-  //   } else if (usuario && id) {
-  //     setPasar(true)
-  //   }
-  //   return () => unsubscribe && unsubscribe();
-  // }, [usuario])
-
   const formRef = useRef();
 
   useEffect(() => {
-    console.log(id)
     const textNombre = formRef.current?.value
-    if(id && textNombre === "") {
-      setInputNombre(nombre)
-      // formRef.current.value === "hola";
-      // router.push('/p/card1');
+    if(id && id !== '0' && textNombre === "") {
+      router.replace('/dashboard');
     }
+    setUrlImagen(urlImagenUsuario)
   }, [id])
 
   //Guardar tarjeta web en Firebase
-  function crearTarjetaWeb(values) {
-
+  const crearTarjetaWeb = async (values) => {
     //objeto de nuevo producto
     const tarjeta = {
       url: shortid.generate(),
@@ -117,26 +86,24 @@ const Card1 = () => {
 
     try {      
       //insertar productos en la base de datos
-      firebase.db.collection('tarjetas').add(tarjeta);
+      await firebase.db.collection('tarjetas').add(tarjeta);
   
       //llamada a la funcion del context
       guardarTarjetaContext(tarjeta)
   
       //redireccionar luego de agregar un producto
-      return router.push('/tarjetacreada');
+      return router.replace(`/tarjetacreada/?url=${urlTarjeta}`);
     } catch (error) {
       console.log(error)
       //redireccionar si hay error
+      return router.replace('/');
     }
-
   }
 
   //Actualizar tarjeta web en Firebase
   const actualizarTarjetaWeb = async (values) => {
-
     //objeto de nuevo producto
     const tarjeta = {
-      // url: shortid.generate(),
       urlimagenusuario: urlImagen,
       nombre: values.nombre, 
       profesion: values.profesion,
@@ -146,33 +113,26 @@ const Card1 = () => {
       numerocontacto: values.numero_contacto,
       mediocontacto: values.medio_contacto,
       redessociales: values.redes_sociales
-      // creado: Date.now(),
-      // creador: {
-      //   id: usuario.uid,
-      //   nombre: usuario.displayName
-      // },
-      // usuariopremium: false,
     }
 
     try {      
       //insertar productos en la base de datos
-      const tarjetaRef = firebase.db.collection('tarjetas').doc(id);
-      const res = await tarjetaRef.update(tarjeta);
-
-      // firebase.db.collection('tarjetas').add(tarjeta);
+      const tarjetaRef = await firebase.db.collection('tarjetas').doc(id);
+      await tarjetaRef.update(tarjeta);
   
       //llamada a la funcion del context
       guardarTarjetaContext(tarjeta)
   
       //redireccionar luego de agregar un producto
-      return router.push('/tarjetacreada');
+      return router.replace(`/tarjetacreada/?url=${urlTarjeta}`);
     } catch (error) {
       console.log(error)
       //redireccionar si hay error
+      return router.replace('/')
     }
-
   }
 
+  //Guardar imagen en Cloudinary
   const subirACloudinary = async (e) => {
     const files = e.target.files[0];
     const formData = new FormData();
@@ -194,22 +154,8 @@ const Card1 = () => {
     
     <>
     <Layout>
-    { usuario ?
+    { usuario && id ?
       <>
-      { console.log('pase el filtro', urlImagen) }
-      {/* <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-        <title>Crea tu tarjeta web | Brevi Site</title>
-      </Head>
-
-      <HeaderUser 
-        usuario={usuario}
-        firebase={firebase}
-      /> */}
 
       <div
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
@@ -269,9 +215,9 @@ const Card1 = () => {
                 redes_sociales: redesSociales
               }}
               onSubmit={(values) => {
-                if(id) {
+                if(id && id !== '0') {
                   actualizarTarjetaWeb(values)
-                } else {
+                } else if (id === '0') {
                   crearTarjetaWeb(values)            
                 }
               }}
@@ -282,20 +228,10 @@ const Card1 = () => {
                   autoComplete="off"
                   className="w-full pb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl px-4 lg:p-8 lg:mx-0" 
                   onSubmit={formikProps.handleSubmit}
-                >
-
-                  <input 
-                    className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
-                    placeholder="👶 Nombre"
-                    name="nombre"
-                    type="text"
-                    value={inputNombre}
-                    onChange={e => setInputNombre(e.target.value)}
-                    ref={formRef}
-                  />                  
-{/*                   
+                >           
+                                  
                   <Field
-                    name="nombre"
+                    name="nombre" 
                   >
                     {(fieldNombre) => (     
                       <>
@@ -309,7 +245,7 @@ const Card1 = () => {
                         />
                       </>
                     )}
-                  </Field> */}
+                  </Field>
 
                   <div className="mx-auto w-4/5 pt-3 mb-3 border-b-2 border-red-200 opacity-25"></div>
                   
@@ -510,7 +446,7 @@ const Card1 = () => {
                       type="submit"
                       id="boton"
                       name="boton"
-                  >{ !id ? 'Publicar tarjeta web' : 'Actualizar tarjeta web' }</button>
+                  >{ id === '0' ? 'Publicar tarjeta web' : 'Actualizar tarjeta web' }</button>
                   }
 
                 </form>
@@ -521,17 +457,8 @@ const Card1 = () => {
       </div>
       </>
     : 
-      <>
-        <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          ></meta>
-          <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-          <title>Crea tu tarjeta web | Brevi Site</title>
-        </Head>
-        <p className="text-center pt-48">Cargando...</p>
-      </>
+
+      <p className="text-center pt-48">Cargando...</p>
 
     }
     </Layout>

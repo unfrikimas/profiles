@@ -15,7 +15,8 @@ const TarjetaCreada = () => {
     //context de usuario
     const { usuario, firebase } = useContext(FirebaseContext);
 
-    const router = useRouter()
+    const router = useRouter();
+    const { query: { url } } = router;
     
     // useEffect(() => {
     //     if(!urlTarjeta) {
@@ -25,7 +26,7 @@ const TarjetaCreada = () => {
 
     //funcion que copia el enlace
     const copiarEnlace = () => {
-        navigator.clipboard.writeText(`https://brevi.site/t/${urlTarjeta}`);
+        navigator.clipboard.writeText(`https://brevi.site/t/${url}`);
         document.getElementById('copiarEnlace').innerHTML="¡Copiado!";
         setTimeout(() => {
             document.getElementById('copiarEnlace').innerHTML="Copiar Enlace";
@@ -41,7 +42,7 @@ const TarjetaCreada = () => {
             />
             <div className="flex flex-col h-full items-center justify-center">
                 <div>
-                    <h1 className="mt-8 py-2 px-12 mb-4 bg-green-200 text-lg text-gray-600 text-center">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
+                    <h1 className="mt-8 py-2 px-14 mb-4 bg-green-200 text-lg text-gray-600 text-center">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
                 </div>
                 <picture>
                     <img
@@ -60,7 +61,7 @@ const TarjetaCreada = () => {
                     >
                         Copiar enlace
                     </button>
-                    <Link href={`/t/${urlTarjeta}`}>
+                    <Link href={`/t/${url}`}>
                         <a className="block w-full pt-3 pb-3.5 my-4 bg-principal hover:bg-principal-hover text-white font-bold">
                             Ver tarjeta web
                         </a>

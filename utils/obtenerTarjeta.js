@@ -9,33 +9,33 @@ export const USER_STATES = {
 function obtenerTarjeta(usuario) {
 
 
-        //si hay usuario
-        if(usuario) {
-            const consultaDB = async () => {
-                return await firebase.db
-                    .collection('tarjetas')
-                    .where('creador.id', '==', usuario.uid)
-                    .get()
-                    .then(snapshot => {
-                        if (snapshot.empty) {
-                            console.log('No ha creado una tarjeta');
+    //si hay usuario
+    if(usuario) {
+        const consultaDB = async () => {
+            return await firebase.db
+                .collection('tarjetas')
+                .where('creador.id', '==', usuario.uid)
+                .get()
+                .then(snapshot => {
+                    if (snapshot.empty) {
+                        console.log('No ha creado una tarjeta');
+                    }
+                    const datosTarjeta = snapshot.docs.map(doc => {
+                        const data = doc.data()
+                        return {
+                        id: doc.id,
+                        ...data,
                         }
-                        const datosTarjeta = snapshot.docs.map(doc => {
-                            const data = doc.data()
-                            return {
-                            id: doc.id,
-                            ...data,
-                            }
-                        })
-                        return datosTarjeta[0]
                     })
-                    .catch(err => {
-                        console.log('Error', err)
-                    })
-            }
-            return consultaDB();
-
+                    return datosTarjeta[0]
+                })
+                .catch(err => {
+                    console.log('Error', err)
+                })
         }
+        return consultaDB();
+
+    }
 
 }
  

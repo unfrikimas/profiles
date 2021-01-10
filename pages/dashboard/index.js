@@ -8,7 +8,7 @@ import HeaderUser from '../../components/layouts/HeaderUser';
 import obtenerTarjeta from '../../utils/obtenerTarjeta';
 import Layout from '../../components/layouts/Layout';
 
-export const USER_STATES = {
+export const ID_CARD_STATES = {
   NOT_LOGGED: null,
   NOT_KNOWN: undefined,
 }
@@ -74,12 +74,7 @@ const DashBoard = () => {
 
       <div className="flex flex-col min-h-screen max-w-lg mx-auto">
 
-        {/* <HeaderUser 
-          usuario={usuario}
-          firebase={firebase}
-        /> */}
-
-        { usuario && !id ?
+        { usuario && id === '0' ?
 
           <section className="flex-1">
             <div className="px-8">
@@ -89,7 +84,7 @@ const DashBoard = () => {
               <div className="mt-6 flex justify-center items-center">
                 <Link href="/p/card1">
                   <a
-                    className="w-56 text-center px-6 pt-4 pb-5 text-xl font-bold text-principal border border-principal" 
+                    className="w-56 text-center px-6 pt-3 pb-3.5 text-lg font-bold text-principal border border-principal" 
                     href="#">
                     Crear tarjeta web
                   </a>
@@ -98,7 +93,7 @@ const DashBoard = () => {
             </div>
           </section>
 
-        : usuario && id ?
+        : usuario && id && id !== '0' ?
 
           <section className="flex-1">
             <div className="px-8">
@@ -107,7 +102,7 @@ const DashBoard = () => {
               </div>
               <div className="mt-6 flex flex-col justify-center items-center">
                 <button 
-                  className="w-56 text-center mb-4 px-6 pt-4 pb-5 text-xl focus:outline-none text-principal border border-principal"
+                  className="w-56 text-center mb-4 px-6 pt-2.5 pb-3 text-lg focus:outline-none text-principal border border-principal"
                   type="button"
                   id="copiarEnlace"
                   onClick={ () => copiarEnlace() }
@@ -116,7 +111,7 @@ const DashBoard = () => {
                 </button>              
                 <Link href="/p/card1">
                   <a
-                    className="w-56 px-6 pt-4 pb-5 text-center text-xl font-bold bg-principal text-white" 
+                    className="w-56 px-6 pt-3 pb-3.5 text-center text-lg font-bold bg-principal hover:bg-principal-hover text-white" 
                     href="#">
                     Editar tarjeta web
                   </a>

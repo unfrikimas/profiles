@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
     //context para los datos de la tarjeta
     const FormContext = useContext(formContext);
-    const { guardarTarjetaContext } = FormContext;
+    const { guardarTarjetaContext, noHayTarjeta } = FormContext;
   
     //routing
     const router = useRouter();
@@ -26,7 +26,13 @@ const Layout = ({ children }) => {
     const obtenerDatosTarjeta = (usuario) => {
       obtenerTarjeta(usuario)
         .then((newTarjeta) => {
-          guardarTarjetaContext(newTarjeta);
+          guardarTarjetaContext(newTarjeta)
+          if(newTarjeta === undefined) {
+            noHayTarjeta();
+          }
+        })
+        .catch(err => {
+          console.log('Error', err)
         })
     }
   
@@ -55,7 +61,7 @@ const Layout = ({ children }) => {
             </Head>
 
             <div className="min-h-screen">
-                <div className="container mx-auto">
+                <div className="mx-auto">
                     <HeaderUser 
                         usuario={usuario}
                         firebase={firebase}
