@@ -365,11 +365,13 @@ const Card1 = () => {
                         <div className="mt-12 mb-4 text-center text-gray-700">
                           <p>🌟 Redes Sociales</p>
                         </div>
+
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
                             <div className={`flex py-1 mt-2 relative border-2 pr-3 ${redsocial.usuario.trim() === "" ? "border-dashed border-red-200" : "border-green-200"}`}>
                                 <Field
                                   name={`redes_sociales[${index}].redsocial`}
+                                  // name={redsocial.redsocial}
                                 >
                                   {(fieldPropsNombre) => (
                                     <div className="absolute inset-y-0 left-1 flex items-center">
@@ -394,10 +396,11 @@ const Card1 = () => {
 
                                 <Field
                                   name={`redes_sociales[${index}].usuario`}
+                                  // name={redsocial.usuario}
                                 >
                                   {(fieldProps) => (
                                     <>
-                                      <div>                         
+                                      <div>        
                                         <input
                                           className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 lowercase"
                                           placeholder="Tu perfil sin el @"
