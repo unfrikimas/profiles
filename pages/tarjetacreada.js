@@ -42,7 +42,7 @@ const TarjetaCreada = () => {
             />
             <div className="flex flex-col h-full items-center justify-center">
                 <div>
-                    <h1 className="mt-8 py-2 px-14 mb-4 bg-green-200 text-lg text-gray-600 text-center">¡Felicidades!<br></br>Ya tienes tu tarjeta web</h1>
+                    <p className="mt-8 py-2 px-4 mb-4 mx-8 bg-green-200 text-lg text-gray-600 text-center"><span className="font-bold">¡Tu tarjeta web está lista!</span><br></br>Copia el enlace y pégalo en tus redes sociales.</p>
                 </div>
                 <picture>
                     <img

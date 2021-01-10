@@ -155,7 +155,7 @@ const Card1 = () => {
     <Layout>
     { usuario && id ?
       <>
-
+      
       <div
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
         style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
@@ -258,7 +258,7 @@ const Card1 = () => {
                         type="text"
                         id="profesion"
                         autoComplete="off"
-                        placeholder="🎓 Qué haces"
+                        placeholder="🎓 Profesión | Oficio"
                         {...fieldProfesion.field}
                       />
                       <p className="text-sm tracking-normal text-center text-gray-500">Ej: Desarrollador Web</p>                                 
@@ -341,13 +341,14 @@ const Card1 = () => {
                       <div className="absolute inset-y-0 right-0 flex items-center">
                         <label htmlFor="contacto" className="sr-only">Contacto</label>
                         <Field
-                          name="medio_contacto"                          
+                          name="medio_contacto"         
                         >
                           {(fieldMedioContacto) => (
                             <select 
-                              className="focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 text-gray-700 leading-8"
+                              className="focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 text-center text-gray-700 leading-8"
                               {...fieldMedioContacto.field} 
                             >
+                              <option value="" disabled>Elije cómo</option>
                               <option value="whatsapp">WhatsApp</option>
                               <option value="telefono">Llamada</option>
                             </select>
@@ -355,7 +356,7 @@ const Card1 = () => {
                         </Field>
                       </div>
                     </div>
-                    <p className="mt-1 text-sm text-center text-gray-500 tracking-normal">¡No olvides el código del país!</p>
+                    <p className="mt-1 text-sm text-center text-gray-500 tracking-normal">¡No olvides tu código de país! <span className="font-bold">Ej: +34</span></p>
                   </div>
 
                   <FieldArray name="redes_sociales">
@@ -430,7 +431,7 @@ const Card1 = () => {
                     )}
                   </FieldArray>
 
-                  { !urlImagen || formikProps.values.nombre.trim() === "" || formikProps.values.profesion.trim() === "" || formikProps.values.ubicacion.trim() === "" || formikProps.values.resumen.trim() === "" || formikProps.values.texto_boton.trim() === "" || formikProps.values.numero_contacto.trim() === ""
+                  { !urlImagen || formikProps.values.nombre.trim() === "" || formikProps.values.profesion.trim() === "" || formikProps.values.ubicacion.trim() === "" || formikProps.values.resumen.trim() === "" || formikProps.values.texto_boton.trim() === "" || formikProps.values.numero_contacto.trim() === "" || formikProps.values.medio_contacto.trim() === ""
                   ?
                   <button
                       className="w-full focus:outline-none py-4 mt-12 mb-8 text-xl text-center  bg-red-200 text-gray-600 tracking-normal cursor-not-allowed"

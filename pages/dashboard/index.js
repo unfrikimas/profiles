@@ -18,36 +18,11 @@ const DashBoard = () => {
     const [ tarjeta, setTarjeta ] = useState(null);
 
   //context de usuario
-  const { usuario, firebase } = useContext(FirebaseContext);
+  const { usuario } = useContext(FirebaseContext);
 
   //context para los datos de la tarjeta
   const FormContext = useContext(formContext);
   const { id, urlTarjeta } = FormContext;
-
-  //Routing
-  const router = useRouter();
-
-//   //Si no hay usuario logueado, se redirecciona a al formulario
-//   useEffect(() => {
-//     if(usuario === USER_STATES.NOT_LOGGED) {
-//       router.replace("/crearcuenta")
-//     }
-//     let unsubscribe
-//     if(usuario) {
-//         unsubscribe = obtenerDatosTarjeta(usuario)
-//     }
-//     return () => unsubscribe && unsubscribe();
-//   }, [usuario])
-
-//   const obtenerDatosTarjeta = (usuario) => {
-//     obtenerTarjeta(usuario)
-//       .then((newTarjeta) => {
-//         guardarTarjetaContext(newTarjeta);
-//         setTarjeta(newTarjeta);
-//       })
-//   }
-
-
 
   //funcion que copia el enlace
   const copiarEnlace = () => {
@@ -60,15 +35,6 @@ const DashBoard = () => {
 
   return (
     <>
-
-      {/* <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0"
-        ></meta>
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-        <title>Tarjetas web | Brevi Site</title>
-      </Head> */}
 
       <Layout>
 
@@ -108,7 +74,13 @@ const DashBoard = () => {
                   onClick={ () => copiarEnlace() }
                 >
                   Copiar enlace
-                </button>              
+                </button>      
+                <Link href={`/t/${urlTarjeta}`}>
+                  <a 
+                    className="w-56 text-center mb-4 px-6 pt-2.5 pb-3 text-lg focus:outline-none text-principal border border-principal">
+                    Ver tarjeta web
+                  </a>
+                </Link>        
                 <Link href="/p/card1">
                   <a
                     className="w-56 px-6 pt-3 pb-3.5 text-center text-lg font-bold bg-principal hover:bg-principal-hover text-white" 

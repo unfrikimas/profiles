@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { useContext } from 'react';
 import Head from 'next/head'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { FirebaseContext } from '../../firebase';
 import styled from "@emotion/styled";
 import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
 import IconLocation from '../../components/icons/location'
+import HeaderCard from '../../components/layouts/HeaderCard';
 
 const Logo = styled.a`
   font-family: 'Playfair Display', serif;
@@ -26,8 +28,11 @@ const Tarjeta = (props) => {
     )
   }
 
-  const { datos } = props
+  //context de usuario
+  const { usuario, firebase } = useContext(FirebaseContext);
 
+  //datos de la tarjeta
+  const { datos } = props
   const { urlimagenusuario, nombre, profesion, ubicacion, resumen, textoboton, numerocontacto, mediocontacto, redessociales } = datos
 
   return (
@@ -40,14 +45,22 @@ const Tarjeta = (props) => {
         content="width=device-width, initial-scale=1.0"
       ></meta>
       <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
-      <title>{nombre} | Brevi Site</title>
+      <title>{nombre.replace(/\b\w/g, l => l.toUpperCase())} | Brevi Site</title>
     </Head>
 
+    { usuario && 
+      <HeaderCard 
+        usuario={usuario}
+        firebase={firebase}  
+      /> 
+    }
+    
     <div
       className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
-      <div className="w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto pt-32 pb-16">
+
+      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-16`}>
         
         <div
           className="w-full rounded-2xl shadow-xl bg-white opacity-90 mx-6"
@@ -106,17 +119,16 @@ const Tarjeta = (props) => {
           </div>
         </div>
 
-        <div className="absolute top-0 right-0 h-12 w-18 p-4">
-          <button className="js-change-theme focus:outline-none">🌙</button>
-        </div>
-        <div className="text-white text-center w-full mx-auto mt-8">
-          <p>
-            Hecho en 
-            <Link href="/">
-              <Logo className="font-bold hover:text-principal-hover cursor-pointer"> Brevi</Logo>
-            </Link>
-          </p>
-        </div>
+        {!usuario && (
+          <div className="text-white text-center w-full mx-auto mt-8">
+            <p>
+              Hecho en 
+              <Link href="/">
+                <Logo className="font-bold hover:text-principal-hover cursor-pointer"> Brevi</Logo>
+              </Link>
+            </p>
+          </div>
+        )}
       </div>
     </div>
     </>    
