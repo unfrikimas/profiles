@@ -177,8 +177,9 @@ export async function getStaticProps(context) {
       return {
         props: { 
           datos: datos[0]
-        }
-      }
+        },
+        revalidate: 10,
+      };
       // console.log(datos.id, '=>', datos)
     })
     .catch(err => {
