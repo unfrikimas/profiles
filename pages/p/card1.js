@@ -80,8 +80,7 @@ const Card1 = () => {
       creador: {
         id: usuario.uid,
         nombre: usuario.displayName
-      },
-      usuariopremium: false,
+      }
     }
 
     try {      
@@ -92,7 +91,7 @@ const Card1 = () => {
       guardarTarjetaContext(tarjeta)
   
       //redireccionar luego de agregar un producto
-      return router.replace(`/tarjetacreada/?url=${urlTarjeta}`);
+      return router.replace(`/tarjetacreada/?url=${tarjeta.url}`);
     } catch (error) {
       console.log(error)
       //redireccionar si hay error
