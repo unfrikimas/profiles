@@ -4,6 +4,7 @@ import Router from "next/router";
 import Layout from "../components/layouts/Layout";
 import { Error } from "../components/ui/Formulario";
 import Link from 'next/link';
+import Header from '../components/layouts/Header';
 
 //importando firebase
 import firebase from "../firebase";
@@ -31,7 +32,7 @@ const IniciarSesion = () => {
   async function iniciarSesion() {
     try {
       await firebase.login(email, password);
-      Router.push("/");
+      Router.replace("/dashboard");
     } catch (error) {
       console.error("Hubo un error al iniciar sesion", error.message);
       guardarError(error.message);
@@ -40,7 +41,11 @@ const IniciarSesion = () => {
 
   return (
     <>
-      <Layout>
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4">
+
+        <Header />
+
         <div className="sm:w-lg mx-auto">
           <h1 className="text-xl font-sans font-bold text-gray-600 text-center pt-8">
             Inicia Sesión
@@ -92,7 +97,8 @@ const IniciarSesion = () => {
             </div>
           </div>
         </div>
-      </Layout>
+      </div>
+    </div>
     </>
   );
 };

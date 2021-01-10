@@ -8,15 +8,9 @@ export const USER_STATES = {
 
 function obtenerTarjeta(usuario) {
 
-        // //Si no hay usuario logueado, se redirecciona a al formulario
-        // if(usuario === USER_STATES.NOT_LOGGED) {
-        //     router.push("/crearcuenta")
-        // }
 
-        //si hay usuario y consulta
-        console.log(usuario)
+        //si hay usuario
         if(usuario) {
-            console.log('consultando')
             const consultaDB = async () => {
                 return await firebase.db
                     .collection('tarjetas')
@@ -33,7 +27,6 @@ function obtenerTarjeta(usuario) {
                             ...data,
                             }
                         })
-                        console.log(datosTarjeta[0])
                         return datosTarjeta[0]
                     })
                     .catch(err => {
@@ -43,13 +36,6 @@ function obtenerTarjeta(usuario) {
             return consultaDB();
 
         }
-
-        // return () => {
-        //     cleanup
-        // }
-
-    // }, [])
-
 
 }
  

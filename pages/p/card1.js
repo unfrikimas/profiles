@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, Fragment } from "react";
+import React, { useState, useContext, useEffect, Fragment, useRef } from "react";
 import { FirebaseContext } from '../../firebase';
 import { Formik, FieldArray, Field } from 'formik';
 import formContext from '../../context/form/formContext';
@@ -12,6 +12,7 @@ import shortid from 'shortid';
 import HeaderUser from '../../components/layouts/HeaderUser';
 import useTarjeta from '../../hooks/useTarjeta';
 import obtenerTarjeta from '../../utils/obtenerTarjeta';
+import Layout from '../../components/layouts/Layout';
 
 export const USER_STATES = {
   NOT_LOGGED: null,
@@ -19,11 +20,6 @@ export const USER_STATES = {
 }
 
 const Card1 = () => {
-
-
-  // const tarjetaHook = useTarjeta();
-  // const { tarjeta } = tarjetaHook;
-  // console.log(tarjeta);
 
   const [ cargando, setCargando ] = useState(false)
   const [ datosTarjeta, setDatosTarjeta ] = useState("")
@@ -49,7 +45,9 @@ const Card1 = () => {
   } = FormContext;
 
   const [ urlImagen, setUrlImagen ] = useState(urlImagenUsuario)
+  const [ campoNombre, setCampoNombre ] = useState("")
   const [ pasar, setPasar ] = useState(false);
+  const [ inputNombre, setInputNombre ] = useState(nombre)
 
   //context de usuario
   const { usuario, firebase } = useContext(FirebaseContext);
@@ -57,29 +55,42 @@ const Card1 = () => {
   //routing
   const router = useRouter();
 
-  useEffect(() => {
-    usuario === USER_STATES.NOT_LOGGED && router.push("/crearcuenta")
-  }, [usuario])
-  
-  useEffect(() => {
+  // const obtenerDatosTarjeta = (usuario) => {
+  //   obtenerTarjeta(usuario)
+  //     .then((newTarjeta) => {
+  //       guardarTarjetaContext(newTarjeta);
+  //       setDatosTarjeta(newTarjeta);
+  //       setUrlImagen(newTarjeta?.urlimagenusuario)
+  //       setPasar(true);
+  //     })
+  // }
 
-  })
+  //Si no hay usuario logueado, se redirecciona a al formulario
+  // useEffect(() => {
+  //   console.log(id)
+  //   if(usuario === USER_STATES.NOT_LOGGED) {
+  //     router.replace("/crearcuenta")
+  //   }
+  //   let unsubscribe
+  //   if(usuario && id === NOT_KNOWN) {
+  //       unsubscribe = obtenerDatosTarjeta(usuario)
+  //   } else if (usuario && id) {
+  //     setPasar(true)
+  //   }
+  //   return () => unsubscribe && unsubscribe();
+  // }, [usuario])
 
-  const obtenerDatosTarjeta = (usuario) => {
-    obtenerTarjeta(usuario)
-      .then((newTarjeta) => {
-        guardarTarjetaContext(newTarjeta);
-        setDatosTarjeta(newTarjeta);
-        setUrlImagen(newTarjeta?.urlimagenusuario)
-        setPasar(true);
-      })
-  }
+  const formRef = useRef();
 
   useEffect(() => {
-    if(usuario) {
-      obtenerDatosTarjeta(usuario)
+    console.log(id)
+    const textNombre = formRef.current?.value
+    if(id && textNombre === "") {
+      setInputNombre(nombre)
+      // formRef.current.value === "hola";
+      // router.push('/p/card1');
     }
-  }, [usuario]);
+  }, [id])
 
   //Guardar tarjeta web en Firebase
   function crearTarjetaWeb(values) {
@@ -182,10 +193,11 @@ const Card1 = () => {
   return (
     
     <>
-    { usuario && pasar ?
+    <Layout>
+    { usuario ?
       <>
       { console.log('pase el filtro', urlImagen) }
-      <Head>
+      {/* <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
@@ -197,7 +209,7 @@ const Card1 = () => {
       <HeaderUser 
         usuario={usuario}
         firebase={firebase}
-      />
+      /> */}
 
       <div
         className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
@@ -271,25 +283,33 @@ const Card1 = () => {
                   className="w-full pb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl px-4 lg:p-8 lg:mx-0" 
                   onSubmit={formikProps.handleSubmit}
                 >
-                  
+
+                  <input 
+                    className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
+                    placeholder="👶 Nombre"
+                    name="nombre"
+                    type="text"
+                    value={inputNombre}
+                    onChange={e => setInputNombre(e.target.value)}
+                    ref={formRef}
+                  />                  
+{/*                   
                   <Field
                     name="nombre"
                   >
                     {(fieldNombre) => (     
                       <>
-                        { console.log('nombre', nombre) }
                         <input 
                           className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                           placeholder="👶 Nombre"
                           name="nombre"
                           type="text"
-                          // value={nombre}
-                          // onChange={formikProps.values.nombre.handleChange}
+                          ref={formRef}
                           {...fieldNombre.field}
                         />
                       </>
                     )}
-                  </Field>
+                  </Field> */}
 
                   <div className="mx-auto w-4/5 pt-3 mb-3 border-b-2 border-red-200 opacity-25"></div>
                   
@@ -510,10 +530,11 @@ const Card1 = () => {
           <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
           <title>Crea tu tarjeta web | Brevi Site</title>
         </Head>
-        <p className="text-center pt-32">Cargando...</p>
+        <p className="text-center pt-48">Cargando...</p>
       </>
 
     }
+    </Layout>
     </>
   );
 
