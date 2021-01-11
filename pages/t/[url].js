@@ -200,7 +200,7 @@ export async function getStaticProps(context) {
         props: { 
           datos: datos[0]
         },
-        revalidate: 10,
+        revalidate: 5,
       };
       // console.log(datos.id, '=>', datos)
     })

@@ -13,11 +13,12 @@ const Header = () => {
 
   return (
     
-    <header className="w-full min-h-32">
+    <header className="w-full py-6">
       <div>
-        <div className="h-32 flex items-center justify-center">
-            <Logo>Brevi</Logo>
+        <div className="flex items-center justify-center">
+          <Logo>Brevi</Logo>
         </div>
+        <p className="text-center text-gray-500">Tarjetas web para redes sociales</p>
       </div>
     </header>
   );
