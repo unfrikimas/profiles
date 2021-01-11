@@ -7,7 +7,8 @@ import styled from "@emotion/styled";
 import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
 import IconLocation from '../../components/icons/location'
-import HeaderCard from '../../components/layouts/HeaderCard';
+import IconEditar from '../../components/icons/form/edit';
+import HeaderUser from '../../components/layouts/HeaderUser';
 
 const Logo = styled.a`
   font-family: 'Playfair Display', serif;
@@ -49,14 +50,14 @@ const Tarjeta = (props) => {
     </Head>
 
     { usuario && 
-      <HeaderCard 
+      <HeaderUser
         usuario={usuario}
         firebase={firebase}  
       /> 
     }
     
     <div
-      className="font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
+      className="z-0 font-sans antialiased text-gray-900 leading-normal tracking-wider h-auto bg-cover"
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
 
@@ -74,10 +75,13 @@ const Tarjeta = (props) => {
             ></div>
 
             <h1 className="mx-auto text-3xl font-bold pt-8 tracking-tight" id="nombre">{nombre.replace(/\b\w/g, l => l.toUpperCase())}</h1>
+
             <div className="mx-auto w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+            
             <p className="pt-4 text-base font-bold flex items-center justify-center" id="profesion">
             {profesion}
             </p>
+
             <div className="flex justify-center items-center pt-1">
               <span className="fill-current text-green-700">
                 <IconLocation width={15} heigth={15} />
@@ -86,6 +90,7 @@ const Tarjeta = (props) => {
                 {ubicacion.replace(/\b\w/g, l => l.toUpperCase())}
               </p>
             </div>
+
             <p className="pt-8 text-sm px-4" id="descripcion">
               {resumen}
             </p>
@@ -108,7 +113,7 @@ const Tarjeta = (props) => {
               }
             </div>
 
-            <div className="mt-6 pb-8 w-4/5 mx-auto flex flex-wrap items-center justify-center">
+            <div className="mt-8 mb-10 w-4/5 mx-auto flex flex-wrap items-center justify-center">
               { redessociales.map((red, index) => (
                 <RedesSociales 
                   key={index}
@@ -117,6 +122,23 @@ const Tarjeta = (props) => {
               )) }
             </div>
           </div>
+
+          {usuario && (
+            <div>
+              <div className="mx-auto w-4/5 border-b-2 border-green-500 opacity-25"></div>
+              <div className="mx-auto my-8 pb-4 w-4/5 flex items-center justify-center">
+                <Link href="/p/card1">
+                  <a
+                    className="flex items-center justify-center tracking-normal text-gray-500 hover:text-green-700"
+                  >
+                    <IconEditar width={40} heigth={40}/>
+                    <p className="px-1">Editar tarjeta</p>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          )}
+
         </div>
 
         {!usuario && (

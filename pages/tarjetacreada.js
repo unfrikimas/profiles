@@ -1,16 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FirebaseContext } from '../firebase';
-import formContext from '../context/form/formContext';
 import HeaderUser from '../components/layouts/HeaderUser';
 
 const TarjetaCreada = () => {
-
-    //context de los datos de tarjeta
-    const FormContext = useContext(formContext);
-    const { urlTarjeta } = FormContext;
 
     //context de usuario
     const { usuario, firebase } = useContext(FirebaseContext);
@@ -18,11 +12,11 @@ const TarjetaCreada = () => {
     const router = useRouter();
     const { query: { url } } = router;
     
-    // useEffect(() => {
-    //     if(!urlTarjeta) {
-    //         return router.push('/')
-    //     }
-    // }, [urlTarjeta])
+    useEffect(() => {
+        if(!usuario || !url) {
+            return router.replace('/')
+        }
+    }, [usuario, url])
 
     //funcion que copia el enlace
     const copiarEnlace = () => {

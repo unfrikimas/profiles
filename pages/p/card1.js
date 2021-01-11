@@ -234,8 +234,11 @@ const Card1 = () => {
                   >
                     {(fieldNombre) => (     
                       <>
+                        <label className="text-sm text-gray-500 tracking-normal">
+                          { formikProps.values.nombre.trim() === "" ? " " : "Nombre:" }
+                        </label>
                         <input 
-                          className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
+                          className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold mb-4 py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                           placeholder="👶 Nombre"
                           name="nombre"
                           type="text"
@@ -245,23 +248,24 @@ const Card1 = () => {
                       </>
                     )}
                   </Field>
-
-                  <div className="mx-auto w-4/5 pt-3 mb-3 border-b-2 border-red-200 opacity-25"></div>
                   
                   <Field
                     name="profesion"
                   >
                     {(fieldProfesion) => (
                       <>
+                      <label className="text-sm text-gray-500 tracking-normal">
+                        { formikProps.values.profesion.trim() === "" ? " " : "Profesión:" }
+                      </label>                      
                       <input 
-                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mt-2 mb-1 text-base text-gray-700 text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.profesion.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mb-1 text-base text-gray-700 text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.profesion.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                         type="text"
                         id="profesion"
                         autoComplete="off"
                         placeholder="🎓 Profesión | Oficio"
                         {...fieldProfesion.field}
                       />
-                      <p className="text-sm tracking-normal text-center text-gray-500">Ej: Desarrollador Web</p>                                 
+                      <p className="mb-3 text-sm tracking-normal text-center text-gray-500">Ej: Desarrollador Web</p>                                 
                       </>
                     )}
                   </Field>
@@ -270,9 +274,12 @@ const Card1 = () => {
                     name="ubicacion"
                   >
                     {(fieldUbicacion) => (     
-                      <>                 
+                      <>
+                      <label className="text-sm text-gray-500 tracking-normal">
+                        { formikProps.values.ubicacion.trim() === "" ? " " : "Ubicación:" }
+                      </label>                      
                       <input 
-                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mt-4 mb-2 text-base text-gray-700 lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.ubicacion.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mb-4 text-base text-gray-700 lg:text-sm text-center font-bold flex items-center justify-center lg:justify-start border-2 ${ formikProps.values.ubicacion.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                         type="text"
                         id="ubicacion"
                         autoComplete="off"
@@ -288,14 +295,17 @@ const Card1 = () => {
                   >
                     {(fieldResumen) => (
                       <>
+                      <label className="text-sm text-gray-500 tracking-normal">
+                        { formikProps.values.resumen.trim() === "" ? " " : "Resumen:" }
+                      </label>
                       <textarea
-                        className={`resize-none w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white h-36 mt-2 text-sm text-gray-700 text-center border-2 px-2 py-2 ${ formikProps.values.resumen.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
+                        className={`resize-none w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white h-36 text-sm text-gray-700 text-center border-2 px-2 py-2 ${ formikProps.values.resumen.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                         id="resumen"
                         autoComplete="off"
                         placeholder="🚀 A qué te dedicas"
                         {...fieldResumen.field}
                       />
-                      <p className="text-sm tracking-normal text-center text-gray-500">Puedes agregar Emoticones 😉🙏💲</p>
+                      <p className="mb-7 text-sm tracking-normal text-center text-gray-500">Puedes agregar Emoticones 😉🙏💲</p>
                       </>
                     )}
                   </Field>
@@ -305,11 +315,14 @@ const Card1 = () => {
                   >
                     {(fieldTextBoton) => (
                       <>
+                      <label className="text-sm text-gray-500 tracking-normal">
+                        { formikProps.values.texto_boton.trim() === "" ? " " : "Botón:" }
+                      </label>
                       <input 
-                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mt-8 mb-2 text-base text-gray-700 text-center font-bold flex items-center justify-center tracking-wide uppercase border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-red-200" : "border-green-200 font-bold" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mb-2 text-base text-gray-700 text-center font-bold flex items-center justify-center tracking-wide uppercase border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-red-200" : "border-green-200 font-bold" }`}
                         type="text"
                         id="boton"
-                        placeholder="TEXTO BOTÓN CONTACTO"
+                        placeholder="TEXTO BOTÓN"
                         {...fieldTextBoton.field}
                       />
                       <p className="text-sm tracking-normal text-center text-gray-500">Ej: CONTACTAR</p>
@@ -318,7 +331,7 @@ const Card1 = () => {
                   </Field>
 
                   <div>
-                    <p className="text-center tracking-normal text-gray-700 mt-10 mb-4">🙋 Cómo te contactarán</p>
+                    <p className="text-center tracking-normal text-gray-700 mt-11 mb-4">🙋 Cómo te contactarán</p>
                     <div className={`relative border-2 py-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}>
                       <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
