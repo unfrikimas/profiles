@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import Head from 'next/head'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,7 +8,7 @@ import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
 import IconLocation from '../../components/icons/location'
 import IconEditar from '../../components/icons/form/edit';
-import IconCopiar from '../../components/icons/form/copiar';
+import IconLink from '../../components/icons/form/link';
 import HeaderUser from '../../components/layouts/HeaderUser';
 
 const Logo = styled.a`
@@ -37,14 +37,16 @@ const Tarjeta = (props) => {
   const { datos } = props
   const { url, urlimagenusuario, nombre, profesion, ubicacion, resumen, textoboton, numerocontacto, mediocontacto, redessociales } = datos
 
+  const botonCopiarEnlace = useRef();
 
   //funcion que copia el enlace
   const copiarEnlace = () => {
     navigator.clipboard.writeText(`https://brevi.site/t/${url}`);
-    document.getElementById('copiarEnlace').innerHTML="¡Copiado!";
-    setTimeout(() => {
-        document.getElementById('copiarEnlace').innerHTML="Copiar enlace";
-    }, 700);
+    const textoBotonEnlace = document.getElementById('copiarEnlace')
+    textoBotonEnlace.innerHTML = '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" width="30" heigth="30" stroke="#fff"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 7.5l1-1a2.828 2.828 0 114 4l-1 1m-2 2l-2 2a2.828 2.828 0 11-4-4l2-2M7.5 13.5l5-5"></path></g></svg>Enlace copiado'
+    // setTimeout(() => {
+    //     botonCopiarEnlace.current=botonCopiarEnlace;
+    // }, 500);
   };
 
   return (
@@ -72,7 +74,7 @@ const Tarjeta = (props) => {
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
 
-      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-16`}>
+      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-8`}>
         
         <div
           className="w-full rounded-2xl shadow-xl bg-white opacity-90 mx-6"
@@ -142,24 +144,28 @@ const Tarjeta = (props) => {
             </div>
           </div>
 
+
+        </div>
+
           {usuario && (
-            <div>
-              <div className="mx-auto w-4/5 border-b-2 border-gray-300 opacity-25"></div>
+            <div className="w-full mx-auto">
+              {/* <div className="mx-auto w-4/5 border-b-2 border-gray-300 opacity-25"></div> */}
               <div className="mx-auto my-8 pb-4 flex flex-col items-center justify-center">
                 <button
-                  className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 mb-4 text-center text-lg border border-principal text-principal focus:outline-none tracking-normal" 
+                  className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 mb-4 text-center text-lg border border-white text-white focus:outline-none tracking-normal" 
                   type="button"
                   id="copiarEnlace"
+                  ref={botonCopiarEnlace}
                   onClick={ () => copiarEnlace() }
                 >                  
-                  <IconCopiar width={35} heigth={35} stroke={"#fe2c55"}/>
+                  <IconLink width={30} heigth={30} stroke={"#fff"}/>
                   Copiar enlace
                 </button>
                 <Link href="/p/card1">
                   <a
-                    className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none" 
-                    href="#">
-                    <IconEditar width={35} heigth={35} stroke={"#ffffff"}/>
+                    className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg border border-principal bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none" 
+                  >
+                    <IconEditar width={30} heigth={30} stroke={"#ffffff"}/>
                     Editar tarjeta web
                   </a>
                 </Link>
@@ -167,9 +173,7 @@ const Tarjeta = (props) => {
             </div>
           )}
 
-        </div>
-
-        {!usuario && (
+        { !usuario && (
           <div className="text-white text-center w-full mx-auto mt-8">
             <p>
               Hecho en 
