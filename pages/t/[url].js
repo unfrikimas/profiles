@@ -102,14 +102,22 @@ const Tarjeta = (props) => {
                   href={`https://api.whatsapp.com/send?phone=${numerocontacto}&text=Hola`}
                 >
                   {textoboton.toUpperCase()}
-                </a>                            
-              :
+                </a>
+              : mediocontacto === "llamada" ?
                 <a 
                   className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold pt-3 pb-3.5 px-6 rounded-full items-center"
                   href={`tel:${numerocontacto}`}
                 >
                   {textoboton.toUpperCase()}
-                </a>                                          
+                </a>
+                : mediocontacto === "correo" ?
+                  <a 
+                    className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold pt-3 pb-3.5 px-6 rounded-full items-center"
+                    href={`mailto:${numerocontacto}`}
+                  >
+                    {textoboton.toUpperCase()}
+                  </a>
+                  : null
               }
             </div>
 
@@ -125,14 +133,14 @@ const Tarjeta = (props) => {
 
           {usuario && (
             <div>
-              <div className="mx-auto w-4/5 border-b-2 border-green-500 opacity-25"></div>
+              <div className="mx-auto w-4/5 border-b-2 border-gray-300 opacity-25"></div>
               <div className="mx-auto my-8 pb-4 w-4/5 flex items-center justify-center">
                 <Link href="/p/card1">
                   <a
-                    className="flex items-center justify-center tracking-normal text-gray-500 hover:text-green-700"
-                  >
-                    <IconEditar width={40} heigth={40}/>
-                    <p className="px-1">Editar tarjeta</p>
+                    className="flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg bg-principal hover:bg-principal-hover text-white tracking-normal" 
+                    href="#">
+                    <IconEditar width={35} heigth={35} stroke={"#ffffff"}/>
+                    Editar tarjeta web
                   </a>
                 </Link>
               </div>

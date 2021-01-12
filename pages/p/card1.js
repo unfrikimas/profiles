@@ -332,27 +332,15 @@ const Card1 = () => {
 
                   <div>
                     <p className="text-center tracking-normal text-gray-700 mt-11 mb-4">🙋 Cómo te contactarán</p>
-                    <div className={`relative border-2 py-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}>
-                      <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
+                    <div 
+                      className={`flex relative border-2 py-1 px-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}>
+                      {/* <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
                           <IconPhone width={30} height={30}/>
                         </span>
-                      </div>
-                      <Field
-                        name="numero_contacto"
-                      >
-                        {(fieldNumeroContacto) => (
-                          <input 
-                            className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-7 pr-12 text-gray-700 border-gray-300" 
-                            placeholder="Ej: +34682811728"
-                            type="text" 
-                            id="numero"
-                            {...fieldNumeroContacto.field}
-                          />
-                        )}
-                      </Field>
-                      <div className="absolute inset-y-0 right-0 flex items-center">
-                        <label htmlFor="contacto" className="sr-only">Contacto</label>
+                      </div> */}
+                      <div className="flex items-center">
+                        {/* <label htmlFor="contacto" className="sr-only">Contacto</label> */}
                         <Field
                           name="medio_contacto"         
                         >
@@ -364,12 +352,38 @@ const Card1 = () => {
                               <option value="" disabled>Elije cómo</option>
                               <option value="whatsapp">WhatsApp</option>
                               <option value="telefono">Llamada</option>
+                              <option value="correo">Correo</option>
                             </select>
                           )}
                         </Field>
-                      </div>
+                      </div>           
+
+                      <Field
+                        name="numero_contacto"
+                      >
+                        {(fieldNumeroContacto) => (
+                          <input 
+                            className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 pr-1 text-gray-700 border-gray-300" 
+                            placeholder={formikProps.values.medio_contacto.trim() === "correo" ? "Ej: carlos@gmail.com" : "Ej: +34682811728"}
+                            type="text" 
+                            id="numero"
+                            {...fieldNumeroContacto.field}
+                          />
+                        )}
+                      </Field>
+
                     </div>
-                    <p className="mt-1 text-sm text-center text-gray-500 tracking-normal">¡No olvides tu código de país! <span className="font-bold">Ej: +34</span></p>
+                    
+                    { formikProps.values.medio_contacto.trim() === "correo" 
+                    ?
+                      <p 
+                        className="mt-1 text-sm text-center text-gray-500 tracking-normal">¡No olvides el <span className="font-bold">@</span>!
+                      </p>
+                    :
+                      <p 
+                        className="mt-1 text-sm text-center text-gray-500 tracking-normal">¡No olvides tu código de país! <span className="font-bold">Ej: +34</span>
+                      </p>
+                    }
                   </div>
 
                   <FieldArray name="redes_sociales">
@@ -381,13 +395,13 @@ const Card1 = () => {
 
                         {formikProps.values.redes_sociales.map((redsocial, index) => (
                           <Fragment key={index}>
-                            <div className={`flex py-1 mt-2 relative border-2 pr-3 ${redsocial.usuario.trim() === "" ? "border-dashed border-red-200" : "border-green-200"}`}>
+                            <div className={`flex py-1 pl-1 mt-2 relative border-2 mr-1 ${redsocial.usuario.trim() === "" ? "border-dashed border-red-200" : "border-green-200"}`}>
                                 <Field
                                   name={`redes_sociales[${index}].redsocial`}
                                   // name={redsocial.redsocial}
                                 >
                                   {(fieldPropsNombre) => (
-                                    <div className="absolute inset-y-0 left-1 flex items-center">
+                                    <div className="flex items-center">
                                       {/* <label htmlFor="redsocial">Redes Sociales</label> */}
                                       <select 
                                         className="focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 leading-8"
@@ -415,14 +429,14 @@ const Card1 = () => {
                                     <>
                                       <div>        
                                         <input
-                                          className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-28 pr-4 sm:text-sm border-gray-300 lowercase"
+                                          className="w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 ml-1 mr-4 pl-1 pr-1 sm:text-sm border-gray-300 lowercase"
                                           placeholder="Tu perfil sin el @"
                                           {...fieldProps.field}
                                         />
                                       </div>
                                       <div className="flex flex-1 ml-2 sm:ml-8 items-center justify-center text-xl">
                                         <button
-                                          className="focus:outline-none"
+                                          className="pr-1 text-red-400 focus:outline-none"
                                           type="button"
                                           onClick={() => fieldArrayProps.remove(index)}
                                         >X</button>
