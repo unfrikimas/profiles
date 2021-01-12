@@ -85,7 +85,10 @@ const Card1 = () => {
 
     try {      
       //insertar productos en la base de datos
-      await firebase.db.collection('tarjetas').add(tarjeta);
+      const tarjetaRef = await firebase.db.collection('tarjetas')
+      await tarjetaRef.add(tarjeta);
+
+      // await firebase.db.collection('tarjetas').add(tarjeta);
   
       //llamada a la funcion del context
       guardarTarjetaContext(tarjeta)
