@@ -8,6 +8,7 @@ import firebase from '../../firebase/firebase';
 import RedesSociales from '../../components/ui/RedesSociales';
 import IconLocation from '../../components/icons/location'
 import IconEditar from '../../components/icons/form/edit';
+import IconCopiar from '../../components/icons/form/copiar';
 import HeaderUser from '../../components/layouts/HeaderUser';
 
 const Logo = styled.a`
@@ -25,7 +26,7 @@ const Tarjeta = (props) => {
 
   if(!props.datos) {
     return (
-      <p className="my-10 text-2xl text-center font-bold">No existe la tarjeta</p>
+      <p className="my-10 text-2xl text-center font-bold">La tarjeta no existe</p>
     )
   }
 
@@ -34,7 +35,17 @@ const Tarjeta = (props) => {
 
   //datos de la tarjeta
   const { datos } = props
-  const { urlimagenusuario, nombre, profesion, ubicacion, resumen, textoboton, numerocontacto, mediocontacto, redessociales } = datos
+  const { url, urlimagenusuario, nombre, profesion, ubicacion, resumen, textoboton, numerocontacto, mediocontacto, redessociales } = datos
+
+
+  //funcion que copia el enlace
+  const copiarEnlace = () => {
+    navigator.clipboard.writeText(`https://brevi.site/t/${url}`);
+    document.getElementById('copiarEnlace').innerHTML="¡Copiado!";
+    setTimeout(() => {
+        document.getElementById('copiarEnlace').innerHTML="Copiar enlace";
+    }, 700);
+  };
 
   return (
 
@@ -134,10 +145,19 @@ const Tarjeta = (props) => {
           {usuario && (
             <div>
               <div className="mx-auto w-4/5 border-b-2 border-gray-300 opacity-25"></div>
-              <div className="mx-auto my-8 pb-4 w-4/5 flex items-center justify-center">
+              <div className="mx-auto my-8 pb-4 flex flex-col items-center justify-center">
+                <button
+                  className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 mb-4 text-center text-lg border border-principal text-principal focus:outline-none tracking-normal" 
+                  type="button"
+                  id="copiarEnlace"
+                  onClick={ () => copiarEnlace() }
+                >                  
+                  <IconCopiar width={35} heigth={35} stroke={"#fe2c55"}/>
+                  Copiar enlace
+                </button>
                 <Link href="/p/card1">
                   <a
-                    className="flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg bg-principal hover:bg-principal-hover text-white tracking-normal" 
+                    className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none" 
                     href="#">
                     <IconEditar width={35} heigth={35} stroke={"#ffffff"}/>
                     Editar tarjeta web
