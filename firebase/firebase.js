@@ -13,10 +13,23 @@ class Firebase {
     }
     //Registra un usuario
     async registrar(nombre, email, password) {
-        const nuevoUsuario = await this.auth.createUserWithEmailAndPassword(email, password);
+        const nuevoUsuario = await this.auth.createUserWithEmailAndPassword(email, password)
         return await nuevoUsuario.user.updateProfile({
             displayName: nombre
         })
+    }
+
+    //verificar usuario por correo
+    async verificar() {
+        this.auth.useDeviceLanguage()
+        const user = this.auth.currentUser 
+        await user.sendEmailVerification()
+            .then(function() {
+                // Email sent.
+            }).catch(function(error) {
+                // An error happened.
+                console.log(error)
+            });
     }
 
     //Inicia sesion del usuario
@@ -26,7 +39,11 @@ class Firebase {
 
     //Cierra la sesion
     async cerrarSesion() {
-        await this.auth.signOut();
+        try {
+            await this.auth.signOut();
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }

@@ -42,7 +42,7 @@ const IniciarSesion = () => {
   return (
     <>
     <div className="min-h-screen">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
 
         <Header />
 
@@ -52,7 +52,7 @@ const IniciarSesion = () => {
           </h1>
           {/* { mensaje && <Alerta /> } */}
           <div className="flex justify-center mt-5">
-            <div className="w-full max-w-lg">
+            <div className="w-full max-w-lg relative">
               <form
                 className="px-4"
                 onSubmit={handleSubmit}
@@ -90,8 +90,11 @@ const IniciarSesion = () => {
                   type="submit"
                   value="Iniciar sesión"
                 />
+                <Link href="/resetpassword">
+                  <a className="block text-gray-400 text-right mt-2">¿Olvidaste la contraseña?</a>
+                </Link>
                 <Link href="/crearcuenta">
-                  <a className="block text-gray-400 text-right mt-4">¿No tienes cuenta?</a>
+                  <a className="block mt-16 text-gray-600 text-center">¿No tienes cuenta?</a>
                 </Link>
               </form>
             </div>
