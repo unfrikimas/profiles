@@ -74,7 +74,7 @@ const ResetPassword = () => {
                     onSubmit={handleSubmit}
                     noValidate
                 >
-                    <p className="text-gray-600 mb-4">Escribe el email que registraste y recibirás un enlace para cambiar tu contraseña.</p>
+                    <p className="text-gray-500 mb-4">Escribe el email que usaste cuando creaste tu cuenta y recibirás un enlace para cambiar tu contraseña.</p>
                     <div className="mb-4">
                     <input
                         className="text-lg appearance-none border w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
@@ -90,7 +90,7 @@ const ResetPassword = () => {
                     {errores.password && <Error>{errores.password}</Error>}
                     {error && <Error>{error}</Error>}
                     <input
-                    className="text-xl bg-principal hover:bg-principal-hover w-full pt-4 pb-5 text-white font-bold cursor-pointer mb-5 focus:outline-none"
+                    className="text-xl bg-principal hover:bg-principal-hover w-full py-4 text-white font-bold cursor-pointer mb-5 focus:outline-none"
                     type="submit"
                     value="Recibir enlace"
                     />

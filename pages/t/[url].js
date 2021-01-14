@@ -74,7 +74,7 @@ const Tarjeta = (props) => {
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
 
-      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-8`}>
+      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-12`}>
         
         <div
           className="w-full rounded-2xl shadow-xl bg-white opacity-90 mx-6"
@@ -100,7 +100,7 @@ const Tarjeta = (props) => {
                 <IconLocation width={15} heigth={15} />
               </span>
               <p className="text-gray-600 text-xs flex">
-                {ubicacion.replace(/\b\w/g, l => l.toUpperCase())}
+                {ubicacion}
               </p>
             </div>
 
@@ -147,31 +147,31 @@ const Tarjeta = (props) => {
 
         </div>
 
-          {usuario && (
-            <div className="w-full mx-auto">
-              {/* <div className="mx-auto w-4/5 border-b-2 border-gray-300 opacity-25"></div> */}
-              <div className="mx-auto my-8 pb-4 flex flex-col items-center justify-center">
-                <button
-                  className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 mb-4 text-center text-lg border border-white text-white focus:outline-none tracking-normal" 
-                  type="button"
-                  id="copiarEnlace"
-                  ref={botonCopiarEnlace}
-                  onClick={ () => copiarEnlace() }
-                >                  
-                  <IconLink width={30} heigth={30} stroke={"#fff"}/>
-                  Copiar enlace
-                </button>
-                <Link href="/p/card1">
-                  <a
-                    className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg border border-principal bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none" 
-                  >
-                    <IconEditar width={30} heigth={30} stroke={"#ffffff"}/>
-                    Editar tarjeta web
-                  </a>
-                </Link>
-              </div>
+        {usuario && (
+          <div className="w-full mx-auto">
+            {/* <div className="mx-auto w-4/5 border-b-2 border-gray-300 opacity-25"></div> */}
+            <div className="mx-auto my-8 pb-4 flex flex-col items-center justify-center">
+              <button
+                className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 mb-4 text-center text-lg border border-white text-white focus:outline-none tracking-normal" 
+                type="button"
+                id="copiarEnlace"
+                ref={botonCopiarEnlace}
+                onClick={ () => copiarEnlace() }
+              >                  
+                <IconLink width={30} heigth={30} stroke={"#fff"}/>
+                Copiar enlace
+              </button>
+              <Link href="/p/card1">
+                <a
+                  className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg border border-white text-white focus:outline-none tracking-normal" 
+                >
+                  <IconEditar width={30} heigth={30} stroke={"#ffffff"}/>
+                  Editar tarjeta web
+                </a>
+              </Link>
             </div>
-          )}
+          </div>
+        )}
 
         { !usuario && (
           <div className="text-white text-center w-full mx-auto mt-8">
@@ -183,6 +183,23 @@ const Tarjeta = (props) => {
             </p>
           </div>
         )}
+      </div>
+      <div className="bg-white py-8 tracking-normal text-center">
+        <p>¿Quieres una tarjeta con más información?</p>
+        <Link href="/cmasd">
+          <a 
+            className="block mt-2 hover:underline text-center text-gray-500"
+          >
+            Ver ejemplo
+          </a>
+        </Link>
+        <a
+          className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg border border-principal bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none"
+          href={"https://api.whatsapp.com/send?phone=+34682811728&text=Hola, me interesa una tarjeta web más personalizada"}
+          target="_blank"
+        >
+          Contáctame
+        </a>
       </div>
     </div>
     </>    

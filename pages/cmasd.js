@@ -1,10 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
+import styled from "@emotion/styled";
 import IconFacebook from '../components/icons/socials/facebook';
 import IconInstagram from '../components/icons/socials/instagram';
 import IconLinkedin from '../components/icons/socials/linkedin';
 import IconLocation from '../components/icons/location';
 import IconBehance from '../components/icons/socials/behance';
+
+const Logo = styled.a`
+  font-family: 'Playfair Display', serif;
+  color: #fe2c55;
+  font-size: 1.1rem;
+  font-weight: 700;
+`;
 
 const cmasd = () => {
     return (  
@@ -25,7 +34,7 @@ const cmasd = () => {
             <script src="https://unpkg.com/tippy.js@4" />
         </Head>
 
-        <section className="text-gray-700 body-font h-auto bg-black">
+        <section className="text-gray-700 body-font h-auto bg-black pb-16">
           <div className="">
               <img 
                   className="w-auto mx-auto md:w-1/2"
@@ -60,8 +69,8 @@ const cmasd = () => {
                         <a 
                           href="https://api.whatsapp.com/send?phone=573058261064&text=Hola"
                           target="_blank"
-                          className="mt-2 pl-1 text-pink-600 inline-flex items-center hover:underline">WhatsApp
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                          className="mt-2 pl-1 text-pink-600 font-bold inline-flex items-center hover:underline">WhatsApp
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </a>
@@ -106,29 +115,6 @@ const cmasd = () => {
               <div className="pl-2 mt-6 mb-4">
                 <h2 className="text-xl font-bold">Casos de éxito</h2>
               </div>
-              {/* <div className="flex w-full justify-between gap-2">
-                <div className="flex-1 h-36">
-                  <a href="https://cmasd.co/portfolio/dr-pulido/" target="_blank">
-                    <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
-                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608722042/brevi_site/doctor-pulido-600_qvngum.jpg" />
-                    </div>
-                  </a>
-                </div>
-                <div className="flex-1 h-36">
-                  <a href="https://cmasd.co/portfolio/envia/" target="_blank">
-                    <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
-                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608722605/brevi_site/envia-600_lpgneb.jpg" />
-                    </div>
-                  </a>
-                </div>
-                <div className="flex-1 h-36">
-                  <a href="https://cmasd.co/portfolio/arrocito-en-bajo/" target="_blank">
-                    <div className="flex flex-wrap w-full h-full sm:py-24 py-2 sm:px-10 px-2 relative">
-                      <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-2xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608722970/brevi_site/arrocito-600_qbbghi.jpg" />
-                    </div>
-                  </a>
-                </div>
-              </div> */}
               <a href="https://cmasd.co/portfolio/arrocito-en-bajo/" target="_blank">
                 <div className="flex p-2 my-4 bg-gray-100 rounded-2xl shadow-lg">
                   <div className="relative w-1/3">
@@ -224,10 +210,13 @@ const cmasd = () => {
               </div>
             </div>            
           </div>
-          <div className="py-10 bg-black">
-            <div className="text-white text-center py-3 px-4 w-full lg:w-1/4 mx-auto lg:rounded-lg">
-              <p>Hecho en <a className="text-purple-600 font-bold hover:underline" href="https://brevi.site/landing" target="_blank">Brevi</a></p>
-            </div>
+          <div className="text-white text-center w-full mx-auto mt-8">
+            <p>
+              Hecho en 
+              <Link href="/">
+                <Logo className="font-bold hover:text-principal-hover cursor-pointer"> Brevi</Logo>
+              </Link>
+            </p>
           </div>
         </section>  
         </>      
