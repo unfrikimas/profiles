@@ -35,11 +35,9 @@ const ResetPassword = () => {
         setMensajeCambioPassword(true)
       }).catch(function(error) {
         // An error happened.
-        console.error("Hubo un error al iniciar sesion", error.message);
+        console.error("Hubo un error", error.message);
         guardarError(error.message);
       });
-        // await firebase.login(email, password);
-        //   Router.replace("/dashboard");
   }
 
   return (
@@ -87,12 +85,12 @@ const ResetPassword = () => {
                         // onBlur={handleBlur}
                     />
                     </div>
-                    {errores.password && <Error>{errores.password}</Error>}
+                    {errores.email && <Error>{errores.email}</Error>}
                     {error && <Error>{error}</Error>}
                     <input
-                    className="text-xl bg-principal hover:bg-principal-hover w-full py-4 text-white font-bold cursor-pointer mb-5 focus:outline-none"
-                    type="submit"
-                    value="Recibir enlace"
+                      className="text-xl bg-principal hover:bg-principal-hover w-full py-4 text-white font-bold cursor-pointer mb-5 focus:outline-none"
+                      type="submit"
+                      value="Recibir enlace"
                     />
                     <Link href="/crearcuenta">
                     <a className="block text-gray-400 text-right mt-4">¿No tienes cuenta?</a>
