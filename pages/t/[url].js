@@ -174,7 +174,7 @@ const Tarjeta = (props) => {
         )}
 
         { !usuario && (
-          <div className="text-white text-center w-full mx-auto mt-8">
+          <div className="text-white text-center w-full mx-auto my-8">
             <p>
               Hecho en 
               <Link href="/">
