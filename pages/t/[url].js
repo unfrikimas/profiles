@@ -74,7 +74,7 @@ const Tarjeta = (props) => {
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
 
-      <div className="w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto pt-32 pb-8">
+      <div className="w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto pt-32">
         
         <div
           className="w-full rounded-2xl shadow-xl bg-white opacity-90 mx-6"

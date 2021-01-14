@@ -32,7 +32,11 @@ const HeaderUser = ({usuario, firebase}) => {
       limpiarDatosTarjeta();
     }
 
-    return (  
+    return (
+
+      <>
+      { usuario && (             
+      <>
 
         <header className="h-16 py-2 px-4 border-1 border-b border-gray-300">
           <div className="flex justify-between items-center">
@@ -41,8 +45,6 @@ const HeaderUser = ({usuario, firebase}) => {
               <Logo>Brevi</Logo>
             </Link>
             <div className="text-gray-500">
-              { usuario && (             
-              <>
 
                 <div className="relative inline-block text-left">
               
@@ -127,13 +129,14 @@ const HeaderUser = ({usuario, firebase}) => {
                   </Transition>           
                 </div>  
 
-              </>            
-              )}
-
+                
             </div>
           </div>
         </header>
-
+      </>            
+      )}
+      </>
+                
     );
 }
  

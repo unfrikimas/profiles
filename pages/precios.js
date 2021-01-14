@@ -28,14 +28,14 @@ const Precios = () => {
           <div className="pt-8 pb-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-10">
               <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Precios</h1>
-              <p className="max-w-xl mx-auto leading-relaxed text-base text-gray-500">Comienza con la tarjeta web básica para darte a conocer; y, cuando tu proyecto crezca, estaré encantando de ayudarte.</p>
+              <p className="max-w-xl mx-auto leading-normal text-base text-gray-500">Comienza con la tarjeta web básica y cuando tu proyecto crezca, estaré encantando de apoyarte.</p>
               {/* <div className="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden mt-6">
                 <button className="py-1 px-4 bg-indigo-500 text-white focus:outline-none">Monthly</button>
                 <button className="py-1 px-4 focus:outline-none">Annually</button>
               </div> */}
             </div>
             <div className="max-w-xl mx-auto flex flex-wrap -m-4">
-              <div className="pt-2 px-2 pb-4 sm:w-1/2 w-full">
+              <div className="pt-2 px-2 pb-8 sm:w-1/2 w-full">
                 <div 
                   className="h-full p-6 border-2 border-red-200 flex flex-col relative overflow-hidden">
                   <h2 className="text-sm tracking-widest title-font mb-1 font-medium">BÁSICA</h2>
@@ -73,19 +73,17 @@ const Precios = () => {
                       <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="w-3 h-3" viewBox="0 0 24 24">
                         <path d="M20 6L9 17l-5-5"></path>
                       </svg>
-                    </span>6 meses de hosting
+                    </span>Un año de prueba
                   </p>
-                  <button 
-                    className="flex items-center mt-auto text-gray-500 border border-red-200 py-2 px-4 w-full focus:outline-none">
-                    <Link href="/p/claudiahernandez">
-                      <a>
-                        Ver demo
-                      </a>
-                    </Link>
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
+                  <Link href="/p/claudiahernandez">
+                    <a 
+                      className="flex items-center mt-auto text-principal border border-principal py-2 px-4 w-full focus:outline-none">
+                      Ver demo
+                      <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-auto" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </Link>
                   <p 
                     className="text-xs text-gray-500 mt-3 mb-4">
                     Excelente para darte a conocer y agrupar todas tus redes sociales en un único enlace.
@@ -152,13 +150,13 @@ const Precios = () => {
                   </Link>
                   <p 
                     className="text-xs text-gray-500 mt-3 mb-4">
-                    Cuando tu proyecto comience a crecer, vas a necesitar una tarjeta web que incluya más texto, fotos y enlaces.
+                    Cuando tu proyecto comience a crecer, vas a necesitar una tarjeta web que incluya más texto, fotos y enlaces. Pide un presupuesto.
                   </p>
                   <a
                     className="flex items-center justify-center font-bold mt-auto text-white bg-principal border-0 py-3 px-4 w-full focus:outline-none hover:bg-principal-hover tracking-wide"
                     href="https://api.whatsapp.com/send?phone=+34682811728&text=Hola, me interesa una tarjeta web personalizada" 
                   >
-                    Contáctame
+                    Contactar
                   </a>
                 </div>
               </div>
