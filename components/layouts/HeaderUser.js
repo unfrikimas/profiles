@@ -34,13 +34,11 @@ const HeaderUser = ({usuario, firebase}) => {
 
     return (
 
-      <>
-      { usuario && (             
-      <>
-
         <header className="h-16 py-2 px-4 border-1 border-b border-gray-300">
           <div className="flex justify-between items-center">
 
+          { usuario && (             
+            <>
             <Link href="/">
               <Logo>Brevi</Logo>
             </Link>
@@ -131,11 +129,10 @@ const HeaderUser = ({usuario, firebase}) => {
 
                 
             </div>
+            </>            
+            )}
           </div>
         </header>
-      </>            
-      )}
-      </>
                 
     );
 }
