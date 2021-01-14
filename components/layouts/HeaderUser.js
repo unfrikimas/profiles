@@ -5,6 +5,7 @@ import Link from 'next/link';
 import formContext from '../../context/form/formContext';
 import { Transition } from '@headlessui/react'
 import IconUsuario from '../icons/form/user';
+import IconUserItem from '../icons/form/useritem';
 
 const Logo = styled.a`
   font-family: 'Playfair Display', serif;
@@ -79,10 +80,13 @@ const HeaderUser = ({usuario, firebase}) => {
 
                       <div ref={ref} className="z-40 origin-top-right absolute right-0 mt-2 w-48 shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                         <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                          <p 
-                            className="block truncate px-4 py-2 text-sm text-gray-400 border-b border-gray-100">
-                            { usuario.displayName.replace(/\b\w/g, l => l.toUpperCase()) }
-                          </p>
+                          <div className="flex items-center px-4">
+                            <IconUserItem width={15} height={15} />
+                            <p 
+                              className="block truncate pl-1 py-2 text-sm text-gray-400 border-b border-gray-100">
+                              { usuario.displayName.replace(/\b\w/g, l => l.toUpperCase()) }
+                            </p>
+                          </div>
                           <Link href="/">
                             <a
                               className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
@@ -95,6 +99,15 @@ const HeaderUser = ({usuario, firebase}) => {
                               <a 
                                 className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                                 Tablero
+                              </a>
+                            </Link>
+                          }
+                          { pathname === "/precios" ? "" 
+                          :                          
+                            <Link href="/precios">
+                              <a 
+                                className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                                Precios
                               </a>
                             </Link>
                           }

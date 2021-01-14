@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Link from 'next/link';
 
 
 const Logo = styled.a`
@@ -15,10 +16,12 @@ const Header = () => {
     
     <header className="w-full py-6">
       <div>
-        <div className="flex items-center justify-center">
-          <Logo>Brevi</Logo>
+        <div className="flex items-center justify-center cursor-pointer">
+          <Link href="/crearcuenta">
+            <Logo>Brevi</Logo>
+          </Link>
         </div>
-        <p className="text-center text-gray-500">Tarjetas web para redes sociales</p>
+        <p className="text-center text-gray-500">La tarjeta web para tus redes sociales</p>
       </div>
     </header>
   );

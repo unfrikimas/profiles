@@ -186,22 +186,17 @@ const Tarjeta = (props) => {
       </div>
 
       { usuario && (
-        <div className="bg-white py-8 tracking-normal text-center">
-          <p>¿Quieres una tarjeta con más información?</p>
-          <Link href="/cmasd">
-            <a 
-              className="block mt-2 hover:underline text-center text-gray-500"
+        <div className="bg-white pt-8 pb-10 px-12 tracking-normal text-center">
+          <div>
+            <p>¿Quieres una tarjeta web con más imágenes, más texto y más enlaces?</p>
+          </div>
+          <Link href="/precios">
+            <a
+              className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg border border-principal text-principal tracking-normal focus:outline-none"
             >
-              Ver ejemplo
+              Ver precios
             </a>
           </Link>
-          <a
-            className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg border border-principal bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none"
-            href={"https://api.whatsapp.com/send?phone=+34682811728&text=Hola, me interesa una tarjeta web más personalizada"}
-            target="_blank"
-          >
-            Contáctame
-          </a>
         </div>
       )}
     </div>
