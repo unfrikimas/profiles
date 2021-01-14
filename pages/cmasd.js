@@ -107,7 +107,7 @@ const cmasd = () => {
                   href="https://blog.cmasd.co/"
                   target="_blank"
                   className="mt-6 pl-1 text-gray-500 inline-flex items-center hover:underline">Más artículos
-                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
                 </a>
@@ -166,7 +166,7 @@ const cmasd = () => {
                   href="https://cmasd.co/portafolio/"
                   target="_blank"
                   className="mt-4 pl-1 text-gray-500 inline-flex items-center hover:underline">Más casos de éxito
-                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
                 </a>

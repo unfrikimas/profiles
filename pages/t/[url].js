@@ -74,7 +74,7 @@ const Tarjeta = (props) => {
       style={{backgroundImage: `url(https://source.unsplash.com/QXbDyXXkRMI)`}}
     >
 
-      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-12`}>
+      <div className={`w-full sm:max-w-lg flex min-h-screen items-center flex-wrap mx-auto ${usuario ? "pt-32" : "pt-32"} pb-8`}>
         
         <div
           className="w-full rounded-2xl shadow-xl bg-white opacity-90 mx-6"
@@ -184,23 +184,26 @@ const Tarjeta = (props) => {
           </div>
         )}
       </div>
-      <div className="bg-white py-8 tracking-normal text-center">
-        <p>¿Quieres una tarjeta con más información?</p>
-        <Link href="/cmasd">
-          <a 
-            className="block mt-2 hover:underline text-center text-gray-500"
+
+      { usuario && (
+        <div className="bg-white py-8 tracking-normal text-center">
+          <p>¿Quieres una tarjeta con más información?</p>
+          <Link href="/cmasd">
+            <a 
+              className="block mt-2 hover:underline text-center text-gray-500"
+            >
+              Ver ejemplo
+            </a>
+          </Link>
+          <a
+            className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg border border-principal bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none"
+            href={"https://api.whatsapp.com/send?phone=+34682811728&text=Hola, me interesa una tarjeta web más personalizada"}
+            target="_blank"
           >
-            Ver ejemplo
+            Contáctame
           </a>
-        </Link>
-        <a
-          className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg border border-principal bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none"
-          href={"https://api.whatsapp.com/send?phone=+34682811728&text=Hola, me interesa una tarjeta web más personalizada"}
-          target="_blank"
-        >
-          Contáctame
-        </a>
-      </div>
+        </div>
+      )}
     </div>
     </>    
 
