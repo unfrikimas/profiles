@@ -192,7 +192,7 @@ const Tarjeta = (props) => {
           </div>
           <Link href="/precios">
             <a
-              className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg border border-principal text-principal tracking-normal focus:outline-none"
+              className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg bg-principal text-white tracking-normal focus:outline-none"
             >
               Ver precios
             </a>
