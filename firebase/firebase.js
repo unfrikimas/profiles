@@ -20,10 +20,10 @@ class Firebase {
     }
 
     //verificar usuario por correo
-    async verificar() {
+    async verificar(usuario) {
         this.auth.useDeviceLanguage()
-        const user = this.auth.currentUser 
-        await user.sendEmailVerification()
+        // const user = this.auth.currentUser 
+        await usuario.sendEmailVerification()
             .then(function() {
                 // Email sent.
             }).catch(function(error) {

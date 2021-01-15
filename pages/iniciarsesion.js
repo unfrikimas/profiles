@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Header from '../components/layouts/Header';
 
 //importando firebase
-import firebase from "../firebase";
+import firebase from "../firebase/firebase";
 
 //validaciones
 import useValidacion from "../hooks/useValidacion";
@@ -31,8 +31,16 @@ const IniciarSesion = () => {
 
   async function iniciarSesion() {
     try {
-      await firebase.login(email, password);
-      Router.replace("/dashboard");
+      await firebase.login(email, password)
+        .then(usuario => {
+          // console.log(usuario.user)
+          if(usuario.user.emailVerified){
+            Router.replace("/dashboard");
+          } else {
+            // firebase.cerrarSesion()
+            Router.replace("/verificacion");
+          }
+        })
     } catch (error) {
       console.error("Hubo un error al iniciar sesion", error.message);
       guardarError(error.message);

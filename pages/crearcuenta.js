@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { css } from "@emotion/react";
 import Router from "next/router";
 import Layout from "../components/layouts/Layout";
 import { Error } from "../components/ui/Formulario";
 import Link from 'next/link';
 import Header from '../components/layouts/Header';
+import Verificacion from '../components/layouts/Verifacion';
 
 //importando firebase
-import firebase from "../firebase";
+import { FirebaseContext } from '../firebase';
 
 //validaciones
 import useValidacion from "../hooks/useValidacion";
@@ -20,7 +21,12 @@ const STATE_INICIAL = {
 };
 
 const CrearCuenta = () => {
+
+  //context de usuario
+  const { firebase } = useContext(FirebaseContext);
+
   const [error, guardarError] = useState(false);
+  const [ mensajeVerificacionCuenta, setMensajeVerificacionCuenta ] = useState(false)
 
   const { valores, errores, handleSubmit, handleChange } = useValidacion(
     STATE_INICIAL,
@@ -34,11 +40,13 @@ const CrearCuenta = () => {
   async function crearCuenta() {
     try {
       await firebase.registrar(nombre, email, password)
-        .then(function(){
-          firebase.verificar()
-          Router.replace("/dashboard");
+        .then(function() {
+          // console.log(user)
+          const user = firebase.auth.currentUser 
+          firebase.verificar(user)
+          Router.replace("/verificacion");
         })
-        .catch(function(error){
+        .catch(error => {
             console.log(error)
         })
     } catch (error) {
@@ -49,6 +57,7 @@ const CrearCuenta = () => {
 
   return (
     <>
+
     <div className="min-h-screen">
       <div className="container mx-auto px-4">
 

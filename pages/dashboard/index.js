@@ -15,8 +15,7 @@ export const ID_CARD_STATES = {
 
 const DashBoard = () => {
 
-    const [ usuarioVerificado, setUsuarioVerificado ] = useState(false);
-    const [ alertarReenvioVerificacion, setAlertarReenvioVerificacion ] = useState(false)
+  const [ usuarioVerificado, setUsuarioVerificado ] = useState(false);
 
   //context de usuario
   const { usuario, firebase } = useContext(FirebaseContext);
@@ -40,18 +39,6 @@ const DashBoard = () => {
     }, 700);
   };
 
-  //reenvia la veificacion de la cuenta por correo
-  const reenviarVerificacion = () => {
-    try {
-      firebase.verificar()
-      setAlertarReenvioVerificacion(true)
-      setTimeout(() => {
-        setAlertarReenvioVerificacion(false)
-      }, 5000);
-    } catch (error) {
-        console.log(error)
-    }
-  }
 
   return (
     <>
@@ -88,7 +75,7 @@ const DashBoard = () => {
               </div>
               <div className="mt-6 flex flex-col justify-center items-center">
                 <button 
-                  className="w-56 text-center mb-4 px-6 pt-2.5 pb-3 text-lg focus:outline-none text-principal border border-principal"
+                  className="w-56 text-center mb-4 px-6 pt-3 pb-3.5 text-lg focus:outline-none text-principal border border-principal"
                   type="button"
                   id="copiarEnlace"
                   onClick={ () => copiarEnlace() }
@@ -97,7 +84,7 @@ const DashBoard = () => {
                 </button>      
                 <Link href={`/t/${urlTarjeta}`}>
                   <a 
-                    className="w-56 text-center mb-4 px-6 pt-2.5 pb-3 text-lg focus:outline-none text-principal border border-principal">
+                    className="w-56 text-center mb-4 px-6 pt-3 pb-3.5 text-lg focus:outline-none text-principal border border-principal">
                     Ver tarjeta web
                   </a>
                 </Link>        
@@ -111,29 +98,6 @@ const DashBoard = () => {
               </div>
             </div>
           </section>
-
-          : usuario && !usuario.emailVerified ?
-            <section className="flex-1">
-              <div className="px-8">
-                <div className="mt-32 p-4 bg-red-200 text-lg text-gray-600 text-center">
-                  { alertarReenvioVerificacion ?
-                  <p className="text-principal font-bold">El correo de verificación fue reenviado.</p>
-                  :
-                  <p>Te hemos enviado un correo para verificar tu cuenta. Primero debes verificar tu cuenta para poder crear una tarjeta web.</p>
-                   }
-                </div>
-                { !alertarReenvioVerificacion && (
-                <div className="flex justify-center mt-8 text-gray-600">
-                  <p>No he recibido el correo.</p>
-                  <button
-                    className="hover:underline pl-1 focus:outline-none"
-                    type="button"
-                    onClick={() => reenviarVerificacion()}
-                  >Reenviar</button>
-                </div>
-                )}
-              </div>
-            </section>
 
           : 
 
