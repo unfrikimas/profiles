@@ -166,7 +166,7 @@ const Tarjeta = (props) => {
                   className="w-56 flex items-center justify-center px-6 pt-3 pb-3.5 text-center text-lg border border-white text-white focus:outline-none tracking-normal" 
                 >
                   <IconEditar width={30} heigth={30} stroke={"#ffffff"}/>
-                  Editar tarjeta web
+                  <span className="pl-1">Editar tarjeta</span>
                 </a>
               </Link>
             </div>
@@ -188,7 +188,7 @@ const Tarjeta = (props) => {
       { usuario && (
         <div className="bg-white pt-8 pb-10 px-12 tracking-normal text-center">
           <div>
-            <p>¿Quieres una tarjeta web con más imágenes, más texto y más enlaces?</p>
+            <p className="text-gray-700">¿Quieres una tarjeta web con más imágenes, más texto y más enlaces?</p>
           </div>
           <Link href="/precios">
             <a

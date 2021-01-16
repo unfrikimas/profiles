@@ -150,7 +150,7 @@ const Precios = () => {
                   </Link>
                   <p 
                     className="text-xs text-gray-500 mt-3 mb-4">
-                    Cuando tu proyecto comience a crecer, vas a necesitar una tarjeta web que incluya más texto, fotos y enlaces. Pide un presupuesto.
+                    Cuando tu proyecto comience a crecer, vas a necesitar una tarjeta web que incluya más texto, más fotos y más enlaces. Pide un presupuesto.
                   </p>
                   <a
                     className="flex items-center justify-center font-bold mt-auto text-white bg-principal border-0 py-3 px-4 w-full focus:outline-none hover:bg-principal-hover tracking-wide"

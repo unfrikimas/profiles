@@ -439,7 +439,7 @@ const Card1 = () => {
                                       </div>
                                       <div className="flex flex-1 ml-2 sm:ml-8 items-center justify-center text-xl">
                                         <button
-                                          className="pr-1 text-red-400 focus:outline-none"
+                                          className="pr-2 text-red-400 focus:outline-none"
                                           type="button"
                                           onClick={() => fieldArrayProps.remove(index)}
                                         >X</button>
@@ -457,7 +457,7 @@ const Card1 = () => {
                             type="button"
                             onClick={() => fieldArrayProps.push({ redsocial: "facebook", usuario: "" })}
                           >
-                            <IconPlus width={45} height={45}/>
+                            <IconPlus width={40} height={40}/>
                           </button>
                         </div>
                       </>

@@ -111,6 +111,12 @@ const HeaderUser = ({usuario, firebase}) => {
                               </a>
                             </Link>
                           }
+                          <a
+                            href="https://api.whatsapp.com/send?phone=+34682811728&text=Hola, me interesa una tarjeta web personalizada"
+                            target="_blank"
+                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                            Contactar
+                          </a>
                           <button 
                             type="button" 
                             className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" 

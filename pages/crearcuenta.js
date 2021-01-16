@@ -58,12 +58,12 @@ const CrearCuenta = () => {
   return (
     <>
 
-    <div className="min-h-screen">
+    <div className="">
       <div className="container mx-auto px-4">
 
         <Header />
     
-        <div className="md:w-4/5 xl:w-3/5 mx-auto mb-32">
+        <div className="md:w-4/5 mx-auto">
           <h1 className="text-xl font-sans font-bold text-gray-600 text-center pt-8">
             Crea tu cuenta
           </h1>

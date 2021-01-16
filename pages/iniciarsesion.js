@@ -49,7 +49,7 @@ const IniciarSesion = () => {
 
   return (
     <>
-    <div className="min-h-screen">
+    <div className="">
       <div className="mx-auto px-4">
 
         <Header />

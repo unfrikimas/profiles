@@ -12,7 +12,7 @@ export default function IconPlus (props) {
       <g
         fill="none"
         fillRule="evenodd"
-        stroke="#2a2e3b"
+        stroke="#7f7f81"
         strokeLinecap="round"
         strokeLinejoin="round"
       >

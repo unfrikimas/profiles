@@ -7,6 +7,9 @@ import formContext from '../../context/form/formContext';
 import HeaderUser from '../../components/layouts/HeaderUser';
 import obtenerTarjeta from '../../utils/obtenerTarjeta';
 import Layout from '../../components/layouts/Layout';
+import IconLink from '../../components/icons/form/link';
+import IconCard from '../../components/icons/form/card';
+import IconEditar from '../../components/icons/form/edit';
 
 export const ID_CARD_STATES = {
   NOT_LOGGED: null,
@@ -45,7 +48,7 @@ const DashBoard = () => {
 
       <Layout>
 
-      <div className="flex flex-col min-h-screen max-w-lg mx-auto">
+      <div className="flex flex-col max-w-lg mx-auto">
 
         { usuarioVerificado && id === '0' ?
 
@@ -57,9 +60,9 @@ const DashBoard = () => {
               <div className="mt-6 flex justify-center items-center">
                 <Link href="/p/card1">
                   <a
-                    className="w-56 text-center px-6 pt-3 pb-3.5 text-lg font-bold text-principal border border-principal" 
-                    href="#">
-                    Crear tarjeta web
+                    className="flex justify-center w-56 text-center px-6 pt-3 pb-3.5 text-lg text-principal border border-principal">
+                    <IconEditar width={30} heigth={30} stroke={"#fe2c55"}/>
+                    <span className="pl-1">Crear tarjeta</span>
                   </a>
                 </Link>
               </div>
@@ -75,24 +78,27 @@ const DashBoard = () => {
               </div>
               <div className="mt-6 flex flex-col justify-center items-center">
                 <button 
-                  className="w-56 text-center mb-4 px-6 pt-3 pb-3.5 text-lg focus:outline-none text-principal border border-principal"
+                  className="flex justify-center w-56 text-center mb-4 px-6 pt-3 pb-3.5 text-lg focus:outline-none text-principal border border-principal"
                   type="button"
                   id="copiarEnlace"
                   onClick={ () => copiarEnlace() }
                 >
+                  <IconLink width={30} heigth={30} stroke={"#fe2c55"}/>
                   Copiar enlace
                 </button>      
                 <Link href={`/t/${urlTarjeta}`}>
                   <a 
-                    className="w-56 text-center mb-4 px-6 pt-3 pb-3.5 text-lg focus:outline-none text-principal border border-principal">
-                    Ver tarjeta web
+                    className="flex justify-center w-56 text-center mb-4 px-6 pt-3 pb-3.5 text-lg focus:outline-none text-principal border border-principal">
+                    <IconCard width={30} heigth={30} stroke={"#fe2c55"}/>
+                    <span className="pl-1">Ver tarjeta</span>
                   </a>
                 </Link>        
                 <Link href="/p/card1">
                   <a
-                    className="w-56 px-6 pt-3 pb-3.5 text-center text-lg font-bold bg-principal hover:bg-principal-hover text-white" 
+                    className="flex justify-center w-56 px-6 pt-3 pb-3.5 text-center text-lg bg-principal hover:bg-principal-hover text-white" 
                     href="#">
-                    Editar tarjeta web
+                    <IconEditar width={30} heigth={30} stroke={"#fff"}/>
+                    <span className="pl-1">Editar tarjeta</span>
                   </a>
                 </Link>
               </div>
@@ -106,12 +112,12 @@ const DashBoard = () => {
             </section>
 
         }
-
+{/* 
         <footer className="h-12 border-1 border-t border-gray-300">
           <div>
 
           </div>
-        </footer>
+        </footer> */}
 
       </div>
       </Layout>
