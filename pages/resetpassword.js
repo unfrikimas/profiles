@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Router from "next/router";
 import { Error } from "../components/ui/Formulario";
 import Link from 'next/link';
+import HeaderUser from '../components/layouts/HeaderUser';
 import Header from '../components/layouts/Header';
 
 //importando firebase
-import firebase from "../firebase";
+import { FirebaseContext } from '../firebase';
 
 //validaciones
 import useValidacion from "../hooks/useValidacion";
@@ -16,8 +17,12 @@ const STATE_INICIAL = {
 };
 
 const ResetPassword = () => {
+
+  //context de usuario
+  const { usuario, firebase } = useContext(FirebaseContext);
+
   const [error, guardarError] = useState(false);
-    const [ mensajeCambioPassword, setMensajeCambioPassword ] = useState(false)
+  const [ mensajeCambioPassword, setMensajeCambioPassword ] = useState(false)
 
   const { valores, errores, handleSubmit, handleChange } = useValidacion(
     STATE_INICIAL,
@@ -42,10 +47,18 @@ const ResetPassword = () => {
 
   return (
     <>
+
     <div className="min-h-screen">
       <div className="container mx-auto px-4">
 
-        <Header />
+        { usuario ?
+            <HeaderUser
+              usuario={usuario}
+              firebase={firebase}  
+            /> 
+          :
+            <Header />
+        }
 
         { mensajeCambioPassword 
         ? 
@@ -61,7 +74,7 @@ const ResetPassword = () => {
             </>
         : 
             <div className="sm:w-lg mx-auto">
-            <h1 className="text-xl font-sans font-bold text-gray-600 text-center pt-8">
+            <h1 className={`text-xl font-sans font-bold text-gray-600 text-center ${usuario ? "pt-16" : "pt-8"}`}>
                 Cambiar contraseña
             </h1>
             {/* { mensaje && <Alerta /> } */}
@@ -72,29 +85,33 @@ const ResetPassword = () => {
                     onSubmit={handleSubmit}
                     noValidate
                 >
-                    <p className="text-gray-500 mb-4">Escribe el email que usaste cuando creaste tu cuenta y recibirás un enlace para cambiar tu contraseña.</p>
+                    { usuario 
+                    ? <p className="text-gray-500 mb-4">Te enviaremos un enlace por correo para cambiar tu contraseña.</p>
+                    : <p className="text-gray-500 mb-4">Escribe el email que usaste cuando creaste tu cuenta y te enviaremos un enlace para cambiar tu contraseña.</p> }
                     <div className="mb-4">
                     <input
-                        className="text-lg appearance-none border w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100"
+                        className="text-lg appearance-none border w-full py-4 px-3 text-gray-500 leading-tight focus:outline-none focus:bg-gray-100"
                         type="email"
                         id="email"
-                        placeholder="Email"
+                        placeholder="Escribe el email"
                         name="email"
+                        // defaultValue={ usuario ? usuario.email : email}
                         value={email}
                         onChange={handleChange}
-                        // onBlur={handleBlur}
                     />
                     </div>
                     {errores.email && <Error>{errores.email}</Error>}
                     {error && <Error>{error}</Error>}
                     <input
-                      className="text-xl bg-principal hover:bg-principal-hover w-full py-4 text-white font-bold cursor-pointer mb-5 focus:outline-none"
+                      className="text-xl bg-principal hover:bg-principal-hover w-full py-4 text-white cursor-pointer mb-5 focus:outline-none"
                       type="submit"
-                      value="Recibir enlace"
+                      value="Enviar enlace"
                     />
+                    { !usuario && 
                     <Link href="/crearcuenta">
-                    <a className="block text-gray-400 text-right mt-4">¿No tienes cuenta?</a>
+                      <a className="block text-gray-400 text-right mt-4">¿No tienes cuenta?</a>
                     </Link>
+                    }
                 </form>
                 </div>
             </div>

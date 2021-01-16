@@ -44,21 +44,12 @@ const Tarjeta = (props) => {
     navigator.clipboard.writeText(`https://brevi.site/t/${url}`);
     const textoBotonEnlace = document.getElementById('copiarEnlace')
     textoBotonEnlace.innerHTML = '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" width="30" heigth="30" stroke="#fff"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 7.5l1-1a2.828 2.828 0 114 4l-1 1m-2 2l-2 2a2.828 2.828 0 11-4-4l2-2M7.5 13.5l5-5"></path></g></svg>Enlace copiado'
-    // setTimeout(() => {
-    //     botonCopiarEnlace.current=botonCopiarEnlace;
-    // }, 500);
   };
 
   return (
 
     <>
     <Head>
-      <meta charSet="utf-8"></meta>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
-      <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
       <title>{nombre.replace(/\b\w/g, l => l.toUpperCase())} | Brevi Site</title>
     </Head>
 

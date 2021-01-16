@@ -39,7 +39,7 @@ const HeaderUser = ({usuario, firebase}) => {
 
           { usuario && (             
             <>
-            <Link href="/">
+            <Link href="/dashboard">
               <Logo>Brevi</Logo>
             </Link>
             <div className="text-gray-500">
@@ -87,12 +87,15 @@ const HeaderUser = ({usuario, firebase}) => {
                               { usuario.displayName.replace(/\b\w/g, l => l.toUpperCase()) }
                             </p>
                           </div>
-                          <Link href="/">
-                            <a
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                              Cuenta
-                            </a>
-                          </Link>
+                          { pathname === "/cuenta" ? "" 
+                          :  
+                            <Link href="/cuenta">
+                              <a
+                                className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                                Cuenta
+                              </a>
+                            </Link>
+                          }
                           { pathname === "/dashboard" ? "" 
                           :                          
                             <Link href="/dashboard">

@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { css } from "@emotion/react";
-import Router from "next/router";
-import Layout from "../components/layouts/Layout";
+import React, { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Error } from "../components/ui/Formulario";
 import Link from 'next/link';
 import Header from '../components/layouts/Header';
 
 //importando firebase
-import firebase from "../firebase/firebase";
+import { FirebaseContext } from '../firebase';
 
 //validaciones
 import useValidacion from "../hooks/useValidacion";
@@ -19,6 +17,10 @@ const STATE_INICIAL = {
 };
 
 const IniciarSesion = () => {
+
+  //context de usuario
+  const { usuario, firebase } = useContext(FirebaseContext);
+
   const [error, guardarError] = useState(false);
   const { valores, errores, handleSubmit, handleChange } = useValidacion(
     STATE_INICIAL,
@@ -29,16 +31,25 @@ const IniciarSesion = () => {
   //extraer datos del objeto valores
   const { email, password } = valores;
 
+  const router = useRouter();
+
+  //Si hay usuario logueado, se redirecciona al dashboard
+  useEffect(() => {
+    if(usuario) {
+      router.replace("/dashboard")
+    }
+  }, [usuario])
+
   async function iniciarSesion() {
     try {
       await firebase.login(email, password)
         .then(usuario => {
           // console.log(usuario.user)
           if(usuario.user.emailVerified){
-            Router.replace("/dashboard");
+            router.replace("/dashboard");
           } else {
             // firebase.cerrarSesion()
-            Router.replace("/verificacion");
+            router.replace("/verificacion");
           }
         })
     } catch (error) {

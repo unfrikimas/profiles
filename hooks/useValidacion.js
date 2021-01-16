@@ -8,6 +8,7 @@ const useValidacion = (stateInicial, validar, fn) => {
     
     useEffect(() => {
         if(submitForm) {
+            console.log(errores)
             // console.log(Object.keys(errores).length);
             const noErrores = Object.keys(errores).length === 0;
             if(noErrores) {
@@ -30,6 +31,7 @@ const useValidacion = (stateInicial, validar, fn) => {
     const handleSubmit = e => {
         e.preventDefault();     
         const erroresValidacion = validar(valores);
+        console.log(erroresValidacion)
         guardarErrores(erroresValidacion);
         guardarSubmitForm(true);
     };

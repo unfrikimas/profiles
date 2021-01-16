@@ -1,11 +1,8 @@
-import React, { useState, useContext } from "react";
-import { css } from "@emotion/react";
-import Router from "next/router";
-import Layout from "../components/layouts/Layout";
+import React, { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Error } from "../components/ui/Formulario";
 import Link from 'next/link';
 import Header from '../components/layouts/Header';
-import Verificacion from '../components/layouts/Verifacion';
 
 //importando firebase
 import { FirebaseContext } from '../firebase';
@@ -23,7 +20,7 @@ const STATE_INICIAL = {
 const CrearCuenta = () => {
 
   //context de usuario
-  const { firebase } = useContext(FirebaseContext);
+  const { usuario, firebase } = useContext(FirebaseContext);
 
   const [error, guardarError] = useState(false);
   const [ mensajeVerificacionCuenta, setMensajeVerificacionCuenta ] = useState(false)
@@ -37,6 +34,15 @@ const CrearCuenta = () => {
   //extraer datos del objeto valores
   const { nombre, email, password } = valores;
 
+  const router = useRouter();
+
+  //Si hay usuario logueado, se redirecciona al dashboard
+  useEffect(() => {
+    if(usuario) {
+      router.replace("/dashboard")
+    }
+  }, [usuario])
+
   async function crearCuenta() {
     try {
       await firebase.registrar(nombre, email, password)
@@ -44,7 +50,7 @@ const CrearCuenta = () => {
           // console.log(user)
           const user = firebase.auth.currentUser 
           firebase.verificar(user)
-          Router.replace("/verificacion");
+          router.replace("/verificacion");
         })
         .catch(error => {
             console.log(error)

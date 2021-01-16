@@ -23,7 +23,6 @@ const Precios = () => {
           <Header />
         }
 
-
         <section className="mx-w-lg px-6 text-gray-600 body-font overflow-hidden">
           <div className="pt-8 pb-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-10">

@@ -50,7 +50,7 @@ const Layout = ({ children }) => {
 
     return (  
         <>
-            <Head>
+            {/* <Head>
                 <meta charSet="utf-8"></meta>
                 <meta httpEquiv="x-ua-compatible" content="ie=edge"></meta>
                 <meta name="description" content=""></meta>
@@ -58,9 +58,9 @@ const Layout = ({ children }) => {
                 <title>Tarjetas Webs | Brevi Site</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-            </Head>
+            </Head> */}
 
-            <div className="min-h-screen">
+            <div className="">
                 <div className="mx-auto">
                     <HeaderUser 
                         usuario={usuario}

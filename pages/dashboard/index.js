@@ -1,20 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { FirebaseContext } from '../../firebase';
 import formContext from '../../context/form/formContext';
-import HeaderUser from '../../components/layouts/HeaderUser';
-import obtenerTarjeta from '../../utils/obtenerTarjeta';
 import Layout from '../../components/layouts/Layout';
 import IconLink from '../../components/icons/form/link';
 import IconCard from '../../components/icons/form/card';
 import IconEditar from '../../components/icons/form/edit';
 
-export const ID_CARD_STATES = {
-  NOT_LOGGED: null,
-  NOT_KNOWN: undefined,
-}
+// export const ID_CARD_STATES = {
+//   NOT_LOGGED: null,
+//   NOT_KNOWN: undefined,
+// }
 
 const DashBoard = () => {
 
@@ -36,10 +32,8 @@ const DashBoard = () => {
   //funcion que copia el enlace
   const copiarEnlace = () => {
     navigator.clipboard.writeText(`https://brevi.site/t/${urlTarjeta}`);
-    document.getElementById('copiarEnlace').innerHTML="¡Copiado!";
-    setTimeout(() => {
-        document.getElementById('copiarEnlace').innerHTML="Copiar enlace";
-    }, 700);
+    const textoBotonEnlace = document.getElementById('copiarEnlace')
+    textoBotonEnlace.innerHTML = '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" width="30" heigth="30" stroke="#fff"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 7.5l1-1a2.828 2.828 0 114 4l-1 1m-2 2l-2 2a2.828 2.828 0 11-4-4l2-2M7.5 13.5l5-5"></path></g></svg>Enlace copiado'
   };
 
 
