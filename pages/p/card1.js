@@ -1,17 +1,16 @@
 import React, { useState, useContext, useEffect, Fragment, useRef } from "react";
+import Link from 'next/link';
 import { FirebaseContext } from '../../firebase';
 import { Formik, FieldArray, Field } from 'formik';
 import formContext from '../../context/form/formContext';
-import Head from "next/head";
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import IconCaptura from '../../components/icons/captura';
-import IconPhone from '../../components/icons/phone';
 import IconPlus from '../../components/icons/form/plus';
+import IconUpload from '../../components/icons/form/upload';
+import IconEditar from '../../components/icons/form/edit';
+import IconInfo from '../../components/icons/form/info';
 import shortid from 'shortid';
-import HeaderUser from '../../components/layouts/HeaderUser';
-import useTarjeta from '../../hooks/useTarjeta';
-import obtenerTarjeta from '../../utils/obtenerTarjeta';
 import Layout from '../../components/layouts/Layout';
 
 export const USER_STATES = {
@@ -22,7 +21,6 @@ export const USER_STATES = {
 const Card1 = () => {
 
   const [ cargando, setCargando ] = useState(false)
-  const [ datosTarjeta, setDatosTarjeta ] = useState("")
 
   //context con los datos de la tarjeta
   const FormContext = useContext(formContext);
@@ -467,7 +465,7 @@ const Card1 = () => {
                   { !urlImagen || formikProps.values.nombre.trim() === "" || formikProps.values.profesion.trim() === "" || formikProps.values.ubicacion.trim() === "" || formikProps.values.resumen.trim() === "" || formikProps.values.texto_boton.trim() === "" || formikProps.values.numero_contacto.trim() === "" || formikProps.values.medio_contacto.trim() === ""
                   ?
                   <button
-                      className="w-full focus:outline-none py-4 mt-12 mb-8 text-xl text-center  bg-red-200 text-gray-600 tracking-normal cursor-not-allowed"
+                      className="w-full focus:outline-none py-4 mt-12 mb-8 text-lg text-center  bg-red-200 text-gray-600 tracking-normal cursor-not-allowed"
                       type="submit"
                       id="boton"
                       name="boton"
@@ -475,18 +473,44 @@ const Card1 = () => {
                   >Completa todos los datos</button>                  
                   :
                   <button
-                      className="cursor-pointer w-full focus:outline-none py-4 mt-12 mb-8 text-xl text-center font-bold bg-principal hover:bg-principal-hover text-white tracking-normal"
+                      className="flex space-x-1 items-center justify-center cursor-pointer w-full focus:outline-none py-4 mt-12 mb-8 text-lg bg-principal hover:bg-principal-hover text-white tracking-normal"
                       type="submit"
                       id="boton"
                       name="boton"
-                  >{ id === '0' ? 'Publicar tarjeta web' : 'Actualizar tarjeta web' }</button>
+                  >
+                    { id === '0' ? (
+                    <>
+                    <IconUpload width={30} heigth={30} stroke={"#ffffff"}/>
+                    <span>Publicar tarjeta</span>
+                    </> 
+                    ) : (
+                    <> 
+                    <IconEditar width={30} heigth={30} stroke={"#ffffff"}/>
+                    <span>Actualizar tarjeta</span>
+                    </>
+                    )}
+                  </button>
                   }
-
                 </form>
               )}
             </Formik>
           </div>
         </div>
+
+        <div className="bg-white pt-8 pb-10 px-12 tracking-normal text-center">
+          <div>
+            <p className="text-gray-700">¿Quieres una tarjeta web con más imágenes, más texto y más enlaces?</p>
+          </div>
+          <Link href="/precios">
+            <a
+              className="flex space-x-1 items-center justify-center w-56 mx-auto mt-4 pt-3 pb-3.5 text-center text-lg bg-principal hover:bg-principal-hover text-white tracking-normal focus:outline-none"
+            >
+              <IconInfo width={20} heigth={20}/>
+              <span>Ver precios</span>
+            </a>
+          </Link>
+        </div>
+
       </div>
       </>
     : 

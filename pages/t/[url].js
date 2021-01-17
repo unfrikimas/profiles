@@ -9,6 +9,7 @@ import RedesSociales from '../../components/ui/RedesSociales';
 import IconLocation from '../../components/icons/location'
 import IconEditar from '../../components/icons/form/edit';
 import IconLink from '../../components/icons/form/link';
+import IconInfo from '../../components/icons/form/info';
 import HeaderUser from '../../components/layouts/HeaderUser';
 
 const Logo = styled.a`
@@ -183,9 +184,10 @@ const Tarjeta = (props) => {
           </div>
           <Link href="/precios">
             <a
-              className="w-56 mx-auto flex items-center justify-center mt-4 pt-3 pb-3.5 text-center text-lg bg-principal text-white tracking-normal focus:outline-none"
+              className="flex space-x-1 items-center justify-center w-56 mx-auto mt-4 pt-3 pb-3.5 text-center text-lg bg-principal text-white tracking-normal focus:outline-none"
             >
-              Ver precios
+              <IconInfo width={20} heigth={20}/>
+              <span>Ver precios</span>
             </a>
           </Link>
         </div>

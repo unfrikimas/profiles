@@ -7,10 +7,6 @@ import IconLink from '../../components/icons/form/link';
 import IconCard from '../../components/icons/form/card';
 import IconEditar from '../../components/icons/form/edit';
 
-// export const ID_CARD_STATES = {
-//   NOT_LOGGED: null,
-//   NOT_KNOWN: undefined,
-// }
 
 const DashBoard = () => {
 
@@ -33,7 +29,7 @@ const DashBoard = () => {
   const copiarEnlace = () => {
     navigator.clipboard.writeText(`https://brevi.site/t/${urlTarjeta}`);
     const textoBotonEnlace = document.getElementById('copiarEnlace')
-    textoBotonEnlace.innerHTML = '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" width="30" heigth="30" stroke="#fff"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 7.5l1-1a2.828 2.828 0 114 4l-1 1m-2 2l-2 2a2.828 2.828 0 11-4-4l2-2M7.5 13.5l5-5"></path></g></svg>Enlace copiado'
+    textoBotonEnlace.innerHTML = '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" width="30" heigth="30" stroke="#fe2c55"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 7.5l1-1a2.828 2.828 0 114 4l-1 1m-2 2l-2 2a2.828 2.828 0 11-4-4l2-2M7.5 13.5l5-5"></path></g></svg>Enlace copiado'
   };
 
 
@@ -43,8 +39,8 @@ const DashBoard = () => {
       <Layout>
 
       <div className="flex flex-col max-w-lg mx-auto">
-
         { usuarioVerificado && id === '0' ?
+
 
           <section className="flex-1">
             <div className="px-8">
@@ -106,12 +102,6 @@ const DashBoard = () => {
             </section>
 
         }
-{/* 
-        <footer className="h-12 border-1 border-t border-gray-300">
-          <div>
-
-          </div>
-        </footer> */}
 
       </div>
       </Layout>

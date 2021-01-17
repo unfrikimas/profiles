@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Error } from "../components/ui/Formulario";
 import Link from 'next/link';
 import Header from '../components/layouts/Header';
+import IconUser from '../components/icons/form/user';
 
 //importando firebase
 import { FirebaseContext } from '../firebase';
@@ -104,11 +105,13 @@ const IniciarSesion = () => {
                 </div>
                 {errores.password && <Error>{errores.password}</Error>}
                 {error && <Error>{error}</Error>}
-                <input
-                  className="text-xl bg-principal hover:bg-principal-hover w-full p-4 text-white font-bold cursor-pointer mb-5 focus:outline-none"
+                <button
+                  className="flex space-x-1 items-center justify-center text-lg bg-principal hover:bg-principal-hover w-full p-4 text-white cursor-pointer mb-5 focus:outline-none"
                   type="submit"
-                  value="Iniciar sesión"
-                />
+                >
+                  <IconUser width={30} heigth={30} stroke={"#fff"}/>
+                  <span>Iniciar sesión</span>
+                </button>
                 <Link href="/resetpassword">
                   <a className="block text-gray-400 text-right mt-2">¿Olvidaste la contraseña?</a>
                 </Link>

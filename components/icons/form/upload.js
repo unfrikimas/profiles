@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export default function IconUsuario(props) {
+export default function IconUpload(props) {
   return (
     <svg
       viewBox="0 0 21 21"
@@ -12,10 +12,8 @@ export default function IconUsuario(props) {
         fillRule="evenodd"
         strokeLinecap="round"
         strokeLinejoin="round"
-        transform="translate(2 2)"
       >
-        <circle cx={8.5} cy={8.5} r={8} />
-        <path d="M14.5 13.5c-.662-2.274-3.2-3.025-6-3.025-2.727 0-5.27.869-6 3.025m6-11a3 3 0 013 3v1a3 3 0 01-6 0v-1a3 3 0 013-3z" />
+        <path d="M14.5 7.5l-3.978-4-4.022 4M10.522 3.521V15.5M3.5 12v4.5a2 2 0 002 2h10a2 2 0 002-2V12" />
       </g>
     </svg>
   )
