@@ -9,20 +9,21 @@ import { FirebaseContext } from '../firebase';
 const VerificacionCuenta = () => {
 
     //context de usuario
-    const { firebase } = useContext(FirebaseContext);
+    const { usuario, firebase } = useContext(FirebaseContext);
 
     const [ alertarReenvioVerificacion, setAlertarReenvioVerificacion ] = useState(false)
 
     const router = useRouter();
 
-    // useEffect(() => {
-    //     const user = firebase.auth.currentUser
-    //     if(!user) {
-    //         return router.replace("/crearcuenta")
-    //     }
-    // }, [])
+    useEffect(() => {
+        if(usuario && usuario.emailVerified) {
+            router.replace("/dashboard")
+        } else if (!usuario) {
+            router.replace("/crearcuenta")
+        }
+    }, [usuario])
 
-    //reenvia la veificacion de la cuenta por correo
+    //reenvia la verificacion de la cuenta por correo
     const reenviarVerificacion = () => {
         try {
             const user = firebase.auth.currentUser 
@@ -38,9 +39,13 @@ const VerificacionCuenta = () => {
 
     return (  
 
-        <div className="min-h-screen">
-            <div className="container mx-auto px-4">
-  
+        
+        <div className="max-w-lg mx-auto">
+            <div className="mx-auto px-4">
+            
+            { usuario && !usuario.emailVerified ? (
+              
+                <>
                 <Header />
 
                 <section className="flex-1">
@@ -73,7 +78,18 @@ const VerificacionCuenta = () => {
                         </>
                         )}
                     </div>
-                </section>   
+                </section>  
+                
+                </>
+                
+            ) :  
+            
+                <section className="flex-1">
+                    <p className="text-center pt-48">Cargando...</p>
+                </section>
+            
+            }
+ 
             </div>
         </div>     
 

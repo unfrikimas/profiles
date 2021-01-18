@@ -320,7 +320,7 @@ const Card1 = () => {
                         { formikProps.values.texto_boton.trim() === "" ? " " : "Botón:" }
                       </label>
                       <input 
-                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mb-2 text-base text-gray-700 text-center font-bold flex items-center justify-center tracking-wide uppercase border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-red-200" : "border-green-200 font-bold" }`}
+                        className={`w-full focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-3 mb-2 text-base text-gray-700 text-center font-bold flex items-center justify-center tracking-wide border-2 ${ formikProps.values.texto_boton.trim() === "" ? "border-dashed border-red-200" : "border-green-200 font-bold" }`}
                         type="text"
                         id="boton"
                         placeholder="TEXTO BOTÓN"

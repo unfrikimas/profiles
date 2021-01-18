@@ -17,7 +17,7 @@ const Header = () => {
     <header className="w-full py-6">
       <div>
         <div className="flex items-center justify-center cursor-pointer">
-          <Link href="/crearcuenta">
+          <Link href="/dashboard">
             <Logo>Brevi</Logo>
           </Link>
         </div>

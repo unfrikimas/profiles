@@ -36,27 +36,29 @@ const IniciarSesion = () => {
 
   //Si hay usuario logueado, se redirecciona al dashboard
   useEffect(() => {
-    if(usuario) {
+    if(usuario && usuario.emailVerified) {
       router.replace("/dashboard")
     }
   }, [usuario])
 
   async function iniciarSesion() {
-    try {
-      await firebase.login(email, password)
-        .then(usuario => {
-          // console.log(usuario.user)
-          if(usuario.user.emailVerified){
-            router.replace("/dashboard");
-          } else {
-            // firebase.cerrarSesion()
-            router.replace("/verificacion");
-          }
-        })
-    } catch (error) {
-      console.error("Hubo un error al iniciar sesion", error.message);
-      guardarError(error.message);
-    }
+    await firebase.login(email, password)
+      .then(usuario => {
+        // console.log(usuario.user)
+        if(usuario.user.emailVerified){
+          router.replace("/dashboard");
+        } else {
+          // firebase.cerrarSesion()
+          router.replace("/verificacion");
+        }
+      })
+      .catch(error => {
+        console.error("Hubo un error al iniciar sesion", error);
+        if(error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+          guardarError("El usuario no existe ó la contraseña es incorrecta, revisa tus datos");
+        }
+    })
+
   }
 
   return (
@@ -64,6 +66,15 @@ const IniciarSesion = () => {
     <div className="">
       <div className="mx-auto px-4">
 
+        { usuario === undefined ? 
+        
+          <section className="flex-1">
+            <p className="text-center pt-48">Cargando...</p>
+          </section>
+        
+        : usuario === null || (usuario && !usuario.emailVerified) ? ( 
+        
+        <>
         <Header />
 
         <div className="sm:w-lg mx-auto">
@@ -115,13 +126,21 @@ const IniciarSesion = () => {
                 <Link href="/resetpassword">
                   <a className="block text-gray-400 text-right mt-2">¿Olvidaste la contraseña?</a>
                 </Link>
+                { usuario === null &&
                 <Link href="/crearcuenta">
                   <a className="block mt-16 text-gray-600 text-center">¿No tienes cuenta?</a>
                 </Link>
+                }
               </form>
             </div>
           </div>
         </div>
+        </>
+        ) : 
+          <section className="flex-1">
+            <p className="text-center pt-48">Cargando...</p>
+          </section>
+        }
       </div>
     </div>
     </>

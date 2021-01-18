@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FirebaseContext } from '../../firebase';
+import { useRouter } from 'next/router';
 import formContext from '../../context/form/formContext';
 import Layout from '../../components/layouts/Layout';
 import IconLink from '../../components/icons/form/link';
@@ -19,9 +20,13 @@ const DashBoard = () => {
   const FormContext = useContext(formContext);
   const { id, urlTarjeta } = FormContext;
 
+  const router = useRouter();
+
   useEffect(() => {
     if(usuario && usuario.emailVerified) {
       setUsuarioVerificado(true)
+    } else if(!usuario?.emailVerified) {
+      router.replace('/verificacion');
     }
   }, [usuario])
 
@@ -39,8 +44,8 @@ const DashBoard = () => {
       <Layout>
 
       <div className="flex flex-col max-w-lg mx-auto">
-        { usuarioVerificado && id === '0' ?
 
+        { usuarioVerificado && id === '0' ?
 
           <section className="flex-1">
             <div className="px-8">

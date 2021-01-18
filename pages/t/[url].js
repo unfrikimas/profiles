@@ -113,7 +113,7 @@ const Tarjeta = (props) => {
                   className="tracking-wide bg-green-700 hover:bg-green-900 text-white text-lg font-bold pt-3 pb-3.5 px-6 rounded-full items-center"
                   href={`tel:${numerocontacto}`}
                 >
-                  {textoboton.toUpperCase()}
+                  {textoboton}
                 </a>
                 : mediocontacto === "correo" ?
                   <a 

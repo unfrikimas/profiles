@@ -24,7 +24,6 @@ const CrearCuenta = () => {
   const { usuario, firebase } = useContext(FirebaseContext);
 
   const [error, guardarError] = useState(false);
-  const [ mensajeVerificacionCuenta, setMensajeVerificacionCuenta ] = useState(false)
 
   const { valores, errores, handleSubmit, handleChange } = useValidacion(
     STATE_INICIAL,
@@ -45,21 +44,19 @@ const CrearCuenta = () => {
   }, [usuario])
 
   async function crearCuenta() {
-    try {
-      await firebase.registrar(nombre, email, password)
-        .then(function() {
-          // console.log(user)
-          const user = firebase.auth.currentUser 
-          firebase.verificar(user)
-          router.replace("/verificacion");
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    } catch (error) {
-      console.error("Hubo un error al crear el usuario", error.message);
-      guardarError(error.message);
-    }
+    await firebase.registrar(nombre, email, password)
+      .then(function() {
+        // console.log(user)
+        const user = firebase.auth.currentUser 
+        firebase.verificar(user)
+        router.replace("/verificacion");
+      })
+      .catch(error => {
+          console.error("Hubo un error al crear el usuario", error);
+          if(error.code === "auth/email-already-in-use") {
+            guardarError("Este email ya está registrado, usa otro");
+          }
+      })
   }
 
   return (

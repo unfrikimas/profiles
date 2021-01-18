@@ -36,13 +36,15 @@ const ResetPassword = () => {
 
   async function ResetPassword() {
     // const usuario = firebase.auth.currentUser;
-    await firebase.auth.sendPasswordResetEmail(email).then(function() {
+    await firebase.auth.sendPasswordResetEmail(email)
+      .then(function() {
         // Email sent.
         setMensajeCambioPassword(true)
       }).catch(function(error) {
         // An error happened.
-        console.error("Hubo un error", error.message);
-        guardarError(error.message);
+        // console.error("Hubo un error", error);
+        // guardarError(error.message);
+        setMensajeCambioPassword(true)
       });
   }
 
