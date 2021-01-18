@@ -41,7 +41,7 @@ const cmasd = () => {
             <div className="w-full px-4 py-4 mx-auto">
                 <div className="pl-2">
                     <h1 className="text-lg pt-1 font-bold">CmásD Comunicación más digital</h1>
-                    <p className="text-sm text-gray-500 pb-1">Apoyamos la transformación digital</p>
+                    <p className="text-xs text-gray-500 pb-1">Apoyamos la transformación digital</p>
                     <div className="flex">
                       <span className="fill-current text-gray-700 -ml-1">
                         <IconLocation width={15} heigth={15} />
