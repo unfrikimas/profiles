@@ -38,8 +38,8 @@ const cmasd = () => {
             />
           </div>
           <div className="max-w-xl md:w-1/2 lg:p-10 mx-auto flex flex-wrap h-auto bg-white rounded-3xl">
-            <div className="w-full px-4 py-4 mx-auto">
-                <div className="pl-2">
+            <div className="w-full py-4 mx-auto">
+                <div className="">
                     <h1 className="text-lg pt-1 font-bold">CmásD Comunicación más digital</h1>
                     <p className="text-xs text-gray-500 py-1">Apoyamos la transformación digital</p>
                     <div className="flex">
