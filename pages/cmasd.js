@@ -41,7 +41,7 @@ const cmasd = () => {
             <div className="w-full px-4 py-4 mx-auto">
                 <div className="pl-2">
                     <h1 className="text-lg pt-1 font-bold">CmásD Comunicación más digital</h1>
-                    <p className="text-xs text-gray-500 pb-1">Apoyamos la transformación digital</p>
+                    <p className="text-xs text-gray-500 py-1">Apoyamos la transformación digital</p>
                     <div className="flex">
                       <span className="fill-current text-gray-700 -ml-1">
                         <IconLocation width={15} heigth={15} />
@@ -51,9 +51,9 @@ const cmasd = () => {
                 </div>
                 <div className="mt-1">
                   <ul className="flex flex-wrap text-sm items-center">
-                    <li className="py-1 px-3 mx-2 my-1 rounded-lg text-gray-500 bg-gray-200">Branding</li>
-                    <li className="py-1 px-3 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Inbound Marketing</li>
-                    <li className="py-1 px-3 mx-2 my-1 rounded-lg bg-gray-200 text-gray-500">Lanzamiento de Infoproductos</li>
+                    <li className="py-1 px-2 rounded-md mr-2 text-gray-500 bg-gray-200">Branding</li>
+                    <li className="py-1 px-2 mr-2 rounded-md bg-gray-200 text-gray-500">Inbound Marketing</li>
+                    <li className="py-1 px-2 my-2 rounded-md bg-gray-200 text-gray-500">Lanzamiento de Infoproductos</li>
                   </ul>
                 </div>
                 <div className="flex flex-wrap w-full h-52 py-8 px-4 relative mb-4 mt-4">
@@ -81,7 +81,7 @@ const cmasd = () => {
                       <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608675986/brevi_site/posicionamiento-de-marca-01_qdbffi.jpg" />
                       
                       <div className="flex relative z-10 w-full">
-                        <p className="absolute left-1 bottom-2 leading-5 font-medium text-white bg-pink-600 bg-opacity-50 rounded-lg px-1 pb-1 items-center">Posicionamiento de Marca</p>
+                        <p className="absolute left-1 bottom-2 leading-5 font-medium text-white bg-pink-600 bg-opacity-50 rounded-md px-2 pt-1 pb-2 items-center">Posicionamiento de Marca</p>
                       </div>
                     </div>
                   </a>
@@ -91,7 +91,7 @@ const cmasd = () => {
                     <div className="flex flex-wrap w-full h-48 sm:py-24 py-2 sm:px-10 px-2 relative">
                       <img alt="gallery" className="w-full object-cover h-full object-center block absolute inset-0 rounded-3xl shadow-lg" src="https://res.cloudinary.com/petportrait/image/upload/v1608676229/brevi_site/Branding-Estrat%C3%A9gico_akqe9q.jpg" />
                       <div className="relative z-10 w-full">
-                        <p className="absolute left-1 bottom-2 leading-5 font-medium text-white bg-blue-600 bg-opacity-50 rounded-lg px-1 pb-1 ">Branding Estratégico</p>
+                        <p className="absolute left-1 bottom-2 leading-5 font-medium text-white bg-blue-600 bg-opacity-50 rounded-md px-2 pt-1 pb-2 ">Branding Estratégico</p>
                       </div>
                     </div>
                   </a>
@@ -119,10 +119,10 @@ const cmasd = () => {
                     <div className="w-2/3 pl-2 py-2">
                       <h3 className="text-md font-bold pl-1 pb-2">Arrocito en bajo</h3>
                       <ul className="flex flex-wrap text-xs items-center">
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Branding</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Social Media</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Desarrollo Web</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Estrategia</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Branding</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Social Media</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Desarrollo Web</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Estrategia</li>
                       </ul>
                     </div>
                   </div>
@@ -137,9 +137,9 @@ const cmasd = () => {
                     <div className="w-2/3 pl-2 py-2">
                       <h3 className="text-md font-bold pl-1 pb-2">Dr. Pulido</h3>
                       <ul className="flex flex-wrap text-xs items-center">
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Dirección de Arte</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Rebranding</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Desarrollo Web</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Dirección de Arte</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Rebranding</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Desarrollo Web</li>
                       </ul>
                     </div>
                   </div>
@@ -154,9 +154,9 @@ const cmasd = () => {
                     <div className="w-2/3 pl-2 py-2">
                       <h3 className="text-md font-bold pl-1 pb-2">Envía</h3>
                       <ul className="flex flex-wrap text-xs items-center">
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Animación</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Motion Graphics</li>
-                        <li className="py-1 px-2 mx-1 my-1 rounded-lg bg-gray-200 text-gray-500">Dirección de Arte</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Animación</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Motion Graphics</li>
+                        <li className="py-1 px-2 mx-1 my-1 rounded-md bg-gray-200 text-gray-500">Dirección de Arte</li>
                       </ul>
                     </div>
                   </div>
