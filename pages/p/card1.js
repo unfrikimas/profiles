@@ -239,7 +239,7 @@ const Card1 = () => {
                           { formikProps.values.nombre.trim() === "" ? " " : "Nombre:" }
                         </label>
                         <input 
-                          className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-gray-700 text-2xl text-center font-bold mb-4 py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
+                          className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white w-full text-2xl text-gray-700 text-center font-bold mb-4 py-2 border-2 ${ formikProps.values.nombre.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}
                           placeholder="👶 Nombre"
                           name="nombre"
                           type="text"
@@ -334,7 +334,7 @@ const Card1 = () => {
                   <div>
                     <p className="text-center tracking-normal text-gray-700 mt-11 mb-4">🙋 Cómo te contactarán</p>
                     <div 
-                      className={`flex relative border-2 py-1 px-1 ${ formikProps.values.numero_contacto.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}>
+                      className={`flex relative border-2 py-1 px-1 ${ formikProps.values.numero_contacto.trim() === "" || formikProps.values.medio_contacto.trim() === "" ? "border-dashed border-red-200" : "border-green-200" }`}>
                       {/* <div className="absolute inset-y-1 left-0 flex items-center pointer-events-none">
                         <span className="text-gray-500 sm:text-sm">
                           <IconPhone width={30} height={30}/>
@@ -347,7 +347,7 @@ const Card1 = () => {
                         >
                           {(fieldMedioContacto) => (
                             <select 
-                              className="focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 text-center text-gray-700 leading-8"
+                              className={`focus:outline-none focus:ring-2 focus:ring-principal-hover focus:ring-opacity-50 focus:border-white py-2 pl-1 mr-1 text-center leading-8 ${ formikProps.values.medio_contacto.trim() === "" ? "text-principal font-bold" : "text-gray-700" }`}
                               {...fieldMedioContacto.field} 
                             >
                               <option value="" disabled>Elije cómo</option>
