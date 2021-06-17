@@ -54,7 +54,7 @@ const Home = () => {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>       
         <title>Tarjetas web | Brevi Site</title>
       </Head>
 

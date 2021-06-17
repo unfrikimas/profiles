@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import Header from '../components/layouts/Header';
+import Header from '../components/layouts/Header'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
