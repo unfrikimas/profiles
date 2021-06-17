@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from '../../styles/scss/carlosenrique.module.scss'
 import Image from 'next/image';
 import IconWebCorporativa from '../icons/carlosenrique/WebCorporativa';
@@ -14,6 +14,26 @@ import IconWeb from '../cards/carlosenrique/Web';
 import { useRouter } from 'next/router'
 
 const Card = () => {
+
+  //State of Screen width
+  const [width, setWidth] = useState(0)
+
+  // When screen is resized
+  useEffect(() => {
+    //setWidth(window.innerWidth)
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+    // Return a function from the effect that removes the event listener
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  // Fix instagram window.innerwidth issue
+  useEffect(() => {
+      if (window.screen.width < window.innerWidth) {
+          setWidth(window.screen.width)
+      }
+  }, [])
+
 
   const router = useRouter()
 
