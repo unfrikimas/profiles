@@ -15,24 +15,24 @@ import { useRouter } from 'next/router'
 
 const Card = () => {
 
-  //State of Screen width
-  const [width, setWidth] = useState(0)
+  // //State of Screen width
+  // const [width, setWidth] = useState(0)
 
-  // When screen is resized
-  useEffect(() => {
-    //setWidth(window.innerWidth)
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
-    // Return a function from the effect that removes the event listener
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
+  // // When screen is resized
+  // useEffect(() => {
+  //   //setWidth(window.innerWidth)
+  //   const handleWindowResize = () => setWidth(window.innerWidth);
+  //   window.addEventListener("resize", handleWindowResize);
+  //   // Return a function from the effect that removes the event listener
+  //   return () => window.removeEventListener("resize", handleWindowResize);
+  // }, []);
 
-  // Fix instagram window.innerwidth issue
-  useEffect(() => {
-      if (window.screen.width < window.innerWidth) {
-          setWidth(window.screen.width)
-      }
-  }, [])
+  // // Fix instagram window.innerwidth issue
+  // useEffect(() => {
+  //     if (window.screen.width < window.innerWidth) {
+  //         setWidth(window.screen.width)
+  //     }
+  // }, [])
 
 
   const router = useRouter()
