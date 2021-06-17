@@ -27,8 +27,8 @@ $gutter: 20px;
 }
 
 .card {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .card_section {
@@ -37,7 +37,7 @@ $gutter: 20px;
 }
 
 .hero {
-  height: 640px;
+  height: 100%;
   margin: 0 auto;
   background: linear-gradient(180deg, #ff8584 0%, #def2bc 60%);
 }
@@ -51,8 +51,8 @@ $gutter: 20px;
 }
 
 .cta_hero {
-  //height: 300px;
   position: relative;
+  //height: 100%;
   background-color: white;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
