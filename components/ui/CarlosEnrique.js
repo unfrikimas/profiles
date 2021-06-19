@@ -15,26 +15,6 @@ import { useRouter } from 'next/router'
 
 const Card = () => {
 
-  // //State of Screen width
-  // const [width, setWidth] = useState(0)
-
-  // // When screen is resized
-  // useEffect(() => {
-  //   //setWidth(window.innerWidth)
-  //   const handleWindowResize = () => setWidth(window.innerWidth);
-  //   window.addEventListener("resize", handleWindowResize);
-  //   // Return a function from the effect that removes the event listener
-  //   return () => window.removeEventListener("resize", handleWindowResize);
-  // }, []);
-
-  // // Fix instagram window.innerwidth issue
-  // useEffect(() => {
-  //     if (window.screen.width < window.innerWidth) {
-  //         setWidth(window.screen.width)
-  //     }
-  // }, [])
-
-
   const router = useRouter()
 
   return (  
@@ -67,15 +47,15 @@ const Card = () => {
           <div className={styles.services_items_group}>
             <div className={styles.services_item}>
               <IconWebCorporativa />
-              <h3>Web Corporativa</h3>
+              <h3>Página web | Tarjeta digital</h3>
             </div>
             <div className={styles.services_item}>
               <IconAplicacionWeb />
-              <h3>Aplicación Web</h3>
+              <h3>Aplicación web</h3>
             </div>
             <div className={styles.services_item}>
               <IconTiendaEnLinea />
-              <h3>Tienda en Línea | Shopify</h3>
+              <h3>Tienda en línea | Shopify</h3>
             </div>
             <div className={styles.services_item}>
               <IconAMedida />
