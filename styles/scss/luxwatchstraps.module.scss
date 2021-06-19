@@ -46,7 +46,7 @@ $shadow-xl:  0 1.5px 2.1px -6px rgba(0, 0, 0, 0.012),
 }
 
 .carruseluno {
-  padding-top: 40px;
+  margin-top: 40px;
 
   h1 {
     display: inline;
@@ -62,7 +62,7 @@ $shadow-xl:  0 1.5px 2.1px -6px rgba(0, 0, 0, 0.012),
 }
 
 .carruseldos {
-  padding-top: 0px;
+  margin-top: 30px;
 
   h2 {
     margin: 0;
@@ -236,7 +236,7 @@ $shadow-xl:  0 1.5px 2.1px -6px rgba(0, 0, 0, 0.012),
 }
 
 .sale {
-  padding-top: 0px;
+  margin-top: 30px;
   padding-right: 20px;
 
   h2 {
@@ -303,8 +303,9 @@ $shadow-xl:  0 1.5px 2.1px -6px rgba(0, 0, 0, 0.012),
 }
 
 .pre_footer {
-  width: 100%;
+  max-width: 415px;
   height: 260px;
+  margin: 0 auto;
   background-color: #3a373e;
   display: flex;
   flex-direction: column;
@@ -325,7 +326,8 @@ $shadow-xl:  0 1.5px 2.1px -6px rgba(0, 0, 0, 0.012),
 }
 
 .footer {
-  width: 100%;
+  max-width: 415px;
+  margin: 0 auto;
   padding-top: 60px;
   padding-bottom: 60px;
   margin: 0 auto;
