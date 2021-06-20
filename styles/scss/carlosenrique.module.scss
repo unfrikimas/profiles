@@ -159,7 +159,7 @@ $gutter: 20px;
   &__grid {
     padding: $gutter 0;
     display: grid;
-    grid-gap: $gutter 0;
+    grid-column-gap: $gutter 0;
     grid-template-columns: 1fr;
     align-content: start;
     width: 100%;

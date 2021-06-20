@@ -12,6 +12,7 @@ import IconInstagram from '../cards/carlosenrique/instagram';
 import IconGithub from '../cards/carlosenrique/github';
 import IconWeb from '../cards/carlosenrique/Web';
 import { useRouter } from 'next/router'
+import Formulario from '../cards/carlosenrique/Formulario'
 
 const Card = () => {
 
@@ -68,11 +69,12 @@ const Card = () => {
           <Carrusel />
         </div>
         <div className={styles.cta_footer}>
-          <h2>¿Quieres una tarjeta web como esta?</h2>
+          {/* <h2>¿Quieres una tarjeta web como esta?</h2>
           <button
             type="button"
             onClick={() => router.push('https://api.whatsapp.com/send?phone=+34682811728&text=Hola,%20me%20interesa%20acordar%20una%20llamada')}
-          >HABLEMOS</button>
+          >HABLEMOS</button> */}
+          <Formulario />
         </div>
         <div className={styles.footer}>
           <div className={styles.logo}>

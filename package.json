@@ -30,6 +30,9 @@
     "sass": "^1.30.0",
     "shortid": "^2.2.16",
     "tailwindcss": "^2.0.2",
+    "tripetto-runner-chat": "^3.0.4",
+    "tripetto-runner-foundation": "^6.0.4",
+    "tripetto-services": "^2.0.0",
     "uuid": "^8.3.2",
     "yup": "^0.32.8"
   }
