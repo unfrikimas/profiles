@@ -36,8 +36,8 @@ const Card = () => {
                 src="https://res.cloudinary.com/petportrait/image/upload/v1624091565/carlosenriquedev/sale_banner_fsfnre.jpg"
               />
               <div className={styles.sale_text}>
-                <h3>SPRING SALE</h3>
-                <p>Deal 25% OFF or More Piece</p>
+                <h3>BLOWOUT SALE</h3>
+                <p>From 25% OFF</p>
               </div>
             </div>
           </a>
